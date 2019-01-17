@@ -1,0 +1,42 @@
+CREATE OR REPLACE FUNCTION ДАТА_ТЕМА_АВТОЗАП_ФУНК() RETURNS TRIGGER AS 
+$ДАТА_ТЕМА_АВТОЗАП_ФУНК_$
+	BEGIN
+	
+		IF NEW.ЗАГОЛОВОК IS NULL THEN
+			NEW.ЗАГОЛОВОК = '(Без темы)';
+		END IF;
+		
+		NEW.ДАТА_СОЗДАНИЕ = CURRENT_DATE;
+		
+		RETURN NEW;
+	END;
+$ДАТА_ТЕМА_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER П_ДНЕВНИК_АВТОЗАП
+	BEFORE INSERT OR UPDATE ON П_ДНЕВНИК
+	FOR EACH ROW EXECUTE PROCEDURE ДАТА_ТЕМА_АВТОЗАП_ФУНК();
+	
+CREATE TRIGGER П_СООБЩЕНИЕ_АВТОЗАП
+	BEFORE INSERT OR UPDATE ON П_СООБЩЕНИЕ
+	FOR EACH ROW EXECUTE PROCEDURE ДАТА_ТЕМА_АВТОЗАП_ФУНК();
+
+	
+
+CREATE OR REPLACE FUNCTION МЕСТО_АВТОЗАП_ФУНК() RETURNS TRIGGER AS 
+$МЕСТО_АВТОЗАП_ФУНК_$
+	BEGIN
+	
+		IF NEW.МЕСТО IS NULL THEN
+			NEW.МЕСТО = 'Сделать самому';
+		END IF;
+		
+		RETURN NEW;
+	END;
+$МЕСТО_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER П_БЛЮДО_АВТОЗАП
+	BEFORE INSERT OR UPDATE ON П_БЛЮДО
+	FOR EACH ROW EXECUTE PROCEDURE МЕСТО_АВТОЗАП_ФУНК();
+
+
+
