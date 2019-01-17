@@ -7,53 +7,58 @@ import lombok.EqualsAndHashCode;
  * @author Черноусов Евгений, Глушков Дмитрий
  * @version 1.0
  * @since beta
- * Это класс обеспечивающий описание сущности <strong>Г_Сообщения</strong> в виде класса
+ * Это класс обеспечивающий описание сущности <strong>П_СООБЩЕНИЕ</strong> в виде класса
  */
 @Entity
-@Table(name="Г_Сообщения")
+@Table(name="П_СООБЩЕНИЕ")
 @EqualsAndHashCode
 public class Message
 {
     @Id
-    @Column(name="ИД", columnDefinition = "serial")
+    @Column(name="ИД_СООБЩЕНИЕ", columnDefinition = "serial")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="Дата")
-    private Date date;
-
-    @Column(name="Message")
-    private String messageText;
-
     @OneToOne
-	@JoinColumn(name = "G_from")
+	@JoinColumn(name = "ОТ_ЛИЧНОСТЬ")
     private User sender;
 
     @OneToOne
-	@JoinColumn(name = "G_to")
+	@JoinColumn(name = "КОМУ_ЛИЧНОСТЬ")
     private User receiver;
 
-    @Column(name="Flag")
-    private boolean flag;
+    @Column(name="ТЕМА")
+    private String messageTopic;
+
+    @Column(name="ТЕКСТ")
+    private String messageText;
+
+    @Column(name="ДАТА")
+    private Date date;
 
     public Message()
     {
     }
 
+
     /**
      * Устанавливает значения по атрибутам сущности
      * @param sender Пользователь, отправивший сообшение
      * @param receiver Пользователь, получивший сообщение
-     * @param messageText ДеФакто текст сообщения
+     * @param messageTopic Тема сообщения
+     * @param messageText Текст сообщения
      * @param date Дата и время отправки сообщения
      */
-    public Message(User sender, User receiver, String messageText, Date date)
-    {
+    public Message(User sender, User receiver, String messageTopic, String messageText, Date date) {
         this.sender = sender;
         this.receiver = receiver;
+        this.messageTopic = messageTopic;
         this.messageText = messageText;
         this.date = date;
     }
+
+
+
 
     public long getId()
     {

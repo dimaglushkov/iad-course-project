@@ -9,23 +9,23 @@ import java.util.LinkedHashSet;
  * @author Черноусов Евгений, Глушков Дмитрий
  * @version 1.0
  * @since beta
- * Это класс обеспечивающий описание сущности <strong>Г_Игры_геймера</strong> в виде класса
+ * Это класс обеспечивающий описание сущности <strong>П_ЛИЧН_ИГРА</strong> в виде класса
  */
 @Entity
-@Table(name="Г_Игры_геймера")
+@Table(name="П_ЛИЧН_ИГРА")
 public class GamerGames
 {
     @Id
-    @Column(name="ИД", columnDefinition = "serial")
+    @Column(name="ИД_ЛИЧН_ИГРА", columnDefinition = "serial")
     @GeneratedValue(strategy=GenerationType.IDENTITY)   
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "ИД_Пользователя")
+    @JoinColumn(name = "ИД_ЛИЧНОСТЬ")
     private User owner;
 
     @ManyToOne
-    @JoinColumn(name = "ИД_Игры")
+    @JoinColumn(name = "ИД_ИГРА")
     private Game game;
 
 

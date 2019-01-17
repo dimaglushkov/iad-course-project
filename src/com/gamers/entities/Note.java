@@ -9,26 +9,28 @@ import java.util.LinkedHashSet;
  * @author Черноусов Евгений, Глушков Дмитрий
  * @version 1.0
  * @since beta
- * Это класс обеспечивающий описание сущности <strong>Г_Заметка</strong> в виде класса
+ * Это класс обеспечивающий описание сущности <strong>П_ДНЕВНИК</strong> в виде класса
  */
 @Entity
-@Table(name="Г_Заметка")
+@Table(name="П_ДНЕВНИК")
 public class Note
 {
     @Id
-    @Column(name="ИД", columnDefinition = "serial")
+    @Column(name="ИД_ДНЕВНИК", columnDefinition = "serial")
     @GeneratedValue(strategy=GenerationType.IDENTITY)   
     private long id;
 
-    @Column(name="ИД_Пользователя")
+    @Column(name="ИД_ЛИЧНОСТЬ")
     private long id1;
 
-    @Column(name="Дата")
-    private Date date;
+    @Column(name="ТЕМА")
+    private String topic;
 
-    @Column(name="Текст")
+    @Column(name="ЗАПИСЬ")
     private String text;
 
+    @Column(name="ДАТА")
+    private Date date;
 
     public Note()
     {
@@ -40,13 +42,14 @@ public class Note
      * @param id1
      * @param date
      * @param text
+     * @param topic
      */
-    public Note(long id1, Date date, String text)
+    public Note(long id1, Date date, String text, String topic)
     {
         this.id1 = id1;
         this.date = date;
         this.text = text;
-
+        this.topic = topic;
     }
 
     public long getId()
@@ -77,4 +80,8 @@ public class Note
     public void setText(String text) {
         this.text = text;
     }
+
+    public String getTopic() { return topic; }
+
+    public void setTopic(String topic) { this.topic = topic; }
 }
