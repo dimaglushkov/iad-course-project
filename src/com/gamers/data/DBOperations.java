@@ -15,7 +15,7 @@ import java.util.function.Function;
  * @author Глушков Дмитрий, Черноусов Евгений
  * @version 1.0
  * @since beta
- * Это класс обеспечивающий  доступ к БД (в session)
+ * Это класс обеспечивающий доступ к БД (в session)
  */
 public class DBOperations
 {

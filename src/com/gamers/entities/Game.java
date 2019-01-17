@@ -6,10 +6,10 @@ import javax.persistence.GenerationType;
  * @author Черноусов Евгений, Глушков Дмитрий
  * @version 1.0
  * @since beta
- * Это класс обеспечивающий описание сущности <strong>Г_Игры</strong> в виде класса
+ * Это класс обеспечивающий описание сущности <strong>П_ИГРА</strong> в виде класса
  */
 @Entity
-@Table(name = "Игры")
+@Table(name = "П_ИГРА")
 public class Game
 {
     @Id
@@ -23,7 +23,7 @@ public class Game
     @Column(name="ГОД_ВЫХОДА")
     private Integer year;
 
-    @Column(name="ОПИСАНИЕ ")
+    @Column(name="ОПИСАНИЕ")
     private String desc;
 
     public Game()
@@ -35,8 +35,10 @@ public class Game
      * Устанавливает значения по атрибутам сущности
      * @param name Название игры
      */
-    public Game( String name) {
+    public Game( String name, Integer year, String desc) {
         this.name = name;
+        this.year = year;
+        this.desc = desc;
     }
 
     public long getId()

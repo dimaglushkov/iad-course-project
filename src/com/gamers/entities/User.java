@@ -10,10 +10,10 @@ import javax.persistence.GeneratedValue;
  * @author Черноусов Евгений, Глушков Дмитрий
  * @version 1.0
  * @since beta
- * Это класс обеспечивающий описание сущности <strong>Г_Пользователь</strong> в виде класса
+ * Это класс обеспечивающий описание сущности <strong>П_ЛИЧНОСТЬ</strong> в виде класса
  */
 @Entity
-@Table(name="Г_Пользователь")
+@Table(name="П_ЛИЧНОСТЬ")
 public class User
 {
     @Id
