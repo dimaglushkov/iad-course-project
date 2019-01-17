@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="КурсачЖД:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/_jar</output-path>
+    <root id="root">
+      <element id="archive" name="КурсачЖД.jar">
+        <element id="module-output" name="КурсачЖД" />
+      </element>
+      <element id="library" level="project" name="lombok-plugin-0.22" />
+    </root>
+  </artifact>
+</component>
