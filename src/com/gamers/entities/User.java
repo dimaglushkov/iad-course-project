@@ -17,43 +17,24 @@ import javax.persistence.GeneratedValue;
 public class User
 {
     @Id
-    @Column(name="ИД", columnDefinition = "serial")
+    @Column(name="ИД_ЛИЧНОСТЬ", columnDefinition = "serial")
     @GeneratedValue(strategy=GenerationType.IDENTITY)   
     private long id;
 
-    @Column(name="Имя")
+    @Column(name="НИКНЕЙМ")
     private String name;
 
-    @Column(name="Gamer_mail")
+    @Column(name="ЭЛ_ПОЧТА")
     private String email;
 
-    @Column(name="Хэш_пароля")
+    @Column(name="ХЕШ_ПАРОЛЬ")
     private String password;
-
-    @Column(name="Дата_рождения")
-    private Date birthday;
 
     @OneToMany(mappedBy = "owner", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Game> games = new LinkedHashSet<>();
 
     public User()
     {
-
-    }
-
-    /**
-     * Устанавливает значения по атрибутам сущности
-     * @param name Ник рользоватедя
-     * @param birthday Дата рождения
-     * @param email Логин пользователя (email)
-     * @param password Пароль пользователя
-     */
-    public User(String name, Date birthday, String email, String password)
-    {
-        this.name = name;
-        this.birthday = birthday;
-        this.email = email;
-        this.password = password;
 
     }
 
@@ -80,10 +61,6 @@ public class User
         return name;
     }
 
-    public Date getBirthday()
-    {
-        return birthday;
-    }
 
     public String getEmail()
     {
@@ -100,11 +77,6 @@ public class User
     public void setName(String name)
     {
         this.name = name;
-    }
-    
-    public void setBirthday(Date birthday)
-    {
-        this.birthday = birthday;
     }
 
     public void setPassword(String password)

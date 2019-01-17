@@ -13,12 +13,18 @@ import javax.persistence.GenerationType;
 public class Game
 {
     @Id
-    @Column(name="ИД", columnDefinition = "serial")
+    @Column(name="ИД_ИГРА", columnDefinition = "serial")
     @GeneratedValue(strategy=GenerationType.IDENTITY)   
     private long id;    
 
-    @Column(name="Игра")
+    @Column(name="НАЗВАНИЕ")
     private String name;
+
+    @Column(name="ГОД_ВЫХОДА")
+    private Integer year;
+
+    @Column(name="ОПИСАНИЕ ")
+    private String desc;
 
     public Game()
     {

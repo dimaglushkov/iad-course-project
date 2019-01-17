@@ -1,14 +1,5 @@
 package com.gamers.data;
 
-import com.gamers.entities.Place;
-
-import org.hibernate.SessionFactory;
-import org.hibernate.Session;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-import java.util.List;
-import javax.persistence.*;
-import javax.persistence.criteria.*;
 /**
  * @author Глушков Дмитрий, Черноусов Евгений
  * @version 1.0
