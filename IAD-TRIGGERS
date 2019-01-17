@@ -22,6 +22,7 @@ CREATE TRIGGER П_СООБЩЕНИЕ_АВТОЗАП
 
 	
 
+
 CREATE OR REPLACE FUNCTION МЕСТО_АВТОЗАП_ФУНК() RETURNS TRIGGER AS 
 $МЕСТО_АВТОЗАП_ФУНК_$
 	BEGIN
@@ -37,6 +38,22 @@ $МЕСТО_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
 CREATE TRIGGER П_БЛЮДО_АВТОЗАП
 	BEFORE INSERT OR UPDATE ON П_БЛЮДО
 	FOR EACH ROW EXECUTE PROCEDURE МЕСТО_АВТОЗАП_ФУНК();
+	
+	
+	
 
 
+CREATE OR REPLACE FUNCTION ВРЕМЯ_РЕГИСТРАЦИИ() RETURNS TRIGGER AS $ВРЕМЯ_РЕГИСТРАЦИИ_$
+    BEGIN
+		IF (TG_OP = 'INSERT') THEN
+            INSERT INTO П_ИНФО(ИД_ЛИЧНОСТЬ, ДАТА_РЕГИСТР) VALUES(NEW.ИД_ЛИЧНОСТЬ, CURRENT_DATE);
+            RETURN NEW;
+        END IF;
+        RETURN NULL;
+    END;
+$ВРЕМЯ_РЕГИСТРАЦИИ_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER П_БЛЮДО_АВТОЗАП
+	AFTER INSERT ON П_ЛИЧНОСТЬ
+    FOR EACH ROW EXECUTE PROCEDURE ВРЕМЯ_РЕГИСТРАЦИИ();
 
