@@ -10,7 +10,7 @@
           <class>com.gamers.Entities.GamerGames</class>
           <class>com.gamers.Entities.Event</class>
           <class>com.gamers.Entities.Task</class>
-          <class>com.gamers.Entities.Note</class>
+          <class>com.gamers.Entities.Dictionary</class>
           <class>com.gamers.Entities.Dish</class>
           <class>com.gamers.Entities.Person</class>
           <properties>
