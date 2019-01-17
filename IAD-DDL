@@ -3,7 +3,8 @@ CREATE TABLE П_ЛИЧНОСТЬ
 	ИД_ЛИЧНОСТЬ INT PRIMARY KEY,
 	НИКНЕЙМ TEXT UNIQUE NOT NULL,
 	ЭЛ_ПОЧТА TEXT UNIQUE NOT NULL,
-	ХЕШ_ПАРОЛЬ TEXT NOT NULL
+	ХЕШ_ПАРОЛЬ TEXT NOT NULL,
+	ИД_ИНФО INT REFERENCES П_ИНФО(ИД_ИНФО)
 );
 
 CREATE TABLE П_ИНФО
