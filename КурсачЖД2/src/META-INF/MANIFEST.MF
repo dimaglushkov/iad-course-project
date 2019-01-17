@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: javax.persistence.jar hibernate-commons-annotations-5.1.0.
+ Final.jar hibernate-testing-5.4.0.CR1.jar lombok-plugin-0.22.jar hibe
+ rnate-core-5.4.0.CR1.jar
+Main-Class: com.gamers.data.DBOperations
+

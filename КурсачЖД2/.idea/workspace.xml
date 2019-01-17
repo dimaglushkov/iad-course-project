@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+    <option name="CUSTOM_SCOPE_NAME" value="Selected Files" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e090602e-9f0b-4bb6-9cfa-10c08acd7f98" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1825519447">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="MF" value="1" />
+          <entry key="class" value="1" />
+          <entry key="groovy" value="1" />
+          <entry key="java" value="384" />
+          <entry key="xml" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="384" />
+          <entry key="Manifest" value="1" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="4339" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="4339" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1324673610">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="data" value="1" />
+          <entry key="entities" value="4" />
+          <entry key="java" value="48" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="48" />
+          <entry key="UML" value="5" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="319" />
+          <entry key="xml" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="319" />
+          <entry key="XML" value="14" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-984483584">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="6" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/data/NoteDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/data/EventDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/data/GameDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/EntertainmentType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Note.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Photo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Event.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="997">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Meeting.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>gamers</find>
+      <find>boatguys</find>
+      <find>boats</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Gamergames.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Track.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Producer.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/TuningService.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/ForumRecord.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/TuningStudio.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/PersistenceManager.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/DBOperations.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/CommentDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Games.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/GameDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Message.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/PhotoAttachDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/MessageDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/MeetingTypeDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/EventDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/EntertainmentTypeDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/EntertainmentDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/DishOutDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/DishDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/TaskDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/TrashThrowDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/PlaceDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/package-info.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/NoteDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/GamerGamesDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/PhotoDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/UserTest.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/BirthDayDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/MeetingType.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/GamerGames.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/EntertainmentType.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/UserDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Task.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/BirthDay.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/DishOut.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Entertainment.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Event.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Meeting.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Photo.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Note.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/PhotoAttach.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Place.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Dish.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/UserDAOTest.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/tests/UserDAOTest.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/data/MeetingDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/TrashThrow.java" />
+        <option value="$PROJECT_DIR$/src/com/gamers/entities/User.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="testdoc" pattern="(src:com.gamers.data.*||src:com.gamers.entities.*)&amp;&amp;!lib:*..*" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="70" />
+    <option name="y" value="45" />
+    <option name="width" value="1795" />
+    <option name="height" value="790" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="КурсачЖД2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="КурсачЖД2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="КурсачЖД2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gamers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="КурсачЖД2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gamers" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="КурсачЖД2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gamers" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="КурсачЖД2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="КурсачЖД2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547655777069" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../3этап" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e090602e-9f0b-4bb6-9cfa-10c08acd7f98" name="Default Changelist" comment="" />
+      <created>1541611581428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541611581428</updated>
+      <workItem from="1541611584213" duration="5423000" />
+      <workItem from="1542376833621" duration="6392000" />
+      <workItem from="1542389389619" duration="4681000" />
+      <workItem from="1542481559329" duration="20359000" />
+      <workItem from="1542919365602" duration="2804000" />
+      <workItem from="1542956838016" duration="7674000" />
+      <workItem from="1543171542366" duration="21000" />
+      <workItem from="1547290714947" duration="4210000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="UserDAOTest - 2018.11.19 at 00h 27m 31s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.19 at 00h 28m 31s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.19 at 00h 32m 15s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.19 at 00h 33m 49s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.19 at 00h 34m 46s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.22 at 23h 45m 11s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.23 at 11h 30m 31s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.23 at 11h 31m 34s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.23 at 11h 33m 19s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDAOTest - 2018.11.23 at 11h 34m 06s.xml">
+      <configuration name="UserDAOTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="51564000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22885907" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Persistence" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6161473" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3286119" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="JSF" order="9" />
+      <window_info anchor="right" id="CDI" order="10" />
+      <window_info anchor="right" id="Bean Validation" order="11" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="12" side_tool="true" weight="0.3295302" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/MeetingTypeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/TaskDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/GamerGamesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/PhotoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="51" selection-start-line="51" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/EntertainmentTypeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/DishOutDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/MessageDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/TrashThrowDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/КурсачЖД/com/gamers/data/MessageDAO.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/КурсачЖД/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/КурсачЖД/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/DBOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/package-info.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/security/SecureClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="152" column="33" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/UserTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/MeetingType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/PhotoAttach.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/DishDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Place.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Dish.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Entertainment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/DishOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/PersistenceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="46" column="3" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/PlaceDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.gamers.data">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.gamers.data</OriginalElement>
+          <nodes>
+            <node x="2031.8750000000002" y="0.0">com.gamers.data.PersistenceManager</node>
+            <node x="0.0" y="685.5">com.gamers.data.DishDAO</node>
+            <node x="4028.0" y="697.0">com.gamers.data.BirthDayDAO</node>
+            <node x="3290.0" y="697.0">com.gamers.data.EntertainmentDAO</node>
+            <node x="3054.0" y="697.0">com.gamers.data.NoteDAO</node>
+            <node x="236.0" y="697.0">com.gamers.data.PhotoAttachDAO</node>
+            <node x="2789.0" y="686.0">com.gamers.data.EventDAO</node>
+            <node x="1180.0" y="686.0">com.gamers.data.PhotoDAO</node>
+            <node x="1702.0" y="696.5">com.gamers.data.GamerGamesDAO</node>
+            <node x="1915.8750000000002" y="237.0">com.gamers.data.DBOperations</node>
+            <node x="4264.0" y="686.0">com.gamers.data.UserDAO</node>
+            <node x="708.0" y="697.0">com.gamers.data.MeetingDAO</node>
+            <node x="1466.0" y="697.0">com.gamers.data.TaskDAO</node>
+            <node x="1938.0" y="685.5">com.gamers.data.GameDAO</node>
+            <node x="944.0" y="697.0">com.gamers.data.DishOutDAO</node>
+            <node x="472.0" y="697.0">com.gamers.data.MeetingTypeDAO</node>
+            <node x="3528.0" y="697.0">com.gamers.data.EntertainmentTypeDAO</node>
+            <node x="3792.0" y="697.0">com.gamers.data.PlaceDAO</node>
+            <node x="2553.0" y="697.0">com.gamers.data.TrashThrowDAO</node>
+            <node x="2174.0" y="675.0">com.gamers.data.MessageDAO</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.gamers.data.PlaceDAO" target="com.gamers.data.DBOperations">
+              <point x="-54.0" y="-71.0" />
+              <point x="3846.0" y="535.0" />
+              <point x="2366.5972222222226" y="535.0" />
+              <point x="184.72222222222217" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.NoteDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-71.0" />
+              <point x="3216.0" y="585.0" />
+              <point x="2292.708333333333" y="585.0" />
+              <point x="110.83333333333303" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.DishDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-82.5" />
+              <point x="162.0" y="495.0" />
+              <point x="1938.0416666666667" y="495.0" />
+              <point x="-243.83333333333348" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.DBOperations" target="com.gamers.data.PersistenceManager">
+              <point x="0.0" y="-114.0" />
+              <point x="0.0" y="93.5" />
+            </edge>
+            <edge source="com.gamers.data.EntertainmentTypeDAO" target="com.gamers.data.DBOperations">
+              <point x="61.0" y="-71.0" />
+              <point x="3711.0" y="545.0" />
+              <point x="2351.8194444444443" y="545.0" />
+              <point x="169.94444444444434" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.PhotoDAO" target="com.gamers.data.DBOperations">
+              <point x="66.5" y="-82.0" />
+              <point x="1379.5" y="595.0" />
+              <point x="2085.8194444444443" y="595.0" />
+              <point x="-96.05555555555566" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.EntertainmentDAO" target="com.gamers.data.DBOperations">
+              <point x="-54.5" y="-71.0" />
+              <point x="3344.5" y="575.0" />
+              <point x="2307.4861111111113" y="575.0" />
+              <point x="125.61111111111086" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.BirthDayDAO" target="com.gamers.data.DBOperations">
+              <point x="-54.0" y="-71.0" />
+              <point x="4082.0" y="515.0" />
+              <point x="2396.1527777777774" y="515.0" />
+              <point x="214.27777777777737" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.DishOutDAO" target="com.gamers.data.DBOperations">
+              <point x="-54.0" y="-71.0" />
+              <point x="998.0" y="565.0" />
+              <point x="2041.486111111111" y="565.0" />
+              <point x="-140.38888888888914" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.PhotoAttachDAO" target="com.gamers.data.DBOperations">
+              <point x="-54.0" y="-71.0" />
+              <point x="290.0" y="505.0" />
+              <point x="1952.8194444444446" y="505.0" />
+              <point x="-229.05555555555566" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.TaskDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-71.0" />
+              <point x="1628.0" y="615.0" />
+              <point x="2115.375" y="615.0" />
+              <point x="-66.5" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.MeetingTypeDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-71.0" />
+              <point x="634.0" y="535.0" />
+              <point x="1997.152777777778" y="535.0" />
+              <point x="-184.72222222222217" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.MessageDAO" target="com.gamers.data.DBOperations">
+              <point x="-89.75" y="-93.0" />
+              <point x="2263.75" y="655.0" />
+              <point x="2189.2638888888887" y="655.0" />
+              <point x="7.388888888888687" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.GameDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-82.5" />
+              <point x="2100.0" y="655.0" />
+              <point x="2174.4861111111113" y="655.0" />
+              <point x="-7.3888888888891415" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.TrashThrowDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-71.0" />
+              <point x="2715.0" y="625.0" />
+              <point x="2233.5972222222226" y="625.0" />
+              <point x="51.72222222222217" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.UserDAO" target="com.gamers.data.DBOperations">
+              <point x="75.0" y="-82.0" />
+              <point x="4489.0" y="485.0" />
+              <point x="2440.4861111111113" y="485.0" />
+              <point x="258.61111111111086" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.MeetingDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-71.0" />
+              <point x="870.0" y="555.0" />
+              <point x="2026.7083333333337" y="555.0" />
+              <point x="-155.16666666666652" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.EventDAO" target="com.gamers.data.DBOperations">
+              <point x="61.25" y="-82.0" />
+              <point x="2972.75" y="605.0" />
+              <point x="2263.1527777777783" y="605.0" />
+              <point x="81.27777777777783" y="114.0" />
+            </edge>
+            <edge source="com.gamers.data.GamerGamesDAO" target="com.gamers.data.DBOperations">
+              <point x="54.0" y="-71.5" />
+              <point x="1864.0" y="635.0" />
+              <point x="2144.9305555555557" y="635.0" />
+              <point x="-36.94444444444434" y="114.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.30000000000000016" x="1007.0" y="192.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/UserDAOTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/tests/UserDAOTest.java" />
+    <entry file="uml://JAVA/com.gamers.entities">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.gamers.entities</OriginalElement>
+          <nodes>
+            <node x="689.0" y="899.0">com.gamers.entities.Meeting</node>
+            <node x="1274.5" y="645.0">com.gamers.entities.EntertainmentType</node>
+            <node x="703.6319444444446" y="0.0">com.gamers.entities.Game</node>
+            <node x="1864.7644841269841" y="921.0">com.gamers.entities.PhotoAttach</node>
+            <node x="2000.6214285714286" y="623.0">com.gamers.entities.Note</node>
+            <node x="1507.6214285714286" y="600.5">com.gamers.entities.Message</node>
+            <node x="754.5" y="645.0">com.gamers.entities.MeetingType</node>
+            <node x="229.0" y="645.0">com.gamers.entities.Dish</node>
+            <node x="243.0" y="910.0">com.gamers.entities.DishOut</node>
+            <node x="1772.6214285714286" y="623.0">com.gamers.entities.Photo</node>
+            <node x="952.5" y="590.0">com.gamers.entities.Event</node>
+            <node x="1411.25" y="214.0">com.gamers.entities.User</node>
+            <node x="477.0" y="634.0">com.gamers.entities.Place</node>
+            <node x="471.0" y="921.0">com.gamers.entities.TrashThrow</node>
+            <node x="0.0" y="1129.0">com.gamers.entities.Task</node>
+            <node x="1444.476388888889" y="921.0">com.gamers.entities.BirthDay</node>
+            <node x="1095.6013888888888" y="921.0">com.gamers.entities.Entertainment</node>
+            <node x="0.0" y="622.5">com.gamers.entities.GamerGames</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.gamers.entities.GamerGames" target="com.gamers.entities.User">
+              <point x="26.125" y="-82.0" />
+              <point x="130.625" y="530.0" />
+              <point x="1423.1" y="530.0" />
+              <point x="-106.64999999999998" y="148.0" />
+            </edge>
+            <edge source="com.gamers.entities.DishOut" target="com.gamers.entities.Dish">
+              <point x="-26.0" y="-81.5" />
+              <point x="321.0" y="879.0" />
+              <point x="328.0" y="879.0" />
+              <point x="33.0" y="59.5" />
+            </edge>
+            <edge source="com.gamers.entities.Meeting" target="com.gamers.entities.Place">
+              <point x="-128.75" y="-92.5" />
+              <point x="714.75" y="869.0" />
+              <point x="616.5" y="869.0" />
+              <point x="46.5" y="70.5" />
+            </edge>
+            <edge source="com.gamers.entities.PhotoAttach" target="com.gamers.entities.Note">
+              <point x="88.5" y="-70.5" />
+              <point x="2071.264484126984" y="879.0" />
+              <point x="2146.8714285714286" y="879.0" />
+              <point x="48.75" y="81.5" />
+            </edge>
+            <edge source="com.gamers.entities.Meeting" target="com.gamers.entities.Event">
+              <point x="128.75" y="-92.5" />
+              <point x="972.25" y="879.0" />
+              <point x="1028.0" y="879.0" />
+              <point x="-75.5" y="114.5" />
+            </edge>
+            <edge source="com.gamers.entities.Entertainment" target="com.gamers.entities.Event">
+              <point x="-35.749999999999886" y="-70.5" />
+              <point x="1202.8513888888888" y="869.0" />
+              <point x="1128.6666666666667" y="869.0" />
+              <point x="25.166666666666742" y="114.5" />
+            </edge>
+            <edge source="com.gamers.entities.TrashThrow" target="com.gamers.entities.Place">
+              <point x="-49.5" y="-70.5" />
+              <point x="520.5" y="879.0" />
+              <point x="554.5" y="879.0" />
+              <point x="-15.5" y="70.5" />
+            </edge>
+            <edge source="com.gamers.entities.BirthDay" target="com.gamers.entities.User">
+              <point x="67.875" y="-70.5" />
+              <point x="1602.851388888889" y="879.0" />
+              <point x="1762.1214285714286" y="879.0" />
+              <point x="1762.1214285714286" y="550.0" />
+              <point x="1589.0" y="550.0" />
+              <point x="59.249999999999886" y="148.0" />
+            </edge>
+            <edge source="com.gamers.entities.Entertainment" target="com.gamers.entities.EntertainmentType">
+              <point x="107.25000000000011" y="-70.5" />
+              <point x="1345.8513888888888" y="879.0" />
+              <point x="1431.25" y="879.0" />
+              <point x="52.25" y="59.5" />
+            </edge>
+            <edge source="com.gamers.entities.PhotoAttach" target="com.gamers.entities.Photo">
+              <point x="-29.5" y="-70.5" />
+              <point x="1953.2644841269841" y="879.0" />
+              <point x="1928.6214285714286" y="879.0" />
+              <point x="52.0" y="81.5" />
+            </edge>
+            <edge source="com.gamers.entities.GamerGames" target="com.gamers.entities.Game">
+              <point x="-26.125" y="-82.0" />
+              <point x="78.375" y="570.0" />
+              <point x="57.75" y="570.0" />
+              <point x="57.75" y="194.0" />
+              <point x="775.2569444444446" y="194.0" />
+              <point x="-23.875" y="82.0" />
+            </edge>
+            <edge source="com.gamers.entities.BirthDay" target="com.gamers.entities.Event">
+              <point x="-22.625" y="-70.5" />
+              <point x="1512.351388888889" y="849.0" />
+              <point x="1229.3333333333335" y="849.0" />
+              <point x="125.83333333333348" y="114.5" />
+            </edge>
+            <edge source="com.gamers.entities.Event" target="com.gamers.entities.User">
+              <point x="-75.5" y="-114.5" />
+              <point x="1028.0" y="550.0" />
+              <point x="1470.5" y="550.0" />
+              <point x="-59.25" y="148.0" />
+            </edge>
+            <edge source="com.gamers.entities.User" target="com.gamers.entities.Game">
+              <point x="59.25" y="-148.0" />
+              <point x="1589.0" y="184.0" />
+              <point x="870.7569444444446" y="184.0" />
+              <point x="71.625" y="82.0" />
+            </edge>
+            <edge source="com.gamers.entities.Note" target="com.gamers.entities.User">
+              <point x="-48.75" y="-81.5" />
+              <point x="2049.3714285714286" y="540.0" />
+              <point x="1612.6999999999998" y="540.0" />
+              <point x="82.94999999999993" y="148.0" />
+            </edge>
+            <edge source="com.gamers.entities.DishOut" target="com.gamers.entities.Place">
+              <point x="78.0" y="-81.5" />
+              <point x="425.0" y="869.0" />
+              <point x="523.5" y="869.0" />
+              <point x="-46.5" y="70.5" />
+            </edge>
+            <edge source="com.gamers.entities.Message" target="com.gamers.entities.User">
+              <point x="-61.0" y="-104.0" />
+              <point x="1568.6214285714286" y="570.0" />
+              <point x="1541.6" y="570.0" />
+              <point x="11.850000000000023" y="148.0" />
+            </edge>
+            <edge source="com.gamers.entities.Meeting" target="com.gamers.entities.MeetingType">
+              <point x="-25.75" y="-92.5" />
+              <point x="817.75" y="879.0" />
+              <point x="799.0" y="879.0" />
+              <point x="-44.5" y="59.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="748.0" y="562.0" />
+          <SelectedNodes>
+            <node>com.gamers.entities.GamerGames</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/BirthDay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/EntertainmentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="49" column="55" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="90" selection-start-line="29" selection-start-column="90" selection-end-line="29" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/BirthDayDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/MeetingDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/TrashThrow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="144" column="1" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/GamerGames.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/NoteDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/EventDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/data/GameDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Meeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/EntertainmentType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="997">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gamers/entities/Photo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>КурсачЖД:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>JPA (КурсачЖД)|JPA</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>КурсачЖД</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>testdoc</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+          <order>
+            <scope name="testdoc" />
+          </order>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
