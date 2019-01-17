@@ -43,17 +43,15 @@ CREATE TABLE П_СОБЫТИЕ
 	ВРЕМЯ_КОН TIME
 );
 
-//ТРИГГЕР: ЕСЛИ НЕТ ЗАГОЛОВКА - ЗНАЧИТ БЕЗ ТЕМЫ, ДОБАВИТЬ ДАТУ СОЗДАНИЯ
 CREATE TABLE П_ДНЕВНИК
 (
 	ИД_ДНЕВНИК SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT REFERENCES П_ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
-	ЗАГОЛОВОК TEXT NOT NULL,
+	ТЕМА TEXT NOT NULL,
 	ЗАПИСЬ TEXT NOT NULL,
-	ДАТА_СОЗДАНИЕ DATE NOT NULL
+	ДАТА DATE NOT NULL
 );
 
-//ТРИГГЕР: ЕСЛИ НЕТ МЕСТА - ЗНАЧИТ ГОТОВИТ САМ
 CREATE TABLE П_БЛЮДО
 (
 	ИД_БЛЮДО SERIAL PRIMARY KEY,
@@ -85,6 +83,7 @@ CREATE TABLE П_СООБЩЕНИЕ
 	ОТ_ЛИЧНОСТЬ INT NOT NULL REFERENCES П_ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	КОМУ_ЛИЧНОСТЬ INT NOT NULL REFERENCES П_ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ТЕМА TEXT NOT NULL,
-	ТЕКСТ TEXT NOT NULL
+	ТЕКСТ TEXT NOT NULL,
+	ДАТА DATE NOT NULL
 );
 
