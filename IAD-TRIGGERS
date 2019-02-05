@@ -7,17 +7,16 @@ $ДАТА_ТЕМА_АВТОЗАП_ФУНК_$
 		END IF;
 		
 		NEW.ДАТА_СОЗДАНИЕ = CURRENT_DATE;
-		
 		RETURN NEW;
 	END;
 $ДАТА_ТЕМА_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
 
-CREATE TRIGGER П_ДНЕВНИК_АВТОЗАП
-	BEFORE INSERT OR UPDATE ON П_ДНЕВНИК
+CREATE TRIGGER ДНЕВНИК_АВТОЗАП
+	BEFORE INSERT OR UPDATE ON ДНЕВНИК
 	FOR EACH ROW EXECUTE PROCEDURE ДАТА_ТЕМА_АВТОЗАП_ФУНК();
 	
-CREATE TRIGGER П_СООБЩЕНИЕ_АВТОЗАП
-	BEFORE INSERT OR UPDATE ON П_СООБЩЕНИЕ
+CREATE TRIGGER СООБЩЕНИЕ_АВТОЗАП
+	BEFORE INSERT OR UPDATE ON СООБЩЕНИЕ
 	FOR EACH ROW EXECUTE PROCEDURE ДАТА_ТЕМА_АВТОЗАП_ФУНК();
 
 	
@@ -35,8 +34,8 @@ $МЕСТО_АВТОЗАП_ФУНК_$
 	END;
 $МЕСТО_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
 
-CREATE TRIGGER П_БЛЮДО_АВТОЗАП
-	BEFORE INSERT OR UPDATE ON П_БЛЮДО
+CREATE TRIGGER БЛЮДО_АВТОЗАП
+	BEFORE INSERT OR UPDATE ON БЛЮДО
 	FOR EACH ROW EXECUTE PROCEDURE МЕСТО_АВТОЗАП_ФУНК();
 	
 	
@@ -46,14 +45,14 @@ CREATE TRIGGER П_БЛЮДО_АВТОЗАП
 CREATE OR REPLACE FUNCTION ВРЕМЯ_РЕГИСТРАЦИИ() RETURNS TRIGGER AS $ВРЕМЯ_РЕГИСТРАЦИИ_$
     BEGIN
 		IF (TG_OP = 'INSERT') THEN
-            INSERT INTO П_ИНФО(ИД_ЛИЧНОСТЬ, ДАТА_РЕГИСТР) VALUES(NEW.ИД_ЛИЧНОСТЬ, CURRENT_DATE);
+            INSERT INTO ИНФО(ИД_ЛИЧНОСТЬ, ДАТА_РЕГИСТР) VALUES(NEW.ИД_ЛИЧНОСТЬ, CURRENT_DATE);
             RETURN NEW;
         END IF;
         RETURN NULL;
     END;
 $ВРЕМЯ_РЕГИСТРАЦИИ_$ LANGUAGE plpgsql;
 
-CREATE TRIGGER П_БЛЮДО_АВТОЗАП
-	AFTER INSERT ON П_ЛИЧНОСТЬ
+CREATE TRIGGER БЛЮДО_АВТОЗАП
+	AFTER INSERT ON ЛИЧНОСТЬ
     FOR EACH ROW EXECUTE PROCEDURE ВРЕМЯ_РЕГИСТРАЦИИ();
 

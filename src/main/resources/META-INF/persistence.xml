@@ -14,18 +14,18 @@
           <class>com.gamers.Entities.Dish</class>
           <class>com.gamers.Entities.Person</class>
           <properties>
-               <!-- Database connection settings -->
-               <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-               <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:4321/studs"/>
-               <property name="hibernate.connection.username" value="s269331"/>
-               <property name="hibernate.connection.password" value="xxxxxx"/>
-               <!-- SQL dialect -->
-               <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
-             <property name="hibernate.archive.autodetection" value="class"/>
-             <property name="hibernate.show_sql" value="true"/>
-             <property name="hibernate.format_sql" value="true"/>
-             <property name="hbm2ddl.auto" value="update"/>
+                <!-- Database connection settings -->
+                <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+                <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:4321/studs"/>
+                <property name="hibernate.connection.username" value="s269331"/>
+                <property name="hibernate.connection.password" value="xxxxxx"/>
+                <!-- SQL dialect -->
+                <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+                <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+                <property name="hibernate.archive.autodetection" value="class"/>
+                <property name="hibernate.show_sql" value="true"/>
+                <property name="hibernate.format_sql" value="true"/>
+                <property name="hbm2ddl.auto" value="update"/>
 
         </properties>
    </persistence-unit>

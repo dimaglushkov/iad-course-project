@@ -8,10 +8,11 @@
     <artifactId>course-project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -46,8 +47,20 @@
             <version>42.2.5</version>
         </dependency>
 
+        <!-- somelink :) -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+
 
     </dependencies>
+
+
 
 
 
