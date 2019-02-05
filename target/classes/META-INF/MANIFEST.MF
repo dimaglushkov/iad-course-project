@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: javax.persistence.jar hibernate-commons-annotations-3.4.0.GA.jar hibernate-testing-5.4.0.CR1.jar lombok-plugin-0.22.jar hibernate-core-5.4.0.CR1.jar hibernate-entitymanager-5.4.0.Final.jar persistence.xml
-Main-Class: com.gamers.Tester
-
