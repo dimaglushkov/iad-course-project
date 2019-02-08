@@ -5,11 +5,10 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "ИНФО")
-public class About {
+public class Info {
 
     @Id
-    @Column(name = "ИД_ИНФО", columnDefinition = "INT")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "ИД_ИНФО")
     private long id;
 
     @OneToOne
@@ -34,7 +33,7 @@ public class About {
     @Column(name = "ДАТА_РЕГИСТР", columnDefinition = "DATE")
     private Date registerDate;
 
-    public About(){}
+    public Info(){}
 
     public long getId() {
         return id;

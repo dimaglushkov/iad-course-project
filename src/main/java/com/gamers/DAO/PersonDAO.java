@@ -2,8 +2,24 @@ package com.gamers.DAO;
 
 import com.gamers.Entities.Person;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
+
+/*
+@Stateless
+public class PersonDAO {
+
+    @PersistenceContext
+    private EntityManager em;
+
+    public Person findByNickname(String name) {
+        return  em.find(Person.class, name);
+    }
+
+}
+*/
 
 public class PersonDAO extends GenericDAOImpl<Person, Long>{
 

@@ -6,19 +6,13 @@ import javax.persistence.GenerationType;
 import java.sql.Time;
 import java.util.Date;
 
-/**
- * @author Черноусов Евгений, Глушков Дмитрий
- * @version 1.0
- * @since beta
- * Это класс обеспечивающий описание сущности <strong>П_СОБЫТИЕ</strong> в виде класса
- */
 @Entity
 @Table(name="СОБЫТИЕ")
 public class Event
 {
+
     @Id
-    @Column(name="ИД_СОБЫТИЕ", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    @Column(name="ИД_СОБЫТИЕ")
     private long id;
 
     @ManyToOne
@@ -51,6 +45,5 @@ public class Event
     {
         return id;
     }
-
 
 }

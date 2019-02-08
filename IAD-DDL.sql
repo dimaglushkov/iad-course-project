@@ -1,6 +1,6 @@
 CREATE TABLE ЛИЧНОСТЬ
 ( 
-	ИД_ЛИЧНОСТЬ INT PRIMARY KEY,
+	ИД_ЛИЧНОСТЬ SERIAL PRIMARY KEY,
 	НИКНЕЙМ TEXT UNIQUE NOT NULL,
 	ЭЛ_ПОЧТА TEXT UNIQUE NOT NULL,
 	ХЕШ_ПАРОЛЬ TEXT NOT NULL
@@ -8,7 +8,7 @@ CREATE TABLE ЛИЧНОСТЬ
 
 CREATE TABLE ИНФО
 (
-	ИД_ИНФО INT PRIMARY KEY,
+	ИД_ИНФО SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT NOT NULL UNIQUE REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ИМЯ TEXT,
 	ФАМИЛИЯ TEXT,
@@ -20,7 +20,7 @@ CREATE TABLE ИНФО
 
 CREATE TABLE ИГРА
 (
-	ИД_ИГРА INT PRIMARY KEY,
+	ИД_ИГРА SERIAL PRIMARY KEY,
 	НАЗВАНИЕ TEXT,
 	ГОД_ВЫХОДА INT,
 	ОПИСАНИЕ TEXT
@@ -28,14 +28,14 @@ CREATE TABLE ИГРА
 
 CREATE TABLE ЛИЧН_ИГРА
 (
-	ИД_ЛИЧН_ИГРА INT PRIMARY KEY,
+	ИД_ЛИЧН_ИГРА SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ИД_ИГРА INT NOT NULL REFERENCES ИГРА(ИД_ИГРА)
 );
 
 CREATE TABLE СОБЫТИЕ
 (
-	ИД_СОБЫТИЕ INT PRIMARY KEY,
+	ИД_СОБЫТИЕ SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ОПИСАНИЕ TEXT NOT NULL,
 	ДАТА DATE NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE СОБЫТИЕ
 
 CREATE TABLE ДНЕВНИК
 (
-	ИД_ДНЕВНИК INT PRIMARY KEY,
+	ИД_ДНЕВНИК SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ТЕМА TEXT NOT NULL,
 	ЗАПИСЬ TEXT NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE ДНЕВНИК
 
 CREATE TABLE БЛЮДО
 (
-	ИД_БЛЮДО INT PRIMARY KEY,
+	ИД_БЛЮДО SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	НАЗВАНИЕ TEXT NOT NULL,
 	МЕСТО TEXT,
@@ -63,7 +63,7 @@ CREATE TABLE БЛЮДО
 
 CREATE TABLE РАЦИОН
 (
-	ИД_РАЦИОН INT PRIMARY KEY,
+	ИД_РАЦИОН SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ДАТА DATE NOT NULL,
 	ИД_БЛЮДО INT REFERENCES БЛЮДО(ИД_БЛЮДО) NOT NULL
@@ -71,7 +71,7 @@ CREATE TABLE РАЦИОН
 
 CREATE TABLE ЗАДАЧА
 (
-	ИД_ЗАДАЧА INT PRIMARY KEY,
+	ИД_ЗАДАЧА SERIAL PRIMARY KEY,
 	ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ДАТА DATE NOT NULL,
 	СТАТУС BOOLEAN
@@ -79,7 +79,7 @@ CREATE TABLE ЗАДАЧА
 
 CREATE TABLE СООБЩЕНИЕ
 (
-	ИД_СООБЩЕНИЕ INT PRIMARY KEY,
+	ИД_СООБЩЕНИЕ SERIAL PRIMARY KEY,
 	ОТ_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	КОМУ_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ТЕМА TEXT NOT NULL,

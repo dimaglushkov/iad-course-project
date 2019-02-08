@@ -2,19 +2,13 @@ package com.gamers.Entities;
 
 import javax.persistence.*;
 import javax.persistence.GenerationType;
-/**
- * @author Черноусов Евгений, Глушков Дмитрий
- * @version 1.0
- * @since beta
- * Это класс обеспечивающий описание сущности <strong>П_ИГРА</strong> в виде класса
- */
+
 @Entity
 @Table(name = "ИГРА")
 public class Game
 {
     @Id
-    @Column(name="ИД_ИГРА", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    @Column(name="ИД_ИГРА")
     private long id;
 
     @Column(name="НАЗВАНИЕ", columnDefinition = "TEXT")

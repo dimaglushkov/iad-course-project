@@ -8,8 +8,7 @@ import javax.persistence.GenerationType;
 public class Dish
 {
     @Id
-    @Column(name = "ИД_БЛЮДО", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    @Column(name = "ИД_БЛЮДО")
     private long id;
 
     @ManyToOne

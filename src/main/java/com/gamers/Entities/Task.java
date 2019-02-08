@@ -10,8 +10,7 @@ import java.util.Date;
 public class Task
 {
     @Id
-    @Column(name="ИД_ЗАДАЧА", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    @Column(name="ИД_ЗАДАЧА")
     private long id;
 
     @ManyToOne

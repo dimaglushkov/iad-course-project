@@ -4,19 +4,12 @@ import javax.persistence.*;
 import javax.persistence.GenerationType;
 import java.util.Date;
 
-/**
- * @author Черноусов Евгений, Глушков Дмитрий
- * @version 1.0
- * @since beta
- * Это класс обеспечивающий описание сущности <strong>П_ДНЕВНИК</strong> в виде класса
- */
 @Entity
 @Table(name="ДНЕВНИК")
 public class Dictionary
 {
     @Id
-    @Column(name="ИД_ДНЕВНИК", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    @Column(name="ИД_ДНЕВНИК")
     private long id;
 
     @ManyToOne

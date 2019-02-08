@@ -4,19 +4,13 @@ import java.util.Set;
 import java.util.List;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
-/**
- * @author Черноусов Евгений, Глушков Дмитрий
- * @version 1.0
- * @since beta
- * Это класс обеспечивающий описание сущности <strong>П_ЛИЧНОСТЬ</strong> в виде класса
- */
+
 @Entity
 @Table(name="ЛИЧНОСТЬ")
 public class Person
 {
     @Id
-    @Column(name="ИД_ЛИЧНОСТЬ", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    @Column(name="ИД_ЛИЧНОСТЬ")
     private long id;
 
     @Column(name="НИКНЕЙМ", columnDefinition = "TEXT UNIQUE NOT NULL")
@@ -28,9 +22,6 @@ public class Person
     @Column(name="ХЕШ_ПАРОЛЬ", columnDefinition = "TEXT UNIQUE NOT NULL")
     private String password;
 
-    /*@OneToOne
-    @JoinColumn(name = "ИД_ИНФО", referencedColumnName = "ИД_ИНФО")
-    private About about;*/
 
     public long getId() {
         return id;

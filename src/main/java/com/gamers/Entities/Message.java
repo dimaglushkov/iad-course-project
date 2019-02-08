@@ -9,8 +9,7 @@ import javax.persistence.GenerationType;
 public class Message
 {
     @Id
-    @Column(name="ИД_СООБЩЕНИЕ", columnDefinition = "INT")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="ИД_СООБЩЕНИЕ")
     private long id;
 
     @OneToOne

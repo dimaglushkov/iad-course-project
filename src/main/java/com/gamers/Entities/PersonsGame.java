@@ -2,14 +2,14 @@ package com.gamers.Entities;
 
 import javax.persistence.*;
 import javax.persistence.GenerationType;
-import java.sql.Date;
 
 @Entity
-@Table(name="РАЦИОН")
-public class Lunch
+@Table(name="ЛИЧН_ИГРА")
+public class PersonsGame
 {
+
     @Id
-    @Column(name = "ИД_РАЦИОН")
+    @Column(name="ИД_ЛИЧН_ИГРА")
     private long id;
 
     @ManyToOne
@@ -17,13 +17,10 @@ public class Lunch
     private Person person;
 
     @ManyToOne
-    @JoinColumn(name = "ИД_БЛЮДО", referencedColumnName = "ИД_БЛЮДО")
-    private Dish dish;
+    @JoinColumn(name = "ИД_ИГРА", referencedColumnName = "ИД_ИГРА")
+    private Game game;
 
-    @Column(name = "ДАТА")
-    private Date date;
-
-    public Lunch(){}
+    public PersonsGame(){}
 
     public long getId() {
         return id;
@@ -41,19 +38,11 @@ public class Lunch
         this.person = person;
     }
 
-    public Dish getDish() {
-        return dish;
+    public Game getGame() {
+        return game;
     }
 
-    public void setDish(Dish dish) {
-        this.dish = dish;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setGame(Game game) {
+        this.game = game;
     }
 }
