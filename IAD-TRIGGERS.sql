@@ -37,6 +37,8 @@ $МЕСТО_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
 CREATE TRIGGER БЛЮДО_АВТОЗАП
 	BEFORE INSERT OR UPDATE ON БЛЮДО
 	FOR EACH ROW EXECUTE PROCEDURE МЕСТО_АВТОЗАП_ФУНК();
+
+DROP TRIGGER БЛЮДО_АВТОЗАП ON БЛЮДО;
 	
 	
 	
@@ -52,7 +54,7 @@ CREATE OR REPLACE FUNCTION ВРЕМЯ_РЕГИСТРАЦИИ() RETURNS TRIGGER A
     END;
 $ВРЕМЯ_РЕГИСТРАЦИИ_$ LANGUAGE plpgsql;
 
-CREATE TRIGGER БЛЮДО_АВТОЗАП
+CREATE TRIGGER ВРЕМЯ_РЕГИСТРАЦИИ
 	AFTER INSERT ON ЛИЧНОСТЬ
     FOR EACH ROW EXECUTE PROCEDURE ВРЕМЯ_РЕГИСТРАЦИИ();
 
