@@ -1,8 +1,9 @@
 package com.gamers.Beans;
 
-import com.gamers.DAO.PersonDAO;
+import com.gamers.DAO.GenericDao;
 import com.gamers.Entities.Person;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,19 +18,19 @@ import javax.ws.rs.core.Response;
 public class HandlerBean {
 
 
-    private PersonDAO personDAO = new PersonDAO();
-    private Person person = new Person();
+    private GenericDao<Person, Long> personService = new GenericDao<>(Person.class);
+
 
     @GET
     @Path("main")
     public Response welcome(@Context HttpServletResponse resp, @Context HttpServletRequest req){
 
+        Person person = new Person();
 
-
-        person.setEmail("is3@it.working");
-        person.setNickname("testnickname3.5");
-        person.setPassword("mypassword");
-        personDAO.save(person);
+        person.setNickname("no criteria API");
+        person.setPassword("no criteria API");
+        person.setEmail("no criteria API");
+        personService.create(person);
 
         return  Response.status(Response.Status.OK).entity(person.getNickname()).build();
 
