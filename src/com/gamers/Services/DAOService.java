@@ -1,42 +1,42 @@
-package com.gamers.DAO;
+package com.gamers.Services;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 
-public class GenericDao<T, PK extends Serializable> implements DaoInterface<T, PK> {
-    private static final EntityManagerFactory ourFactory;
-    /*@PersistenceContext*/
-    /*private EntityManager entityManager;*/
+public class DAOService<T, PK extends Serializable> {
+
+    protected static EntityManagerFactory entityManagerFactory;
 
     private Class<T> type;
 
-    public GenericDao() {
+    public DAOService() {
     }
 
     static {
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
         try {
-            ourFactory = Persistence.createEntityManagerFactory("hibernate_manager");
+            entityManagerFactory = Persistence.createEntityManagerFactory("iad-unit");
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
     }
 
-    public GenericDao(Class <T> type) {
+    public DAOService(Class <T> type) {
         this.type=type;
     }
 
     public void finishWork() {
-        ourFactory.close();
+        entityManagerFactory.close();
     }
 
     protected EntityManager getEntityManager() {
-        return ourFactory.createEntityManager();
+        return entityManagerFactory.createEntityManager();
     }
 
     public void create(T entity) {
@@ -55,10 +55,14 @@ public class GenericDao<T, PK extends Serializable> implements DaoInterface<T, P
         entityManager.close();
     }
 
-    public T findById(PK id) {
+    public T findById(PK id) throws EntityNotFoundException {
         EntityManager entityManager = getEntityManager();
         T entity = entityManager.find(type, id);
+
         entityManager.close();
+        if (entity == null)
+            throw new EntityNotFoundException("No user with such id");
+
         return entity;
     }
 
@@ -71,8 +75,8 @@ public class GenericDao<T, PK extends Serializable> implements DaoInterface<T, P
         entityManager.close();
     }
 
-    @SuppressWarnings("unchecked")
-    public List<T> selectAll() {
+
+    public List<T> findAll() {
         EntityManager entityManager = getEntityManager();
         CriteriaQuery<T> criteria = entityManager.getCriteriaBuilder().createQuery(type);
         criteria.select(criteria.from(type));
@@ -84,11 +88,12 @@ public class GenericDao<T, PK extends Serializable> implements DaoInterface<T, P
     public void deleteAll() {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        List<T> entityList = selectAll();
+        List<T> entityList = findAll();
         for (T entity : entityList) {
             delete(entity);
         }
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+
 }

@@ -58,3 +58,12 @@ CREATE TRIGGER ВРЕМЯ_РЕГИСТРАЦИИ
 	AFTER INSERT ON ЛИЧНОСТЬ
     FOR EACH ROW EXECUTE PROCEDURE ВРЕМЯ_РЕГИСТРАЦИИ();
 
+
+
+CREATE OR REPLACE FUNCTION ГРУППА_ЛИЧНОСТИ_АВТОЗАП_ФУНК() RETURNS  TRIGGER AS $ГРУППА_ЛИЧНОСТИ_$
+		BEGIN
+		IF (TG_OP = 'INSERT') THEN
+					INSERT INTO ИНФО(ID)
+		END IF;
+
+$ГРУППА_ЛИЧНОСТИ_$ LANGUAGE plsql;
