@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+   <persistence-unit name="hibernate_manager">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>com.boatguys.entities.BaseBoat</class>
+        <class>com.boatguys.entities.Boat</class>
+        <class>com.boatguys.entities.BoatDimensions</class>
+        <class>com.boatguys.entities.Comment</class>
+        <class>com.boatguys.entities.Competition</class>
+        <class>com.boatguys.entities.Detail</class>
+        <class>com.boatguys.entities.ForumRecord</class>
+        <class>com.boatguys.entities.Message</class>
+        <class>com.boatguys.entities.Producer</class>
+        <class>com.boatguys.entities.Track</class>
+        <class>com.boatguys.entities.TuningService</class>
+        <class>com.boatguys.entities.TuningStudio</class>
+        <class>com.boatguys.entities.User</class>
+        <class>com.boatguys.entities.Group</class>
+        <class>com.boatguys.entities.ForumSection</class>
+        <class>com.boatguys.entities.ForumTopic</class>
+        <properties>
+             <!-- Database connection settings -->
+             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+             <property name="hibernate.connection.url" value="jdbc:postgresql://pg:5432/studs"/>
+             <property name="hibernate.connection.username" value="s1337228"/>
+             <property name="hibernate.connection.password" value=""/>
+              <!-- SQL dialect -->
+             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
+             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+        </properties>
+   </persistence-unit>
+</persistence>

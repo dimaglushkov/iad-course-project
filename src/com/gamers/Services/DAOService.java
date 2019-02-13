@@ -11,21 +11,13 @@ import java.util.logging.Level;
 
 public class DAOService<T, PK extends Serializable> {
 
-    protected static EntityManagerFactory entityManagerFactory;
+    private EntityManagerFactory entityManagerFactory = PersistenceManager.getInstance().getEntityManagerFactory();
 
     private Class<T> type;
 
     public DAOService() {
     }
 
-    static {
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
-        try {
-            entityManagerFactory = Persistence.createEntityManagerFactory("iad-unit");
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
 
     public DAOService(Class <T> type) {
         this.type=type;

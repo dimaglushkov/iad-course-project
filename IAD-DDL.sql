@@ -88,9 +88,11 @@ CREATE TABLE СООБЩЕНИЕ
 );
 
 
-CREATE TABLE PERSONGROUP
+CREATE TABLE ГРУППА_ЛИЧН
 (
-  ID INT PRIMARY KEY,
-  NICKNAME TEXT NOT NULL,
-  GROUPNAME TEXT NOT NULL
+  ИД_ГРУППА_ЛИЧН SERIAL PRIMARY KEY,
+  ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
+  ГРУППА TEXT
 );
+
+

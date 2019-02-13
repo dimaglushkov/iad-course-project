@@ -48,12 +48,12 @@ public class PersonService extends DAOService<Person, Long>{
         return person;
     }
 
-    public Person findByEmailAndPassword(String email, String password) throws EntityNotFoundException{
+    public Person findByNicknameAndPassword(String nickname, String password) throws EntityNotFoundException{
 
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE ЭЛ_ПОЧТА = '" + email + "' AND '" + password + "';", Person.class);
+        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND '" + password + "';", Person.class);
 
         Person person = (Person) query.getSingleResult();
 
@@ -61,7 +61,7 @@ public class PersonService extends DAOService<Person, Long>{
         entityManager.close();
 
         if (person == null)
-            throw new EntityNotFoundException("Bad login or password.");
+            throw new EntityNotFoundException("Bad login or password");
 
         return person;
     }

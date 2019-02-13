@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC
+        "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN"
+        "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<glassfish-web-app>
+    <class-loader delegate="false"/>
+    <jsp-config>
+        <property name="compilerSourceVM" value="6"/>
+        <property name="compilerTargetVM" value="6"/>
+    </jsp-config>
+
+    <security-role-mapping>
+        <role-name>users</role-name>
+        <group-name>users</group-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>administrators</role-name>
+        <group-name>administrators</group-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>moderators</role-name>
+        <group-name>moderators</group-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>banned-users</role-name>
+        <group-name>banned-users</group-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>producers</role-name>
+        <group-name>producers</group-name>
+    </security-role-mapping>
+
+    <parameter-encoding default-charset="UTF-8"/>
+
+
+</glassfish-web-app>

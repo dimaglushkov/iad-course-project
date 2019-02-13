@@ -1,5 +1,7 @@
 package com.gamers.Config;
 
+import com.gamers.Beans.PersonBean;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.Set;
@@ -23,7 +25,7 @@ public class AppConfig extends Application {
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
 
-        resources.add(com.gamers.Beans.UserBean.class);
+        resources.add(PersonBean.class);
 
 
     }

@@ -1,5 +1,8 @@
 package com.gamers.Entities;
 
+import org.hibernate.annotations.Cascade;
+
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.List;
 import javax.persistence.*;
@@ -23,6 +26,18 @@ public class Person
     @Column(name="ХЕШ_ПАРОЛЬ", columnDefinition = "TEXT UNIQUE NOT NULL")
     private String password;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ИД_ЛИЧНОСТЬ")
+    private Set<Group> groups = new LinkedHashSet<>();
+
+    public Person() {}
+
+    public Person(String nickname, String email, String password, String groupname) {
+        this.nickname = nickname;
+        this.email = email;
+        this.password = password;
+        addGroup(new Group(groupname));
+    }
 
     public long getId() {
         return id;
@@ -56,9 +71,14 @@ public class Person
         this.password = password;
     }
 
+    public Set<Group> getGroups()
+    {
+        return groups;
+    }
 
-
-
-    public Person() {}
+    public void addGroup(Group group)
+    {
+        this.groups.add(group);
+    }
 
 }
