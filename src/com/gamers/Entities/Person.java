@@ -31,6 +31,10 @@ public class Person implements Serializable
     @JoinColumn(name = "НИКНЕЙМ", referencedColumnName = "НИКНЕЙМ")
     private Set<Group> groups = new LinkedHashSet<>();
 
+    @OneToOne
+    @JoinColumn(name = "ИД_ЛИЧНОСТЬ", referencedColumnName = "ИД_ЛИЧНОСТЬ")
+    private Info info;
+
     public Person() {}
 
     public Person(String nickname, String email, String password, String groupname) {
@@ -39,6 +43,8 @@ public class Person implements Serializable
         this.password = password;
         addGroup(new Group(groupname));
     }
+
+
 
     public long getId() {
         return id;
@@ -80,6 +86,18 @@ public class Person implements Serializable
     public void addGroup(Group group)
     {
         this.groups.add(group);
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
+    }
+
+    public Info getInfo() {
+        return info;
+    }
+
+    public void setInfo(Info info) {
+        this.info = info;
     }
 
 }

@@ -1,12 +1,8 @@
 package com.gamers.Beans;
 
-import com.gamers.Entities.Group;
-import com.gamers.Entities.PersonsGame;
-import com.gamers.Services.DAOService;
 import com.gamers.Entities.Person;
 import com.gamers.Services.PersonService;
 
-import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +10,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Stateless
 @Path("/user")

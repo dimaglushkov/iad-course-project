@@ -8,18 +8,17 @@
         <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
 
-    <!--
     <session-config>
-        <session-timeout> 300 </session-timeout>
+        <session-timeout> 20 </session-timeout>
     </session-config>
-    -->
+
 
     <servlet>
-        <servlet-name>com.gamers.Config.AppRoot</servlet-name>
+        <servlet-name>com.gamers.AppRoot</servlet-name>
 
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>com.gamers.Config.AppRoot</param-value>
+            <param-value>com.gamers.AppRoot</param-value>
         </init-param>
 
         <!--
@@ -43,7 +42,6 @@
     <security-role>
         <role-name>user</role-name>
     </security-role>
-    <!--
     <security-role>
         <role-name>admin</role-name>
     </security-role>
@@ -53,7 +51,6 @@
     <security-role>
         <role-name>banned-user</role-name>
     </security-role>
-    -->
 
     <security-constraint>
         <display-name>Constraint1</display-name>
@@ -65,7 +62,7 @@
         <auth-constraint>
             <description/>
             <role-name>user</role-name>
-            <!--<role-name>admin</role-name>-->
+            <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
 

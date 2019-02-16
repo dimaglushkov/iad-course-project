@@ -33,8 +33,7 @@ public class RegistrationBean implements Registration, Serializable {
         Group group = new Group("user");
         person.setEmail(email);
         person.setNickname(nickname);
-        person.setPassword(password);
-        //person.setPassword(SHA256(password));
+        person.setPassword( SHA256(password) );
         person.addGroup(group);
         personService.create(person);
 

@@ -1,4 +1,4 @@
-package com.gamers.Config;
+package com.gamers;
 
 import com.gamers.Beans.PersonBean;
 
