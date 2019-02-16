@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+
+<body>
+<script>
+    function check() {
+        var username =  document.getElementById('user').value ;
+        var pass =  document.getElementById('pass').value ;
+        var name1 =  document.getElementById('name').value ;
+        var error = '';
+
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (username === null || username.length < 1) {
+            error = 'Необходимо ввести имя пользователя.';
+            document.getElementById('error').innerHTML = error;
+            event.preventDefault();
+            return;
+        }
+        else {
+            if (reg.test(username) === false  & username.length >
+                1 & username != null){
+                error = 'Необходимо ввести имя пользователя в формате email';
+                document.getElementById('error').innerHTML = error;
+                event.preventDefault();
+                return;
+            }
+        }
+        if (pass === null || pass.length < 1) {
+            error ='Необходимо ввести пароль.';
+            document.getElementById('error').innerHTML = error;
+            event.preventDefault();
+            return;
+        }
+        if (mame1 === null || name1.length < 1) {
+            error ='Необходимо ввести имя.';
+            document.getElementById('error').innerHTML = error;
+            event.preventDefault();
+            return;
+        }
+
+
+    }
+</script>
+<div id="background-img"></div>
+<div>
+    <div id="main">
+
+        <div id="header">
+            <div > регистрация </div>
+        </div>
+
+        <div id="all">
+            <form action="api/registration/new" onsubmit="check()" method=post>
+                <b>Регистрация</b><br />
+                <p><strong>Введите email: </strong><br/>
+                    <input type="text"  id="user" name="email" size="25">
+                <p><p><strong>Введите пароль: </strong><br/>
+                <input type="password" size="25" id="pass" name="password">
+                <p><p><strong>Введите имя: </strong><br/>
+                <input type="text" size="25" id="name" name="name">
+                <p><p>
+                <input type="submit" value="Зарегистрироваться"  class="superbuttonr" onclick="check()" >
+                <input type="reset" value="Очистить"  class="superbutton" >
+            </form>
+
+            <p id="error"></p>
+            <div class="button-item">
+                <a href="welcomePage.html" class="btn-2">Авторизация</a></div>
+        </div>
+        <div id="footer">
+            <div id="bot">
+                <div id="bottomhead">
+                    @ test
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

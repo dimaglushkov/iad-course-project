@@ -37,14 +37,14 @@ public class PersonBean {
     @Path("main")
     public Response welcome(@Context HttpServletResponse resp, @Context HttpServletRequest req){
 
-        Person pers = new Person();
+        /*Person pers = new Person();
         Group group = new Group("user");
         pers.setEmail("testemail2");
         pers.setNickname("testname2");
         pers.setPassword("testpass2");
         pers.addGroup(group);
 
-        personService.create(pers);
+        personService.create(pers);*/
 
         Person person = personService.findByNickname("testname2");
 

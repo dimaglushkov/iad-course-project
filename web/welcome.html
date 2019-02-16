@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Welcome page</title>
+
+</head>
+<body>
+<script>
+    function check() {
+        var username =  document.getElementById('user').value ;
+        var pass =  document.getElementById('pass').value ;
+        var error = '';
+
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (username === null || username.length < 1) {
+            error = 'Необходимо ввести имя пользователя.';
+            document.getElementById('error').innerHTML = error;
+            event.preventDefault();
+            return;
+        }
+        else {
+            if (reg.test(username) === false  & username.length >
+                1 & username != null){
+                error = 'Необходимо ввести имя пользователя в формате email';
+                document.getElementById('error').innerHTML = error;
+                event.preventDefault();
+                return;
+            }
+        }
+        if (pass === null || pass.length < 1) {
+            error ='Необходимо ввести пароль.';
+            document.getElementById('error').innerHTML = error;
+            event.preventDefault();
+            return;
+        }
+
+    }
+</script>
+<div id="background-img"></div>
+<div>
+    <div id="main">
+
+        <div id="header">
+            <div > Auth<br/>
+                auth</div>
+        </div>
+
+        <div id="all">
+            <form action="j_security_check" method=post>
+                <b>Авторизация</b><br />
+                <p><strong>Введите email: </strong><br/>
+                    <input type="text"  id="user" name="j_username" size="25">
+                <p><p><strong>Введите пароль: </strong><br/>
+                <input type="password" size="25" id="pass" name="j_password">
+                <p><p>
+                <input type="submit" value="Войти"  class="superbutton"  onclick="check()">
+                <input type="reset" value="Очистить"  class="superbutton" >
+            </form>
+
+            <p id="error"></p>
+            <div class="button-item">
+                <a href="registration.html" class="btn-2">Регистрация</a></div>
+        </div>
+        <div id="footer">
+            <div id="bot">
+                <div id="bottomhead">
+                    @ test-version
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
