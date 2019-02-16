@@ -8,9 +8,11 @@
         <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
 
+    <!--
     <session-config>
-        <session-timeout> 500 </session-timeout>
+        <session-timeout> 300 </session-timeout>
     </session-config>
+    -->
 
     <servlet>
         <servlet-name>com.gamers.Config.AppRoot</servlet-name>
@@ -20,86 +22,52 @@
             <param-value>com.gamers.Config.AppRoot</param-value>
         </init-param>
 
+        <!--
         <init-param>
             <param-name>jersey.config.server.provider.classnames</param-name>
             <param-value>org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
         </init-param>
+        -->
     </servlet>
 
     <!-- SECURITY -->
     <login-config>
     <auth-method>FORM </auth-method>
-        <realm-name>jdbcRealm</realm-name>
+        <realm-name>JDBCRealm</realm-name>
         <form-login-config>
             <form-login-page>/welcome.html</form-login-page>
-            <form-error-page>/welcome.html</form-error-page>
+            <form-error-page>/error.html</form-error-page>
         </form-login-config>
     </login-config>
 
     <security-role>
-        <role-name>users</role-name>
+        <role-name>user</role-name>
+    </security-role>
+    <!--
+    <security-role>
+        <role-name>admin</role-name>
     </security-role>
     <security-role>
-        <role-name>administrators</role-name>
+        <role-name>moderator</role-name>
     </security-role>
     <security-role>
-        <role-name>moderators</role-name>
+        <role-name>banned-user</role-name>
     </security-role>
-    <security-role>
-        <role-name>banned-users</role-name>
-    </security-role>
-    <security-role>
-        <role-name>producers</role-name>
-    </security-role>
+    -->
 
     <security-constraint>
         <display-name>Constraint1</display-name>
         <web-resource-collection>
             <web-resource-name>secrets</web-resource-name>
             <description/>
-            <url-pattern>/index.html</url-pattern>
+            <url-pattern>/secret.html</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
-            <role-name>users</role-name>
-            <role-name>administrators</role-name>
-            <!--<role-name>moderators</role-name> -->
+            <role-name>user</role-name>
+            <!--<role-name>admin</role-name>-->
         </auth-constraint>
     </security-constraint>
-
-    <security-constraint>
-        <display-name>Constraint</display-name>
-        <web-resource-collection>
-            <web-resource-name>drg</web-resource-name>
-            <description/>
-            <url-pattern>/</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <description/>
-            <role-name>users</role-name>
-            <role-name>administrators</role-name>
-            <!--<role-name>moderators</role-name> -->
-        </auth-constraint>
-    </security-constraint>
-
-    <security-constraint>
-        <display-name>Constraint2</display-name>
-        <web-resource-collection>
-            <web-resource-name>register</web-resource-name>
-            <description/>
-            <url-pattern>/registration.html</url-pattern>
-        </web-resource-collection>
-    </security-constraint>
-
-    <security-constraint>
-        <display-name>Constraint233</display-name>
-        <web-resource-collection>
-            <web-resource-name>registrnew</web-resource-name>
-            <description/>
-            <url-pattern>/api/registration/new</url-pattern>
-        </web-resource-collection>
-    </security-constraint>
-
 
 
 

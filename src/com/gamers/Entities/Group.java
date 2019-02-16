@@ -1,11 +1,13 @@
 package com.gamers.Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "ГРУППА_ЛИЧН")
-public class Group {
+public class Group implements Serializable
+{
 
     @Id
     @Column(name ="ИД_ГРУППА_ЛИЧН", columnDefinition = "SERIAL")
@@ -16,9 +18,8 @@ public class Group {
     private String groupName;
 
     @ManyToOne
-    @JoinColumn(name = "ИД_ЛИЧНОСТЬ", referencedColumnName = "ИД_ЛИЧНОСТЬ", nullable = false)
+    @JoinColumn(name = "НИКНЕЙМ", referencedColumnName = "НИКНЕЙМ", nullable = false)
     private Person person;
-
 
     public long getId() {
         return id;
@@ -36,8 +37,7 @@ public class Group {
         this.person = person;
     }
 
-    public Group()
-    {
+    public Group(){
     }
 
     public Group(String groupName)

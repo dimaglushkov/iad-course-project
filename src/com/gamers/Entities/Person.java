@@ -2,6 +2,7 @@ package com.gamers.Entities;
 
 import org.hibernate.annotations.Cascade;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.List;
@@ -10,7 +11,7 @@ import javax.persistence.GeneratedValue;
 
 @Entity
 @Table(name="ЛИЧНОСТЬ")
-public class Person
+public class Person implements Serializable
 {
     @Id
     @Column(name="ИД_ЛИЧНОСТЬ", columnDefinition = "SERIAL")
@@ -27,7 +28,7 @@ public class Person
     private String password;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ИД_ЛИЧНОСТЬ")
+    @JoinColumn(name = "НИКНЕЙМ", referencedColumnName = "НИКНЕЙМ")
     private Set<Group> groups = new LinkedHashSet<>();
 
     public Person() {}

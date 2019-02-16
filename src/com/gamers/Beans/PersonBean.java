@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Stateless
-@Path("/")
+@Path("/user")
 //@Local(PersonBean.class)
 //@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class PersonBean {
@@ -46,14 +46,14 @@ public class PersonBean {
 
         personService.create(pers);*/
 
-        Person person = personService.findByNickname("testname2");
+        Person person = personService.findByNickname("root");
 
         return  Response.status(Response.Status.OK).entity(person.getEmail()).build();
 
     }
 
     @GET
-    @Path("")
+    @Path("hello")
     public Response testing(@Context HttpServletResponse resp, @Context HttpServletRequest req){
         return  Response.status(Response.Status.OK).entity("Hello!").build();
     }

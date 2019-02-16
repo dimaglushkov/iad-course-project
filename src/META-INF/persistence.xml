@@ -8,9 +8,9 @@
 
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.connection.url" value="jdbc:postgresql://pg:5432/studs"/>
-            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/studs"/>-->
+            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://pg:5432/studs"/>-->
             <property name="hibernate.connection.username" value="s269331"/>
-            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.connection.password" value="zmg269"/>
 
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>

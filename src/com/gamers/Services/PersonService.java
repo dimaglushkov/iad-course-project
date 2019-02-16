@@ -53,7 +53,7 @@ public class PersonService extends DAOService<Person, Long>{
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND '" + password + "';", Person.class);
+        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND ХЕШ_ПАРОЛЬ = '" + password + "';", Person.class);
 
         Person person = (Person) query.getSingleResult();
 

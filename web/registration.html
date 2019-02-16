@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<!--
 <script>
     function check() {
         var username =  document.getElementById('user').value ;
@@ -44,7 +45,7 @@
 
 
     }
-</script>
+</script>-->
 <div id="background-img"></div>
 <div>
     <div id="main">
@@ -56,12 +57,12 @@
         <div id="all">
             <form action="api/registration/new" onsubmit="check()" method=post>
                 <b>Регистрация</b><br />
-                <p><strong>Введите email: </strong><br/>
-                    <input type="text"  id="user" name="email" size="25">
+                <p><strong>nickname: </strong><br/>
+                    <input type="text"  id="nickname" name="nickname" size="25">
                 <p><p><strong>Введите пароль: </strong><br/>
-                <input type="password" size="25" id="pass" name="password">
-                <p><p><strong>Введите имя: </strong><br/>
-                <input type="text" size="25" id="name" name="name">
+                <input type="password" size="25" id="password" name="password">
+                <p><p><strong>email </strong><br/>
+                <input type="text" size="25" id="email" name="email">
                 <p><p>
                 <input type="submit" value="Зарегистрироваться"  class="superbuttonr" onclick="check()" >
                 <input type="reset" value="Очистить"  class="superbutton" >
@@ -69,7 +70,7 @@
 
             <p id="error"></p>
             <div class="button-item">
-                <a href="welcomePage.html" class="btn-2">Авторизация</a></div>
+                <a href="welcome.html" class="btn-2">Авторизация</a></div>
         </div>
         <div id="footer">
             <div id="bot">
