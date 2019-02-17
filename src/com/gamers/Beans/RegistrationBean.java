@@ -1,10 +1,8 @@
 package com.gamers.Beans;
 
 import com.gamers.Entities.Group;
-import com.gamers.Entities.Message;
 import com.gamers.Entities.Person;
-import com.gamers.Services.PersonService;
-import com.google.common.hash.Hashing;
+import com.gamers.DAO.PersonDAO;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -20,7 +18,7 @@ import java.security.MessageDigest;
 @Local(Registration.class)
 public class RegistrationBean implements Registration, Serializable {
 
-    private PersonService personService = new PersonService();
+    private PersonDAO personDAO = new PersonDAO();
 
     @POST
     @Path("/new")
@@ -35,7 +33,7 @@ public class RegistrationBean implements Registration, Serializable {
         person.setNickname(nickname);
         person.setPassword( SHA256(password) );
         person.addGroup(group);
-        personService.create(person);
+        personDAO.create(person);
 
     }
 

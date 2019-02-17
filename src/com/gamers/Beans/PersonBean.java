@@ -1,8 +1,10 @@
 package com.gamers.Beans;
 
 import com.gamers.Entities.Person;
-import com.gamers.Services.PersonService;
+import com.gamers.DAO.PersonDAO;
 
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,32 +19,18 @@ import javax.ws.rs.core.Response;
 //@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class PersonBean {
 
-    //TODO: авторизация и security
-    //TODO: подключить модули angular
-    //TODO: jms - какая то логика
-    //TODO: продумать функционал
-    //TODO: продумать апи
-    //TODO: дописать дао-сервисы
-    //TODO: дописать бины
-    //TODO: дописать фронт
+    @Resource
+    private SessionContext context;
+    private Person currentPerson;
 
-    private PersonService personService = new PersonService();
+
+    private PersonDAO personDAO = new PersonDAO();
 
     @GET
     @Path("main")
     public Response welcome(@Context HttpServletResponse resp, @Context HttpServletRequest req){
 
-        /*Person pers = new Person();
-        Group group = new Group("user");
-        pers.setEmail("testemail2");
-        pers.setNickname("testname2");
-        pers.setPassword("testpass2");
-        pers.addGroup(group);
-
-        personService.create(pers);*/
-
-        Person person = personService.findByNickname("root");
-
+        Person person = personDAO.findByNickname("root");
         return  Response.status(Response.Status.OK).entity(person.getEmail()).build();
 
     }
@@ -51,6 +39,16 @@ public class PersonBean {
     @Path("hello")
     public Response testing(@Context HttpServletResponse resp, @Context HttpServletRequest req){
         return  Response.status(Response.Status.OK).entity("Hello!").build();
+    }
+
+    @GET
+    @Path("test")
+    public Response test(@Context HttpServletResponse resp, @Context HttpServletRequest req){
+
+        currentPerson = personDAO.findByNickname(context.getCallerPrincipal().getName());
+        String response = currentPerson.getNickname();
+        return  Response.status(Response.Status.OK).entity(response).build();
+
     }
 
 

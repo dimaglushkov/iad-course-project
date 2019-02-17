@@ -1,4 +1,4 @@
-package com.gamers.Services;
+package com.gamers.DAO;
 
 import com.gamers.Entities.Person;
 
@@ -6,9 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 
-public class PersonService extends DAOService<Person, Long>{
+public class PersonDAO extends DAOService<Person, Long>{
 
-    public PersonService(){
+    public PersonDAO(){
         super(Person.class);
     }
 

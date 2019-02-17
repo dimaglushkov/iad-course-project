@@ -1,9 +1,7 @@
-package com.gamers.Services;
+package com.gamers.DAO;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PersistenceManager 
 {    

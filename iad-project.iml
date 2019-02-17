@@ -51,5 +51,7 @@
     <orderEntry type="library" name="org.postgresql:postgresql:42.2.5" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="glassfish-embedded-all-4.1.2" level="project" />
+    <orderEntry type="library" name="com.rabbitmq.jms:rabbitmq-jms:1.11.1" level="project" />
+    <orderEntry type="library" name="com.rabbitmq:amqp-client:5.5.2" level="project" />
   </component>
 </module>
