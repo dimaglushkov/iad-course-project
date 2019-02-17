@@ -5,7 +5,7 @@
          version="4.0">
 
     <welcome-file-list>
-        <welcome-file>/index.html</welcome-file>
+        <welcome-file>src/index.html</welcome-file>
     </welcome-file-list>
 
     <session-config>
@@ -34,7 +34,7 @@
     <auth-method>FORM </auth-method>
         <realm-name>JDBCRealm</realm-name>
         <form-login-config>
-            <form-login-page>/welcome.html</form-login-page>
+            <form-login-page>/src/app/login-page/login-page.component.html</form-login-page>
             <form-error-page>/error.html</form-error-page>
         </form-login-config>
     </login-config>

@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="center" (ngSubmit)="onSubmit()" method="post">
+<form [formGroup]="form" class="center" (ngSubmit)="onSubmit()" method="post" action="j_security_check">
     <div class="container">
       <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
@@ -12,15 +12,14 @@
           <div class='row'>
             <div class='input-field col s12'>
               <input 
-              formControlName="nickname" 
+              formControlName="nickname"
               class='validate' 
               type='text' 
-              name='text' 
+              name='j_username'
               id='login' 
               placeholder="Введите ваш Nickname"
               [ngClass]="{'invalid':form.get('nickname').invalid && form.get('nickname').touched}" />
-              <label for='email'></label>
-              <span class="helper-text red-text" 
+              <span class="helper-text red-text"
               *ngIf="form.get('nickname').invalid && form.get('nickname').touched">Минимальный размер никнейма - 5 символов</span>
             </div>
           </div>
@@ -31,7 +30,7 @@
               formControlName="password" 
               class='validate' 
               type='password' 
-              name='password' 
+              name='j_password'
               id='password' 
               placeholder="Введите пароль"
               [ngClass]="{'invalid':form.get('password').invalid && form.get('password').touched}" />
