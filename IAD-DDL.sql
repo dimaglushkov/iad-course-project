@@ -91,8 +91,14 @@ CREATE TABLE СООБЩЕНИЕ
 CREATE TABLE ГРУППА_ЛИЧН
 (
   ИД_ГРУППА_ЛИЧН SERIAL PRIMARY KEY,
-  ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
+  НИКНЕЙМ TEXT,
   ГРУППА TEXT
 );
 
-
+CREATE TABLE ЖАЛОБА
+(
+  ИД_ЖАЛОБА SERIAL PRIMARY KEY,
+  ИД_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
+  ТЕМА TEXT NOT NULL,
+  ОПИСАНИЕ TEXT NOT NULL
+);

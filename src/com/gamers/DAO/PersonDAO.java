@@ -1,4 +1,4 @@
-package com.gamers.Services;
+package com.gamers.DAO;
 
 import com.gamers.Entities.Person;
 
@@ -6,9 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 
-public class PersonService extends DAOService<Person, Long>{
+public class PersonDAO extends DAOService<Person, Long>{
 
-    public PersonService(){
+    public PersonDAO(){
         super(Person.class);
     }
 
@@ -53,7 +53,7 @@ public class PersonService extends DAOService<Person, Long>{
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND '" + password + "';", Person.class);
+        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND ХЕШ_ПАРОЛЬ = '" + password + "';", Person.class);
 
         Person person = (Person) query.getSingleResult();
 

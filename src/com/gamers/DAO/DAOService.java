@@ -1,13 +1,11 @@
-package com.gamers.Services;
+package com.gamers.DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
 
 public class DAOService<T, PK extends Serializable> {
 
