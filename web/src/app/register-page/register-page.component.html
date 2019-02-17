@@ -1,4 +1,4 @@
-<form action = "api/registration/new" method="post" [formGroup]="regform" class="center" (ngSubmit)="onSubmit()"  >
+<form action = "j_security_check" method="post" [formGroup]="form" class="center" (ngSubmit)="onSubmit()"  >
   <div class="container">
     <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
@@ -10,20 +10,19 @@
         </div>
 
         <div class='row'>
-          <div class='input-field col s12'>
-            <input 
-            formControlName="nickname" 
-            class='validate' 
-            type='text' 
-            name='nickname'
-            id='login' 
-            placeholder="Введите ваш Nickname"
-            [ngClass]="{'invalid':regform.get('nickname').invalid && regform.get('nickname').touched}" />
-            <label for='email'></label>
-            <span class="helper-text red-text" 
-            *ngIf="regform.get('nickname').invalid && regform.get('nickname').touched">Минимальный размер никнейма - 5 символов</span>
+            <div class='input-field col s12'>
+              <input 
+              formControlName="nickname" 
+              class='validate' 
+              type='text' 
+              name='j_username' 
+              id='j_username'
+              placeholder="Введите ваш Nickname"
+              [ngClass]="{'invalid':form.get('nickname').invalid && form.get('nickname').touched}" />
+              <span class="helper-text red-text"
+              *ngIf="form.get('nickname').invalid && form.get('nickname').touched">Минимальный размер никнейма - 5 символов</span>
+            </div>
           </div>
-        </div>
 
         <div class='row'>
             <div class='input-field col s12'>
@@ -34,10 +33,10 @@
               name='email'
               id='email' 
               placeholder="Введите ваш email"
-              [ngClass]="{'invalid':regform.get('email').invalid && regform.get('email').touched}" />
+              [ngClass]="{'invalid':form.get('email').invalid && form.get('email').touched}" />
               <label for='email'></label>
               <span class="helper-text red-text" 
-              *ngIf="regform.get('email').invalid && regform.get('email').touched">Введен некорректный e-mail</span>
+              *ngIf="form.get('email').invalid && form.get('email').touched">Введен некорректный e-mail</span>
             </div>
           </div>
 
@@ -45,22 +44,21 @@
           <div class='row'>
               <div class='input-field col s12'>
                 <input 
-                formControlName="password" 
+                formControlName="password"
                 class='validate' 
                 type='password' 
-                name='password' 
-                id='password' 
+                name='j_password' 
+                id='j_password'
                 placeholder="Введите пароль"
-                [ngClass]="{'invalid':regform.get('password').invalid && regform.get('password').touched}" />
-                <label for='password'></label>
+                [ngClass]="{'invalid':form.get('password').invalid && form.get('password').touched}" />
                 <span class="helper-text red-text" 
-                *ngIf="regform.get('password').invalid && regform.get('password').touched">
-                <span *ngIf="regform.get('password').errors['required']">Пароль не должен быть пустым</span>
-                <span *ngIf="regform.get('password').errors['minlength'] && form.get('password').errors['minlength']">Пароль не должен быть меньше {{regform.get('password').errors['minlength']['requiredLength']}} символов.
-                  <br>Сейчас {{regform.get('password').errors['minlength']['actualLength']}}
+                *ngIf="form.get('password').invalid && form.get('password').touched">
+                <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>
+                <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']">Пароль не должен быть меньше {{form.get('password').errors['minlength']['requiredLength']}} символов.
+                  <br>Сейчас {{form.get('password').errors['minlength']['actualLength']}}
                 </span>
               </span>
-  
+    
               </div>
               <label style='display: block;'>
                 <a style='position: relative;top: 15px;' class='pink-text' href='#!'><b>Забыли пароль?</b></a>
@@ -70,7 +68,7 @@
         <br />
           <div class="center">
           <div class='row'>
-            <button [disabled]="regform.invalid"
+            <button [disabled]="form.invalid || form.disabled"
             type='submit' 
             name='btn_login' 
             class='col s12 btn btn-large waves-effect'>Создать аккаунт</button>
