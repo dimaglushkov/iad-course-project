@@ -13,7 +13,7 @@ export class AuthService {
     }
 
     register(user: NewUser): Observable<{token: string}> {
-        return this.http.post<{token: string}>('j_security_check', user)
+        return this.http.post<{token: string}>('api/registration/new', user)
     }
 
     login(user: User): Observable<{token: string}> {
