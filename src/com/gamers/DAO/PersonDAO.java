@@ -5,6 +5,7 @@ import com.gamers.Entities.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
+import java.util.List;
 
 public class PersonDAO extends DAOService<Person, Long>{
 
@@ -64,6 +65,25 @@ public class PersonDAO extends DAOService<Person, Long>{
             throw new EntityNotFoundException("Bad login or password");
 
         return person;
+    }
+
+    public List<Person> findByGroupName(String groupname) throws  EntityNotFoundException{
+        EntityManager entityManager = getEntityManager();
+        entityManager.getTransaction().begin();
+
+        Query query = entityManager.createNativeQuery(
+                "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
+                "FROM ЛИЧНОСТЬ " +
+                "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
+                "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
+
+        List<Person> persons = query.getResultList();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+
+        return persons;
     }
 
 

@@ -12,6 +12,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Stateless
 @Path("/user")
@@ -45,9 +46,17 @@ public class PersonBean {
     @Path("test")
     public Response test(@Context HttpServletResponse resp, @Context HttpServletRequest req){
 
-        currentPerson = personDAO.findByNickname(context.getCallerPrincipal().getName());
-        String response = currentPerson.getNickname();
-        return  Response.status(Response.Status.OK).entity(response).build();
+        StringBuilder result = new StringBuilder("admins: ");
+        List<Person> personList = personDAO.findByGroupName("admin");
+
+        for (Person person : personList) {
+            currentPerson = person;
+            result.append(currentPerson.getNickname());
+        }
+
+        /*currentPerson = personDAO.findByNickname(context.getCallerPrincipal().getName());
+        String response = currentPerson.getNickname();*/
+        return  Response.status(Response.Status.OK).entity(result.toString()).build();
 
     }
 
