@@ -11,5 +11,4 @@ public interface Registration
                   String password,
                   String name);
 
-
 }
