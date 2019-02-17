@@ -26,7 +26,7 @@ public class PersistenceManager
     }
     
     public void closeEntityManagerFactory()
-     {
+    {
       if (entityManagerFactory != null) 
       {
         entityManagerFactory.close();

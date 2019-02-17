@@ -13,10 +13,6 @@
         <group-name>admin</group-name>
     </security-role-mapping>
     <security-role-mapping>
-        <role-name>moderator</role-name>
-        <group-name>moderator</group-name>
-    </security-role-mapping>
-    <security-role-mapping>
         <role-name>banned-user</role-name>
         <group-name>banned-user</group-name>
     </security-role-mapping>

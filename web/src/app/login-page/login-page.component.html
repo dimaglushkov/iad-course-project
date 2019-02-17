@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="center" (ngSubmit)="onSubmit()" method="post" action="j_security_check">
+<form [formGroup]="form" action="j_security_check" class="center" (ngSubmit)="onSubmit()" method="post" >
   <div class="container">
     <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
@@ -16,11 +16,10 @@
             class='validate' 
             type='text' 
             name='j_username' 
-            id='login' 
+            id='j_username'
             placeholder="Введите ваш Nickname"
             [ngClass]="{'invalid':form.get('nickname').invalid && form.get('nickname').touched}" />
-            <label for='email'></label>
-            <span class="helper-text red-text" 
+            <span class="helper-text red-text"
             *ngIf="form.get('nickname').invalid && form.get('nickname').touched">Минимальный размер никнейма - 5 символов</span>
           </div>
         </div>
@@ -28,14 +27,13 @@
         <div class='row'>
           <div class='input-field col s12'>
             <input 
-            formControlName="password" 
+            formControlName="password"
             class='validate' 
             type='password' 
             name='j_password' 
-            id='password' 
+            id='j_password'
             placeholder="Введите пароль"
             [ngClass]="{'invalid':form.get('password').invalid && form.get('password').touched}" />
-            <label for='password'></label>
             <span class="helper-text red-text" 
             *ngIf="form.get('password').invalid && form.get('password').touched">
             <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>

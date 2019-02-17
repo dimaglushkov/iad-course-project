@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   }
   onSubmit(){
     this.auth.login(this.form.value).subscribe(
-      () => console.log('Login succes'),
+      () => console.log('Login success'),
       error => {
         console.warn(error);
       }

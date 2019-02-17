@@ -1,4 +1,4 @@
-<form [formGroup]="regform" class="center" (ngSubmit)="onSubmit()" method="post" action="api/registration/new">
+<form action = "api/registration/new" method="post" [formGroup]="regform" class="center" (ngSubmit)="onSubmit()"  >
   <div class="container">
     <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
@@ -15,7 +15,7 @@
             formControlName="nickname" 
             class='validate' 
             type='text' 
-            name='text' 
+            name='nickname'
             id='login' 
             placeholder="Введите ваш Nickname"
             [ngClass]="{'invalid':regform.get('nickname').invalid && regform.get('nickname').touched}" />
@@ -31,9 +31,9 @@
               formControlName="email" 
               class='validate' 
               type='email' 
-              name='text' 
+              name='email'
               id='email' 
-              placeholder="Введите ваш Nickname"
+              placeholder="Введите ваш email"
               [ngClass]="{'invalid':regform.get('email').invalid && regform.get('email').touched}" />
               <label for='email'></label>
               <span class="helper-text red-text" 
