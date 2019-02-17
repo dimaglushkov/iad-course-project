@@ -1,82 +1,82 @@
-<form [formGroup]="regform" class="center" (ngSubmit)="onSubmit()" method="post">
-    <div class="container">
-      <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+<form [formGroup]="regform" class="center" (ngSubmit)="onSubmit()" method="post" action="api/registration/new">
+  <div class="container">
+    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-        <div class="col s12" >
-          <div class='row'>
-            <div class='col s12'>
-              <h4>Создать аккаунт</h4>
-            </div>
+      <div class="col s12" >
+        <div class='row'>
+          <div class='col s12'>
+            <h4>Создать аккаунт</h4>
           </div>
+        </div>
 
-          <div class='row'>
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input 
+            formControlName="nickname" 
+            class='validate' 
+            type='text' 
+            name='text' 
+            id='login' 
+            placeholder="Введите ваш Nickname"
+            [ngClass]="{'invalid':regform.get('nickname').invalid && regform.get('nickname').touched}" />
+            <label for='email'></label>
+            <span class="helper-text red-text" 
+            *ngIf="regform.get('nickname').invalid && regform.get('nickname').touched">Минимальный размер никнейма - 5 символов</span>
+          </div>
+        </div>
+
+        <div class='row'>
             <div class='input-field col s12'>
               <input 
-              formControlName="nickname" 
+              formControlName="email" 
               class='validate' 
-              type='text' 
+              type='email' 
               name='text' 
-              id='login' 
+              id='email' 
               placeholder="Введите ваш Nickname"
-              [ngClass]="{'invalid':regform.get('nickname').invalid && regform.get('nickname').touched}" />
+              [ngClass]="{'invalid':regform.get('email').invalid && regform.get('email').touched}" />
               <label for='email'></label>
               <span class="helper-text red-text" 
-              *ngIf="regform.get('nickname').invalid && regform.get('nickname').touched">Минимальный размер никнейма - 5 символов</span>
+              *ngIf="regform.get('email').invalid && regform.get('email').touched">Введен некорректный e-mail</span>
             </div>
           </div>
+
 
           <div class='row'>
               <div class='input-field col s12'>
                 <input 
-                formControlName="email" 
+                formControlName="password" 
                 class='validate' 
-                type='email' 
-                name='text' 
-                id='email' 
-                placeholder="Введите ваш Nickname"
-                [ngClass]="{'invalid':regform.get('email').invalid && regform.get('email').touched}" />
-                <label for='email'></label>
+                type='password' 
+                name='password' 
+                id='password' 
+                placeholder="Введите пароль"
+                [ngClass]="{'invalid':regform.get('password').invalid && regform.get('password').touched}" />
+                <label for='password'></label>
                 <span class="helper-text red-text" 
-                *ngIf="regform.get('email').invalid && regform.get('email').touched">Введен некорректный e-mail</span>
-              </div>
-            </div>
-
-
-            <div class='row'>
-                <div class='input-field col s12'>
-                  <input 
-                  formControlName="password" 
-                  class='validate' 
-                  type='password' 
-                  name='password' 
-                  id='password' 
-                  placeholder="Введите пароль"
-                  [ngClass]="{'invalid':regform.get('password').invalid && regform.get('password').touched}" />
-                  <label for='password'></label>
-                  <span class="helper-text red-text" 
-                  *ngIf="regform.get('password').invalid && regform.get('password').touched">
-                  <span *ngIf="regform.get('password').errors['required']">Пароль не должен быть пустым</span>
-                  <span *ngIf="regform.get('password').errors['minlength'] && form.get('password').errors['minlength']">Пароль не должен быть меньше {{regform.get('password').errors['minlength']['requiredLength']}} символов.
-                    <br>Сейчас {{regform.get('password').errors['minlength']['actualLength']}}
-                  </span>
+                *ngIf="regform.get('password').invalid && regform.get('password').touched">
+                <span *ngIf="regform.get('password').errors['required']">Пароль не должен быть пустым</span>
+                <span *ngIf="regform.get('password').errors['minlength'] && form.get('password').errors['minlength']">Пароль не должен быть меньше {{regform.get('password').errors['minlength']['requiredLength']}} символов.
+                  <br>Сейчас {{regform.get('password').errors['minlength']['actualLength']}}
                 </span>
-    
-                </div>
-                <label style='display: block;'>
-                  <a style='position: relative;top: 15px;' class='pink-text' href='#!'><b>Забыли пароль?</b></a>
-                </label>
+              </span>
+  
               </div>
-
-          <br />
-            <div class="center">
-            <div class='row'>
-              <button [disabled]="regform.invalid"
-              type='submit' 
-              name='btn_login' 
-              class='col s12 btn btn-large waves-effect'>Создать аккаунт</button>
+              <label style='display: block;'>
+                <a style='position: relative;top: 15px;' class='pink-text' href='#!'><b>Забыли пароль?</b></a>
+              </label>
             </div>
+
+        <br />
+          <div class="center">
+          <div class='row'>
+            <button [disabled]="regform.invalid"
+            type='submit' 
+            name='btn_login' 
+            class='col s12 btn btn-large waves-effect'>Создать аккаунт</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </form>
