@@ -6,6 +6,7 @@ import com.gamers.DAO.PersonDAO;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Produces;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
@@ -15,10 +16,11 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Stateless
-@Path("/user")
-//@Local(PersonBean.class)
+@Path("/test")
+//@Local(TestBean.class)
 //@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-public class PersonBean {
+public class TestBean
+{
 
     @Resource
     private SessionContext context;

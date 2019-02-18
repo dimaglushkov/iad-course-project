@@ -14,70 +14,100 @@ public class PersonDAO extends DAOService<Person, Long>{
 
     public Person findByNickname(String nickname)
     {
+        try
+        {
+            EntityManager entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
 
-        EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
+            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
+            Person person = (Person) query.getSingleResult();
 
-        Person person = (Person) query.getSingleResult();
-
-        entityManager.getTransaction().commit();
-        entityManager.close();
-
-        return person;
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            return person;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 
     public Person findByEmail(String email)
     {
 
-        EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
+        try
+        {
+            EntityManager entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE ЭЛ_ПОЧТА = '" + email + "';", Person.class);
+            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE ЭЛ_ПОЧТА = '" + email + "';", Person.class);
 
-        Person person = (Person) query.getSingleResult();
+            Person person = (Person) query.getSingleResult();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
+            entityManager.getTransaction().commit();
+            entityManager.close();
 
-        return person;
+            return person;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+
     }
 
     public Person findByNicknameAndPassword(String nickname, String password)
     {
 
-        EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
+        try
+        {
+            EntityManager entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND ХЕШ_ПАРОЛЬ = '" + password + "';", Person.class);
+            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND ХЕШ_ПАРОЛЬ = '" + password + "';", Person.class);
 
-        Person person = (Person) query.getSingleResult();
+            Person person = (Person) query.getSingleResult();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
+            entityManager.getTransaction().commit();
+            entityManager.close();
 
-        return person;
+            return person;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+
     }
+
 
     public List<Person> findByGroupName(String groupname)
     {
-        EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
+        try
+        {
+            EntityManager entityManager = getEntityManager();
+            entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery(
-                "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
-                "FROM ЛИЧНОСТЬ " +
-                "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
-                "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
+            Query query = entityManager.createNativeQuery(
+                    "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
+                            "FROM ЛИЧНОСТЬ " +
+                            "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
+                            "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
 
-        List<Person> persons = query.getResultList();
+            List<Person> persons = query.getResultList();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
+            entityManager.getTransaction().commit();
+            entityManager.close();
 
 
-        return persons;
+            return persons;
+
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 
 
