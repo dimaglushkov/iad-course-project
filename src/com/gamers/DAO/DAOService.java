@@ -29,7 +29,8 @@ public class DAOService<T, PK extends Serializable> {
         return entityManagerFactory.createEntityManager();
     }
 
-    public void create(T entity) {
+    public void create(T entity)
+    {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
@@ -37,7 +38,8 @@ public class DAOService<T, PK extends Serializable> {
         entityManager.close();
     }
 
-    public void update(T entity) {
+    public void update(T entity)
+    {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
@@ -45,13 +47,12 @@ public class DAOService<T, PK extends Serializable> {
         entityManager.close();
     }
 
-    public T findById(PK id) throws EntityNotFoundException {
+    public T findById(PK id)
+    {
         EntityManager entityManager = getEntityManager();
         T entity = entityManager.find(type, id);
 
         entityManager.close();
-        if (entity == null)
-            throw new EntityNotFoundException("No user with such id");
 
         return entity;
     }

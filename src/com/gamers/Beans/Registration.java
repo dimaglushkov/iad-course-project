@@ -7,8 +7,7 @@ import javax.ws.rs.*;
 @Local
 public interface Registration
 {
-    void register(String email,
-                  String password,
-                  String name);
+
+    void register(String email, String password, String name);
 
 }

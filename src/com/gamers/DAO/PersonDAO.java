@@ -3,7 +3,6 @@ package com.gamers.DAO;
 import com.gamers.Entities.Person;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -13,7 +12,8 @@ public class PersonDAO extends DAOService<Person, Long>{
         super(Person.class);
     }
 
-    public Person findByNickname(String nickname) throws EntityNotFoundException {
+    public Person findByNickname(String nickname)
+    {
 
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
@@ -25,13 +25,11 @@ public class PersonDAO extends DAOService<Person, Long>{
         entityManager.getTransaction().commit();
         entityManager.close();
 
-        if (person == null)
-            throw new EntityNotFoundException("No user with such nickname");
-
         return person;
     }
 
-    public Person findByEmail(String email) throws  EntityNotFoundException{
+    public Person findByEmail(String email)
+    {
 
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
@@ -43,13 +41,11 @@ public class PersonDAO extends DAOService<Person, Long>{
         entityManager.getTransaction().commit();
         entityManager.close();
 
-        if (person == null)
-            throw new EntityNotFoundException("No user with such email");
-
         return person;
     }
 
-    public Person findByNicknameAndPassword(String nickname, String password) throws EntityNotFoundException{
+    public Person findByNicknameAndPassword(String nickname, String password)
+    {
 
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
@@ -61,13 +57,11 @@ public class PersonDAO extends DAOService<Person, Long>{
         entityManager.getTransaction().commit();
         entityManager.close();
 
-        if (person == null)
-            throw new EntityNotFoundException("Bad login or password");
-
         return person;
     }
 
-    public List<Person> findByGroupName(String groupname) throws  EntityNotFoundException{
+    public List<Person> findByGroupName(String groupname)
+    {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
