@@ -1,6 +1,6 @@
 export interface User{
-    nickname: string 
-    password: string
+    j_username: string
+    j_password: string
 }
 
 export interface NewUser{

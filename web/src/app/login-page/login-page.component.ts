@@ -21,8 +21,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = new FormGroup({
-      nickname: new FormControl(null,[Validators.required,Validators.minLength(5)]),
-      password: new FormControl(null,[Validators.required, Validators.minLength(6)])
+      j_username: new FormControl(null,[Validators.required,Validators.minLength(5)]),
+      j_password: new FormControl(null,[Validators.required, Validators.minLength(6)])
     })
 
     this.route.queryParams.subscribe((params:Params) => {

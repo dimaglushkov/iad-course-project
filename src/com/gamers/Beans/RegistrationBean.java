@@ -3,6 +3,7 @@ package com.gamers.Beans;
 import com.gamers.Entities.Group;
 import com.gamers.Entities.Person;
 import com.gamers.DAO.PersonDAO;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
