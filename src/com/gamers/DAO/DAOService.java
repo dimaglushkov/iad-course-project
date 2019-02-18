@@ -29,22 +29,42 @@ public class DAOService<T, PK extends Serializable> {
         return entityManagerFactory.createEntityManager();
     }
 
-    public void create(T entity)
+    public boolean create(T entity)
     {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.persist(entity);
+        try
+        {
+            entityManager.persist(entity);
+        }
+        catch (Exception e)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return false;
+        }
         entityManager.getTransaction().commit();
         entityManager.close();
+        return true;
     }
 
-    public void update(T entity)
+    public boolean update(T entity)
     {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.merge(entity);
+        try
+        {
+            entityManager.merge(entity);
+        }
+        catch (Exception e)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return false;
+        }
         entityManager.getTransaction().commit();
         entityManager.close();
+        return true;
     }
 
     public T findById(PK id)
@@ -57,13 +77,22 @@ public class DAOService<T, PK extends Serializable> {
         return entity;
     }
 
-    public void delete(T entity) {
+    public boolean delete(T entity) {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        //entityManager.remove(entity);
-        entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
+        try
+        {
+            entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
+        }
+        catch (Exception e)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return false;
+        }
         entityManager.getTransaction().commit();
         entityManager.close();
+        return true;
     }
 
 
@@ -76,15 +105,26 @@ public class DAOService<T, PK extends Serializable> {
         return entities;
     }
 
-    public void deleteAll() {
+    public boolean deleteAll() {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        List<T> entityList = findAll();
-        for (T entity : entityList) {
-            delete(entity);
+        try
+        {
+            List<T> entityList = findAll();
+            for (T entity : entityList)
+            {
+                delete(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return false;
         }
         entityManager.getTransaction().commit();
         entityManager.close();
+        return true;
     }
 
 }

@@ -14,100 +14,76 @@ public class PersonDAO extends DAOService<Person, Long>{
 
     public Person findByNickname(String nickname)
     {
+        Person person;
+        EntityManager entityManager = getEntityManager();
+
+        entityManager.getTransaction().begin();
         try
         {
-            EntityManager entityManager = getEntityManager();
-            entityManager.getTransaction().begin();
-
             Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
-
-            Person person = (Person) query.getSingleResult();
-
-            entityManager.getTransaction().commit();
-            entityManager.close();
-            return person;
+            person = (Person) query.getSingleResult();
         }
-        catch (Exception e)
+        catch (Exception E)
         {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
             return null;
         }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return person;
     }
 
     public Person findByEmail(String email)
     {
-
+        Person person;
+        EntityManager entityManager = getEntityManager();
+        entityManager.getTransaction().begin();
         try
         {
-            EntityManager entityManager = getEntityManager();
-            entityManager.getTransaction().begin();
-
             Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE ЭЛ_ПОЧТА = '" + email + "';", Person.class);
-
-            Person person = (Person) query.getSingleResult();
-
-            entityManager.getTransaction().commit();
-            entityManager.close();
-
-            return person;
+            person = (Person) query.getSingleResult();
         }
         catch (Exception e)
         {
-            return null;
-        }
-
-    }
-
-    public Person findByNicknameAndPassword(String nickname, String password)
-    {
-
-        try
-        {
-            EntityManager entityManager = getEntityManager();
-            entityManager.getTransaction().begin();
-
-            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND ХЕШ_ПАРОЛЬ = '" + password + "';", Person.class);
-
-            Person person = (Person) query.getSingleResult();
-
-            entityManager.getTransaction().commit();
+            entityManager.getTransaction().rollback();
             entityManager.close();
-
-            return person;
-        }
-        catch (Exception e)
-        {
             return null;
         }
 
-    }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return person;
 
+    }
 
     public List<Person> findByGroupName(String groupname)
     {
+
+        List<Person> persons;
+        EntityManager entityManager = getEntityManager();
+        entityManager.getTransaction().begin();
+
         try
         {
-            EntityManager entityManager = getEntityManager();
-            entityManager.getTransaction().begin();
-
             Query query = entityManager.createNativeQuery(
                     "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
                             "FROM ЛИЧНОСТЬ " +
                             "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
                             "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
 
-            List<Person> persons = query.getResultList();
-
-            entityManager.getTransaction().commit();
-            entityManager.close();
-
-
-            return persons;
-
+            persons = query.getResultList();
         }
         catch (Exception e)
         {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
             return null;
         }
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return persons;
+
     }
 
 

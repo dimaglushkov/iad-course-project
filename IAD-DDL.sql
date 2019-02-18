@@ -102,3 +102,26 @@ CREATE TABLE ЖАЛОБА
   ТЕМА TEXT NOT NULL,
   ОПИСАНИЕ TEXT NOT NULL
 );
+
+CREATE TABLE ЖЕЛАЕМОЕ
+(
+	ИД_ЖЕЛАМОЕ SERIAL PRIMARY KEY,
+	ИД_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
+	ИД_ИГРА INT NOT NULL REFERENCES ИГРА(ИД_ИГРА)
+);
+
+CREATE TABLE ОБЗОР
+(
+  ИД_ОБЗОР SERIAL PRIMARY KEY,
+  ИД_ИГРА INT NOT NULL REFERENCES ИГРА(ИД_ИГРА),
+  ИД_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
+	ОЦЕНКА INT NOT NULL,
+	СОДЕРЖАНИЕ TEXT NOT NULL
+);
+
+CREATE TABLE ДРУЖБА
+(
+  ИД_ДРУЖБА SERIAL PRIMARY KEY,
+  ИД_ЛИЧНОСТЬ INT,
+  ИД_ДРУГ INT
+);
