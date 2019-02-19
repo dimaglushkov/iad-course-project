@@ -3,8 +3,8 @@ package com.gamers.DAO;
 import com.gamers.Entities.Person;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
+import java.util.List;
 
 public class PersonDAO extends DAOService<Person, Long>{
 
@@ -12,58 +12,78 @@ public class PersonDAO extends DAOService<Person, Long>{
         super(Person.class);
     }
 
-    public Person findByNickname(String nickname) throws EntityNotFoundException {
-
+    public Person findByNickname(String nickname)
+    {
+        Person person;
         EntityManager entityManager = getEntityManager();
+
         entityManager.getTransaction().begin();
-
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
-
-        Person person = (Person) query.getSingleResult();
-
+        try
+        {
+            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
+            person = (Person) query.getSingleResult();
+        }
+        catch (Exception E)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return null;
+        }
         entityManager.getTransaction().commit();
         entityManager.close();
-
-        if (person == null)
-            throw new EntityNotFoundException("No user with such nickname");
-
         return person;
     }
 
-    public Person findByEmail(String email) throws  EntityNotFoundException{
-
+    public Person findByEmail(String email)
+    {
+        Person person;
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE ЭЛ_ПОЧТА = '" + email + "';", Person.class);
-
-        Person person = (Person) query.getSingleResult();
+        try
+        {
+            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE ЭЛ_ПОЧТА = '" + email + "';", Person.class);
+            person = (Person) query.getSingleResult();
+        }
+        catch (Exception e)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return null;
+        }
 
         entityManager.getTransaction().commit();
         entityManager.close();
-
-        if (person == null)
-            throw new EntityNotFoundException("No user with such email");
-
         return person;
+
     }
 
-    public Person findByNicknameAndPassword(String nickname, String password) throws EntityNotFoundException{
+    public List<Person> findByGroupName(String groupname)
+    {
 
+        List<Person> persons;
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "' AND ХЕШ_ПАРОЛЬ = '" + password + "';", Person.class);
+        try
+        {
+            Query query = entityManager.createNativeQuery(
+                    "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
+                            "FROM ЛИЧНОСТЬ " +
+                            "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
+                            "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
 
-        Person person = (Person) query.getSingleResult();
-
+            persons = query.getResultList();
+        }
+        catch (Exception e)
+        {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+            return null;
+        }
         entityManager.getTransaction().commit();
         entityManager.close();
+        return persons;
 
-        if (person == null)
-            throw new EntityNotFoundException("Bad login or password");
-
-        return person;
     }
 
 

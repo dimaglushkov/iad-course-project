@@ -1,10 +1,7 @@
 package com.gamers;
 
-import com.gamers.Beans.PersonBean;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import java.util.Set;
 
 @ApplicationPath("api")
 public class AppRoot extends Application {
@@ -18,7 +15,7 @@ public class AppRoot extends Application {
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
 
-        resources.add(PersonBean.class);
+        resources.add(TestBean.class);
 
 
     }
@@ -40,6 +37,7 @@ public class AppRoot extends Application {
      * подписки/отслеживание новинок, напоминания о выходе новых игр
      */
 
-    //JMS Логика: пользователь может оставить репорт,
+    // JMS Логика: пользователь может оставить репорт, после добавления
+    // просыпается mdb, который записывает в бд сообщение для каждого админа
 
 }

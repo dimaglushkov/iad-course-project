@@ -1,4 +1,4 @@
-<form action = "j_security_check" method="post" [formGroup]="form" class="center" (ngSubmit)="onSubmit()"  >
+<form action = "api/registration/new" method="post" [formGroup]="form" class="center" (ngSubmit)="onSubmit()" enctype="application/x-www-form-urlencoded">
   <div class="container">
     <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
@@ -15,8 +15,13 @@
               formControlName="nickname" 
               class='validate' 
               type='text' 
+<<<<<<< HEAD
               name='username' 
               id='username'
+=======
+              name='nickname'
+              id='nickname'
+>>>>>>> f32cc7ac1efeabb24bda55a48a62864fdf0b8729
               placeholder="Введите ваш Nickname"
               [ngClass]="{'invalid':form.get('nickname').invalid && form.get('nickname').touched}" />
               <span class="helper-text red-text"
@@ -47,7 +52,11 @@
                 formControlName="password"
                 class='validate' 
                 type='password' 
+<<<<<<< HEAD
                 name='password' 
+=======
+                name='password'
+>>>>>>> f32cc7ac1efeabb24bda55a48a62864fdf0b8729
                 id='password'
                 placeholder="Введите пароль"
                 [ngClass]="{'invalid':form.get('password').invalid && form.get('password').touched}" />

@@ -6,18 +6,21 @@ import com.gamers.DAO.PersonDAO;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Produces;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Stateless
-@Path("/user")
-//@Local(PersonBean.class)
+@Path("/test")
+//@Local(TestBean.class)
 //@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-public class PersonBean {
+public class TestBean
+{
 
     @Resource
     private SessionContext context;
@@ -45,9 +48,17 @@ public class PersonBean {
     @Path("test")
     public Response test(@Context HttpServletResponse resp, @Context HttpServletRequest req){
 
-        currentPerson = personDAO.findByNickname(context.getCallerPrincipal().getName());
-        String response = currentPerson.getNickname();
-        return  Response.status(Response.Status.OK).entity(response).build();
+        StringBuilder result = new StringBuilder("admins: ");
+        List<Person> personList = personDAO.findByGroupName("admin");
+
+        for (Person person : personList) {
+            currentPerson = person;
+            result.append(currentPerson.getNickname());
+        }
+
+        /*currentPerson = personDAO.findByNickname(context.getCallerPrincipal().getName());
+        String response = currentPerson.getNickname();*/
+        return  Response.status(Response.Status.OK).entity(result.toString()).build();
 
     }
 

@@ -1,5 +1,5 @@
 export interface User{
-    j_nickname: string 
+    j_username: string
     j_password: string
 }
 
