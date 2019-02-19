@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
     providedIn:'root'
 })
 
-export class UserSevice {
+export class UserService {
 
-    constructor(private http:HttpClient) { }
+    constructor(private http: HttpClient) { }
 
     getUserInfo(): Observable<UserInfo[]> {
        return this.http.get<UserInfo[]>('user/{{form.nickname}}')

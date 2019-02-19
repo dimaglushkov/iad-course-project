@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { UserInfo } from '../shared/services/interfaces';
-import { runInThisContext } from 'vm';
-
+import { Component, OnInit, Injectable } from '@angular/core';
+import { UserService } from '../shared/services/user-info.service';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
+
+@Injectable()
 export class ProfilePageComponent implements OnInit{
  
   public userinfos = [];
 
-  constructor(private userInfo: UserInfo) {
+  constructor(private UserService: UserService) {
 
   }
 
   ngOnInit() {
-      this.userInfo.getUserInfo()
+      this.UserService.getUserInfo()
       .subscribe(data => this.userinfos = data);
   }
 
