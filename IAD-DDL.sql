@@ -100,7 +100,8 @@ CREATE TABLE ЖАЛОБА
   ИД_ЖАЛОБА SERIAL PRIMARY KEY,
   ИД_ЛИЧНОСТЬ INT NOT NULL REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
   ТЕМА TEXT NOT NULL,
-  ОПИСАНИЕ TEXT NOT NULL
+  ОПИСАНИЕ TEXT NOT NULL,
+  ВРЕМЯ TIMESTAMP
 );
 
 CREATE TABLE ЖЕЛАЕМОЕ

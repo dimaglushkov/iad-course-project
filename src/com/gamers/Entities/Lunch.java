@@ -3,7 +3,10 @@ package com.gamers.Entities;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import java.sql.Date;
+import java.util.LinkedHashSet;
 import java.util.Set;
+
+//TODO: rework db for lists of dishes in lunches
 
 @Entity
 @Table(name="РАЦИОН")
@@ -18,9 +21,8 @@ public class Lunch
     @JoinColumn(name = "ИД_ЛИЧНОСТЬ", referencedColumnName = "ИД_ЛИЧНОСТЬ")
     private Person person;
 
-    @OneToMany
-    @JoinColumn(name = "ИД_БЛЮДО", referencedColumnName = "ИД_БЛЮДО")
-    private Set<Dish> dishes;
+    @Column(name = "ИД_БЛЮДО")
+    private int dishes;
 
     @Column(name = "ДАТА")
     private Date date;
@@ -43,19 +45,14 @@ public class Lunch
         this.person = person;
     }
 
-    public Set<Dish> getDishes()
+    public int getDishes()
     {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dish)
+    public void setDishes(int dishes)
     {
-        this.dishes = dish;
-    }
-
-    public void addDish(Dish dish)
-    {
-        this.dishes.add(dish);
+        this.dishes = dishes;
     }
 
     public Date getDate() {

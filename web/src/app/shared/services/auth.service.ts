@@ -25,7 +25,7 @@ export class AuthService {
             .append('nickname', user.nickname.toString())
             .append('email', user.email.toString())
             .append('password', user.password.toString());
-        return this.http.post<{token: string}>('api/registration/new', sendParams, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+        return this.http.post<{token: string}>('api/user/new', sendParams, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
     }
 
 

@@ -18,17 +18,10 @@ public class PersonDAO extends DAOService<Person, Long>{
         EntityManager entityManager = getEntityManager();
 
         entityManager.getTransaction().begin();
-        try
-        {
-            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
-            person = (Person) query.getSingleResult();
-        }
-        catch (Exception E)
-        {
-            entityManager.getTransaction().rollback();
-            entityManager.close();
-            return null;
-        }
+
+        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
+        person = (Person) query.getSingleResult();
+
         entityManager.getTransaction().commit();
         entityManager.close();
         return person;
@@ -64,22 +57,14 @@ public class PersonDAO extends DAOService<Person, Long>{
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
-        try
-        {
-            Query query = entityManager.createNativeQuery(
-                    "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
-                            "FROM ЛИЧНОСТЬ " +
-                            "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
-                            "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
+        Query query = entityManager.createNativeQuery(
+                "SELECT НИКНЕЙМ, ИД_ЛИЧНОСТЬ, ЭЛ_ПОЧТА, ХЕШ_ПАРОЛЬ " +
+                        "FROM ЛИЧНОСТЬ " +
+                        "INNER JOIN ГРУППА_ЛИЧН USING (НИКНЕЙМ) " +
+                        "WHERE ГРУППА_ЛИЧН.ГРУППА = '" + groupname + "';", Person.class);
 
-            persons = query.getResultList();
-        }
-        catch (Exception e)
-        {
-            entityManager.getTransaction().rollback();
-            entityManager.close();
-            return null;
-        }
+        persons = query.getResultList();
+
         entityManager.getTransaction().commit();
         entityManager.close();
         return persons;

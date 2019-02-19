@@ -2,11 +2,11 @@ CREATE OR REPLACE FUNCTION ДАТА_ТЕМА_АВТОЗАП_ФУНК() RETURNS T
 $ДАТА_ТЕМА_АВТОЗАП_ФУНК_$
 	BEGIN
 	
-		IF NEW.ЗАГОЛОВОК IS NULL THEN
-			NEW.ЗАГОЛОВОК = '(Без темы)';
+		IF NEW.ТЕМА IS NULL THEN
+			NEW.ТЕМА = '(Без темы)';
 		END IF;
 		
-		NEW.ДАТА_СОЗДАНИЕ = CURRENT_DATE;
+		NEW.ДАТА = CURRENT_DATE;
 		RETURN NEW;
 	END;
 $ДАТА_ТЕМА_АВТОЗАП_ФУНК_$ LANGUAGE plpgsql;
@@ -60,10 +60,24 @@ CREATE TRIGGER ВРЕМЯ_РЕГИСТРАЦИИ
 
 
 
-CREATE OR REPLACE FUNCTION ГРУППА_ЛИЧНОСТИ_АВТОЗАП_ФУНК() RETURNS  TRIGGER AS $ГРУППА_ЛИЧНОСТИ_$
-		BEGIN
-		IF (TG_OP = 'INSERT') THEN
-					INSERT INTO ИНФО(ID)
-		END IF;
 
-$ГРУППА_ЛИЧНОСТИ_$ LANGUAGE plsql;
+
+
+CREATE OR REPLACE FUNCTION ЖАЛОБА_ВРЕМЯ() RETURNS TRIGGER AS
+$ЖАЛОБА_ВРЕМЯ_$
+BEGIN
+
+	IF NEW.ВРЕМЯ IS NULL THEN
+		NEW.ВРЕМЯ = CURRENT_TIMESTAMP;
+	END IF;
+
+	RETURN NEW;
+END;
+$ЖАЛОБА_ВРЕМЯ_$ LANGUAGE plpgsql;
+
+CREATE TRIGGER ЖАЛОБА_ВРЕМЯ__
+	BEFORE INSERT OR UPDATE ON ЖАЛОБА
+	FOR EACH ROW EXECUTE PROCEDURE ЖАЛОБА_ВРЕМЯ();
+
+
+

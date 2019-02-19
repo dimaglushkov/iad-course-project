@@ -3,30 +3,28 @@ package com.gamers.Beans;
 import com.gamers.Entities.Group;
 import com.gamers.Entities.Person;
 import com.gamers.DAO.PersonDAO;
-import org.glassfish.jersey.media.multipart.FormDataParam;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
-import javax.json.Json;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.Produces;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
-@Path("registration")
+@Path("user")
 @Stateless
-@Local(Registration.class)
-public class RegistrationBean implements Registration, Serializable
+@Local(PersonInterface.class)
+public class PersonBean implements PersonInterface, Serializable
 {
 
     private PersonDAO personDAO = new PersonDAO();
 
     @POST
+    @Produces("application/json")
     @Path("/new")
     @Override
     public JSONObject register(@FormParam("nickname") String nickname,

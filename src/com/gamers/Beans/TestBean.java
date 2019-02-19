@@ -1,5 +1,7 @@
 package com.gamers.Beans;
 
+import com.gamers.DAO.MessageDAO;
+import com.gamers.Entities.Message;
 import com.gamers.Entities.Person;
 import com.gamers.DAO.PersonDAO;
 
@@ -45,22 +47,33 @@ public class TestBean
     }
 
     @GET
-    @Path("test")
-    public Response test(@Context HttpServletResponse resp, @Context HttpServletRequest req){
+    @Path("message")
+    public Response test(@Context HttpServletResponse resp, @Context HttpServletRequest req) throws CloneNotSupportedException
+    {
 
-        StringBuilder result = new StringBuilder("admins: ");
+        MessageDAO messageDAO = new MessageDAO();
+        com.gamers.Entities.Message message = new Message();
+
+        message.setFrom(personDAO.findByNickname("server"));
+        message.setMessageText("kappa");
+        message.setMessageTopic("test");
+
         List<Person> personList = personDAO.findByGroupName("admin");
 
         for (Person person : personList) {
-            currentPerson = person;
-            result.append(currentPerson.getNickname());
+            com.gamers.Entities.Message curDBMessage;
+            curDBMessage = message.clone();
+            curDBMessage.setTo(person);
+            messageDAO.create(curDBMessage);
         }
 
         /*currentPerson = personDAO.findByNickname(context.getCallerPrincipal().getName());
         String response = currentPerson.getNickname();*/
-        return  Response.status(Response.Status.OK).entity(result.toString()).build();
+        return  Response.status(Response.Status.OK).entity("success").build();
 
     }
+
+
 
 
 

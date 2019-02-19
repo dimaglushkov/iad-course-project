@@ -32,7 +32,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   onSubmit(){
     this.form.disable()
     this.aSub = this.auth.register(this.form.value).subscribe(
-      () => console.log('Registration success')/*this.router.navigate['url']*/,
+      () => console.log('PersonInterface success')/*this.router.navigate['url']*/,
       error => {
         console.warn(error);
         this.form.enable()

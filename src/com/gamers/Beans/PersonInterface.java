@@ -8,7 +8,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Local
-public interface Registration
+public interface PersonInterface
 {
 
     JSONObject register(String email, String password, String name);

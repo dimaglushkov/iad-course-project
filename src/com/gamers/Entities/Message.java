@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 
 @Entity
 @Table(name="СООБЩЕНИЕ")
-public class Message
+public class Message implements Cloneable
 {
     @Id
     @Column(name="ИД_СООБЩЕНИЕ", columnDefinition = "SERIAL")
@@ -78,5 +78,18 @@ public class Message
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Message clone()
+    {
+        try
+        {
+            return (Message) super.clone();
+
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 }
