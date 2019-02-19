@@ -1,26 +1,26 @@
 <section class="row" 
 *ngIf="userinfos$ | async as UserInfo">
-  <h2>{{userinfos.nickname}}</h2>
+  <h2 class="nickname">{{userinfos.nickname}}</h2>
 <div class="content">
-  <div class="games">
+  <div class="games info-block">
     <p
     *ngFor="let userinfo of userinfos">
   {{userinfos.games}}
   </p>
   </div>
-  <div class="friends">
+  <div class="friends info-block">
     <a ng-href="{{userinfos.friendname}}"
     *ngFor="let userinfo of userinfos">
   {{userinfos.friend}}
   </a>
   </div>
-  <div class="wish">
+  <div class="wish info-block">
     <p
     *ngFor="let userinfo of userinfos">
   {{userinfos.wishlist}}
   </p>
   </div>
-  <div class="review">
+  <div class="review info-block">
     <p
     *ngFor="let userinfo of userinfos">
   {{userinfos.reviews}}

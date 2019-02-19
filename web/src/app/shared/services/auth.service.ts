@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-import { Injectable } from '@angular/core';
-import { User, NewUser } from './interfaces';
-import { HttpClient } from '@angular/common/http';
-=======
 import {Injectable} from '@angular/core';
 import {NewUser, User} from './interfaces';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
->>>>>>> f32cc7ac1efeabb24bda55a48a62864fdf0b8729
 
 @Injectable({providedIn: 'root'})
 
@@ -18,18 +12,6 @@ export class AuthService {
 
     }
 
-<<<<<<< HEAD
-    register(user: NewUser) {
-        
-        return this.http.post<NewUser>('j_security_check', user)
-    }
-
-    login(user: User) {
-        return this.http.post<User>('j_security_check', user)
-    }
-}
-
-=======
     login(user: User): Observable<{token: string}>{
         const sendParams = new HttpParams()
             .append('j_username', user.j_username.toString())
@@ -48,4 +30,3 @@ export class AuthService {
 
 
 }
->>>>>>> f32cc7ac1efeabb24bda55a48a62864fdf0b8729
