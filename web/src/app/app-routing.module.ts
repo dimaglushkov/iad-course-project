@@ -14,7 +14,9 @@ const routes: Routes = [
   },
     {
     path:'', component: SiteLayoutComponent, children: [
-
+      {
+        path:'profile-page', 
+      }
     ]
   }
 ];
