@@ -9,6 +9,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     AuthLayoutComponent,
     SiteLayoutComponent,
     RegisterPageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

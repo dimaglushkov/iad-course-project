@@ -15,8 +15,8 @@
               formControlName="nickname" 
               class='validate' 
               type='text' 
-              name='j_username' 
-              id='j_username'
+              name='username' 
+              id='username'
               placeholder="Введите ваш Nickname"
               [ngClass]="{'invalid':form.get('nickname').invalid && form.get('nickname').touched}" />
               <span class="helper-text red-text"
@@ -47,8 +47,8 @@
                 formControlName="password"
                 class='validate' 
                 type='password' 
-                name='j_password' 
-                id='j_password'
+                name='password' 
+                id='password'
                 placeholder="Введите пароль"
                 [ngClass]="{'invalid':form.get('password').invalid && form.get('password').touched}" />
                 <span class="helper-text red-text" 
