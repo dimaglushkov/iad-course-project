@@ -23,7 +23,6 @@ export interface UserInfo{
 export interface Games{
     gameid: number
     gamename: string
-    gamerate: number
 }
 
 export interface Friends{
@@ -33,6 +32,7 @@ export interface Friends{
 export interface Reviews{
     gameid: number
     gamename: string
+    gamerate: number
 }
 export interface Wishlist{
     gameid: number

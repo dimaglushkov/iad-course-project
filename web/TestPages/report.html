@@ -3,27 +3,27 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>Report page</title>
 
 </head>
-<body>
 
+<body>
 <div>
     <div id="main">
 
         <div id="header">
-            <div > Auth</div>
+            <div > Жалоба</div>
         </div>
 
         <div id="all">
-            <form action="j_security_check" method=post>
-                <b>Авторизация</b><br />
-                <p><strong>nickname: </strong><br/>
-                    <input type="text"  id="user" name="j_username" size="25">
-                <p><p><strong>password: </strong><br/>
-                <input type="password" size="25" id="pass" name="j_password">
+            <form action="api/report/new" method=post>
+                <b>Подать жалобу</b><br />
+                <p><strong>Тема: </strong><br/>
+                    <input type="text"  id="topic" name="topic" size="25">
+                <p><p><strong>Описание: </strong><br/>
+                <input type="text" id="description" name="description">
                 <p><p>
-                <input type="submit" value="Войти"  class="superbutton"  onclick="check()">
+                <input type="submit" value="Создать жалобу"  class="superbutton">
                 <input type="reset" value="Очистить"  class="superbutton" >
             </form>
 

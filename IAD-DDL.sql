@@ -124,5 +124,6 @@ CREATE TABLE ДРУЖБА
 (
   ИД_ДРУЖБА SERIAL PRIMARY KEY,
   ИД_ЛИЧНОСТЬ INT,
-  ИД_ДРУГ INT
+  ИД_ДРУГ INT,
+  ПОДТВЕРЖДЕНО BOOLEAN
 );

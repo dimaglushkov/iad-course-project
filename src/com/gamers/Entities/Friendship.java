@@ -23,6 +23,9 @@ public class Friendship implements Serializable
     @JoinColumn(name = "ИД_ДРУГ", referencedColumnName = "ИД_ЛИЧНОСТЬ")
     private Person friend;
 
+    @Column(name = "ПОДТВЕРЖДЕНО")
+    private boolean isConfirmed;
+
     public Friendship()
     {}
 
@@ -53,5 +56,15 @@ public class Friendship implements Serializable
 
     public void setFriend(Person friend) {
         this.friend = friend;
+    }
+
+    public boolean isConfirmed()
+    {
+        return isConfirmed;
+    }
+
+    public void setConfirmed(boolean confirmed)
+    {
+        isConfirmed = confirmed;
     }
 }
