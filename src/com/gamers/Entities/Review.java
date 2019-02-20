@@ -1,12 +1,13 @@
 package com.gamers.Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "ОБЗОР")
-public class Review
+public class Review implements Serializable
 {
     @Id
     @Column(name = "ИД_ОБЗОР", columnDefinition = "SERIAL")

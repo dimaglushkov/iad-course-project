@@ -6,7 +6,6 @@ import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-//TODO: rework db for lists of dishes in lunches
 
 @Entity
 @Table(name="РАЦИОН")

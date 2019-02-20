@@ -2,11 +2,13 @@ package com.gamers.Entities;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ЖАЛОБА")
-public class Report {
+public class Report  implements Serializable
+{
 
     @Id
     @Column(name="ИД_ЖАЛОБА", columnDefinition = "SERIAL")

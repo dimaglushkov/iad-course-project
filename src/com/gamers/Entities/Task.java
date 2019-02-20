@@ -3,11 +3,12 @@ package com.gamers.Entities;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name="ЗАДАЧА")
-public class Task
+public class Task implements Serializable
 {
     @Id
     @Column(name="ИД_ЗАДАЧА", columnDefinition = "SERIAL")

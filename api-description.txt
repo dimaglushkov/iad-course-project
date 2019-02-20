@@ -1,16 +1,24 @@
 ВЕТКА USER
-- user/new - Регистрация
+    - POST: user/new - Регистрация
 "success":      <true | false>
 "description":  <Описание события>
 
-- j_security_check - Авторизация
+    - POSY: j_security_check - Авторизация
 
-- user/{nickname} - страница пользователя
+    - POST: user/{nickname} - страница пользователя
 "success":      <true | false>
 "description":  <Описание события>
 "nickname":     <никнейм игрока>
-"friends":      <массив из наборов "friendsname": <никнейм друга> (note: ссылка на друга может(?) собиратсья на клиете: .../user/{friendsname})>
-"reviews":      <массив из наборов {"gameid": <id игры из бд>, "gamename": <название игры>, "gamerate": <число - оценка игры> и либо ссылка, либо как написано выше - .../game/gameid>}
+"friends":      <массив из наборов "friendname": <никнейм друга> (note: ссылка на друга может(?) собиратсья на клиете: .../user/{friendsname})>
+"reviews":      <массив из наборов {"reviewid": <id> "gameid": <id игры из бд>, "gamename": <название игры>, "gamerate": <число - оценка игры> и либо ссылка, либо как написано выше - .../game/gameid>}
 "wishlist":     <массив из наборов {"gameid": <id игры>, "gamename": <название игры> + ссылка на игру (или нет)}>
 "games":        <массив из наборов {"gameid": <id игры>, "gamename": <название игры> + ссылка на игру (или нет)}>
 
+    - POST: user/logout - деавторизация
+
+
+
+ВЕТКА REPORT
+    -POST: report/new - Создание новой жалобы
+"success":      <true | false>
+"description":  <Описание события>

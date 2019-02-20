@@ -3,6 +3,7 @@ package com.gamers.DAO;
 import com.gamers.Entities.Person;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -19,9 +20,13 @@ public class PersonDAO extends DAOService<Person, Long>{
 
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
-        person = (Person) query.getSingleResult();
-
+        try
+        {
+            Query query = entityManager.createNativeQuery("SELECT * FROM ЛИЧНОСТЬ WHERE НИКНЕЙМ = '" + nickname + "';", Person.class);
+            person = (Person) query.getSingleResult();
+        }
+        catch (NoResultException e)
+        { person = null; }
         entityManager.getTransaction().commit();
         entityManager.close();
         return person;

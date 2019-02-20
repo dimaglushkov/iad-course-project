@@ -1,25 +1,36 @@
 package com.gamers.Beans;
 
+import com.gamers.DAO.*;
+import com.gamers.Entities.Game;
 import com.gamers.Entities.Group;
 import com.gamers.Entities.Person;
-import com.gamers.DAO.PersonDAO;
+import com.gamers.Entities.Review;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import javax.annotation.Resource;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.util.List;
 
 @Path("user")
 @Stateless
 @Local(PersonInterface.class)
 public class PersonBean implements PersonInterface, Serializable
 {
+
+    @Resource
+    SessionContext sessionContext;
 
     private PersonDAO personDAO = new PersonDAO();
 
@@ -37,12 +48,7 @@ public class PersonBean implements PersonInterface, Serializable
         Group group = new Group("user");
 
         if (isPersonWithSuchNicknameOrEmailExists(nickname, email))
-        {
-            responseJSON.put("success", "false");
-            responseJSON.put("description", "User with such nickname or email already exists.");
-
-            return responseJSON;
-        }
+                return responseOnFail("User with such nickname or email already exists.");
 
         try
         {
@@ -54,16 +60,103 @@ public class PersonBean implements PersonInterface, Serializable
         }
         catch (Exception e)
         {
-            responseJSON.put("success", "false");
-            responseJSON.put("description", e.getMessage());
-            return responseJSON;
+            return responseOnFail(e.getMessage());
         }
-
         responseJSON.put("success", "true");
         responseJSON.put("description", "Profile created.");
-
-
         return responseJSON;
+    }
+
+    @POST
+    @Path("/logout")
+    @RolesAllowed({"user", "admin", "banned-user"})
+    public void logout(@Context HttpServletResponse response, @Context HttpServletRequest request) throws IOException
+    {
+        request.getSession().invalidate();
+        response.sendRedirect(request.getContextPath());
+    }
+
+    @GET
+    @Path("/{nickname}")
+    @Produces("application/json")
+    @RolesAllowed({"user", "admin"})
+    public JSONObject account(@PathParam("nickname") String nickname)
+    {
+        JSONObject response = new JSONObject();
+
+        FriendshipDAO friendshipDAO = new FriendshipDAO();
+        GameDAO gameDAO = new GameDAO();
+        ReviewDAO reviewDAO = new ReviewDAO();
+        WishlistDAO wishlistDAO = new WishlistDAO();
+
+        Person person = personDAO.findByNickname(nickname);
+        if (person == null)
+            return responseOnFail("This user doesn't exist");
+
+        response.put("success", "true");
+        response.put("description", "Profile exists");
+        response.put("nickname", nickname);
+
+        JSONArray JsonArray1 = new JSONArray();
+
+
+        List<Person> friends = friendshipDAO.findFriendsByNickname(nickname);
+        for (Person friend : friends)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("friendname", friend.getNickname());
+            JsonArray1.add(obj);
+        }
+        response.put("friends", JsonArray1);
+
+        JSONArray JsonArray2 = new JSONArray();
+        List<Game> games = gameDAO.findGamesByNickname(nickname);
+        for (Game game: games)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("gameid", game.getId());
+            obj.put("gamename", game.getName());
+            JsonArray2.add(obj);
+        }
+        response.put("games", JsonArray2);
+
+        JSONArray JsonArray3 = new JSONArray();
+        games.clear();
+        games = wishlistDAO.findWishlistGamesIdByNickname(nickname);
+        for (Game game: games)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("gamename", game.getName());
+            obj.put("gameid", game.getId());
+            JsonArray3.add(obj);
+
+        }
+        response.put("wishlist", JsonArray3);
+
+        JSONArray JsonArray4 = new JSONArray();
+        List<Review> reviews = reviewDAO.findReviewsByNickname(nickname);
+        for (Review review: reviews)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("reviewid", review.getId());
+            obj.put("gameid", review.getGame().getId());
+            obj.put("gamename", review.getGame().getName());
+            obj.put("gamerate", review.getGame().getName());
+            JsonArray4.add(obj);
+
+        }
+        response.put("review", JsonArray4);
+
+
+        return response;
+    }
+
+    private JSONObject responseOnFail(String description)
+    {
+        JSONObject resp = new JSONObject();
+        resp.put("success", "false");
+        resp.put("description", description);
+        return resp;
     }
 
     private String SHA256(String password)
@@ -101,7 +194,5 @@ public class PersonBean implements PersonInterface, Serializable
         return false;
 
     }
-
-
 
 }

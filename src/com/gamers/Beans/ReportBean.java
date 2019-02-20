@@ -36,7 +36,6 @@ public class ReportBean implements ReportInterface
     @POST
     @Path("/new")
     @Produces("application/json")
-    //@RolesAllowed({"user", "admin", "banned-user"})
     @Override
     public JSONObject createReport(@FormParam("topic") String topic,
                                    @FormParam("description") String description)
