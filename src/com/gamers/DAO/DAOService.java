@@ -3,6 +3,7 @@ package com.gamers.DAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.List;
@@ -81,7 +82,15 @@ public class DAOService<T, PK extends Serializable> {
         EntityManager entityManager = getEntityManager();
         CriteriaQuery<T> criteria = entityManager.getCriteriaBuilder().createQuery(type);
         criteria.select(criteria.from(type));
-        List<T> entities = entityManager.createQuery(criteria).getResultList();
+        List<T> entities;
+        try
+        {
+            entities = entityManager.createQuery(criteria).getResultList();
+        }
+        catch (NoResultException e)
+        {
+            entities = null;
+        }
         entityManager.close();
         return entities;
     }

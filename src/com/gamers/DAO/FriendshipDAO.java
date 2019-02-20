@@ -20,10 +20,25 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
     public List<Person> findFriendsByNickname(String nickname)
     {
         PersonDAO personDAO = new PersonDAO();
-        Person person;
+        Person person = personDAO.findByNickname(nickname);;
 
-        List<Person> friends;
-        EntityManager entityManager = getEntityManager();
+        List<Friendship> friendShipList = this.findAll();
+
+        if (friendShipList == null)
+            return null;
+
+        List<Person> friends = new LinkedList<>();
+
+        for (Friendship curFriendShip : friendShipList)
+        {
+            if (curFriendShip.getPerson().getId() == person.getId())
+                friends.add(curFriendShip.getFriend());
+
+            if (curFriendShip.getFriend().getId() == person.getId())
+                friends.add(curFriendShip.getPerson());
+        }
+
+        /*EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
         person = personDAO.findByNickname(nickname);
@@ -42,20 +57,10 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
             friends = new LinkedList<>();
         }
 
-        Query query1 = entityManager.createNativeQuery(
-                "SELECT * FROM ЛИЧНОСТЬ " +
-                        "INNER JOIN ДРУЖБА ON ЛИЧНОСТЬ.ИД_ЛИЧНОСТЬ = ДРУЖБА.ИД_ДРУГ " +
-                        "WHERE ДРУЖБА.ИД_ДРУГ = " + person.getId() + " AND ПОДТВЕРЖДЕНО = true;", Person.class);
-        try
-        {
-            friends.addAll(query1.getResultList());
-        }
-        catch (NoResultException ignored)
-        {
-        }
-        
+
         entityManager.getTransaction().commit();
         entityManager.close();
+        */
         return friends;
 
     }
