@@ -12,7 +12,7 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getUserInfo(): Observable<UserInfo[]> {
-       return this.http.get<UserInfo[]>('user/{{form.nickname}}')
+       return this.http.get<UserInfo[]>('api/user/{{form.nickname}}')
     }
 
        

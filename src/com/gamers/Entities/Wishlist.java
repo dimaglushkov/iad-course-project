@@ -14,11 +14,11 @@ public class Wishlist
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(columnDefinition = "ИД_ЛИЧНОСТЬ", referencedColumnName = "ИД_ЛИЧНОСТЬ")
     private Person person;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(columnDefinition = "ИД_ИГРА", referencedColumnName = "ИД_ИГРА")
     private Game game;
 

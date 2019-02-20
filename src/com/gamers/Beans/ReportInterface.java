@@ -8,6 +8,7 @@ import javax.ejb.Local;
 @Local
 public interface ReportInterface
 {
-    //@RolesAllowed({"user", "admin", "banned-user"})
-    public JSONObject createReport(String topic, String description);
+
+    JSONObject createReport(String topic, String description);
+
 }

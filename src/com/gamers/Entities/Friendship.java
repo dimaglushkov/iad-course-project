@@ -2,12 +2,13 @@ package com.gamers.Entities;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "ДРУЖБА")
-public class Friendship
+public class Friendship implements Serializable
 {
     @Id
     @Column(name="ИД_ДРУЖБА", columnDefinition = "SERIAL")
@@ -21,6 +22,9 @@ public class Friendship
     @OneToOne
     @JoinColumn(name = "ИД_ДРУГ", referencedColumnName = "ИД_ЛИЧНОСТЬ")
     private Person friend;
+
+    @Column(name = "ПОДТВЕРЖДЕНО")
+    private boolean isConfirmed;
 
     public Friendship()
     {}
@@ -52,5 +56,15 @@ public class Friendship
 
     public void setFriend(Person friend) {
         this.friend = friend;
+    }
+
+    public boolean isConfirmed()
+    {
+        return isConfirmed;
+    }
+
+    public void setConfirmed(boolean confirmed)
+    {
+        isConfirmed = confirmed;
     }
 }

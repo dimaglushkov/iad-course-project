@@ -27,6 +27,7 @@ public class Person implements Serializable
     @Column(name="ХЕШ_ПАРОЛЬ", columnDefinition = "TEXT UNIQUE NOT NULL")
     private String password;
 
+    @Transient
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "НИКНЕЙМ", referencedColumnName = "НИКНЕЙМ")
     private Set<Group> groups = new LinkedHashSet<>();
