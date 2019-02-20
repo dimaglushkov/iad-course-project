@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Friends page</title>
+
+</head>
+
+<body>
+<div>
+    <div id="main">
+
+        <div id="header">
+            <div > Друзья</div>
+        </div>
+
+        <div >
+            <form action="api/friends/new/" onsubmit="this.action = this.action + this.nickname.value;" method = get>
+                <b>Добавить друга</b> <br />
+                <strong>никнейм: </strong><br/>
+                    <input type="text" name="nickname" size="25">
+                <input type="submit" value="Добавить"  class="superbutton">
+            </form>
+        </div>
+
+        <div id="footer">
+            <div id="bot">
+                <div id="bottomhead">
+                    @ test-version
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

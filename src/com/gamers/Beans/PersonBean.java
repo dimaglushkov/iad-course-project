@@ -151,6 +151,38 @@ public class PersonBean implements PersonInterface, Serializable
         return response;
     }
 
+    @GET
+    @Path("/{nickname}/friends")
+    @Produces("application/json")
+    @RolesAllowed({"admin", "user"})
+    @Override
+    public JSONObject usersFriends(@PathParam("nickname") String nickname)
+    {
+        FriendshipDAO friendshipDAO = new FriendshipDAO();
+        JSONObject response = new JSONObject();
+        Person person = personDAO.findByNickname(nickname);
+
+        response.put("success", "true");
+        response.put("description", "List of friends created");
+
+        JSONArray jsonArray = new JSONArray();
+
+        List<Person> friends = friendshipDAO.findFriendsByNickname(nickname);
+        for (Person friend : friends)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("friendname", friend.getNickname());
+            jsonArray.add(obj);
+        }
+        response.put("friends", jsonArray);
+
+        return response;
+    }
+
+
+
+
+
     private JSONObject responseOnFail(String description)
     {
         JSONObject resp = new JSONObject();
@@ -194,5 +226,7 @@ public class PersonBean implements PersonInterface, Serializable
         return false;
 
     }
+
+
 
 }

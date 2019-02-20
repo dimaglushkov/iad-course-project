@@ -7,6 +7,7 @@ import com.gamers.Entities.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.util.LinkedList;
 import java.util.List;
 
 public class FriendshipDAO extends DAOService<Friendship, Long>
@@ -30,8 +31,7 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
         Query query = entityManager.createNativeQuery(
                 "SELECT * FROM ЛИЧНОСТЬ " +
                 "INNER JOIN ДРУЖБА ON ЛИЧНОСТЬ.ИД_ЛИЧНОСТЬ = ДРУЖБА.ИД_ДРУГ " +
-                "WHERE ДРУЖБА.ИД_ЛИЧНОСТЬ = " + person.getId() + " AND СТАТУС = true;", Person.class);
-        //TODO: check
+                "WHERE ДРУЖБА.ИД_ЛИЧНОСТЬ = " + person.getId() + " AND ПОДТВЕРЖДЕНО = true;", Person.class);
 
         try
         {
@@ -39,8 +39,21 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
         }
         catch (NoResultException e)
         {
-            friends = null;
+            friends = new LinkedList<>();
         }
+
+        Query query1 = entityManager.createNativeQuery(
+                "SELECT * FROM ЛИЧНОСТЬ " +
+                        "INNER JOIN ДРУЖБА ON ЛИЧНОСТЬ.ИД_ЛИЧНОСТЬ = ДРУЖБА.ИД_ДРУГ " +
+                        "WHERE ДРУЖБА.ИД_ДРУГ = " + person.getId() + " AND ПОДТВЕРЖДЕНО = true;", Person.class);
+        try
+        {
+            friends.addAll(query1.getResultList());
+        }
+        catch (NoResultException ignored)
+        {
+        }
+        
         entityManager.getTransaction().commit();
         entityManager.close();
         return friends;
@@ -54,13 +67,16 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
         Person person1 = personDAO.findByNickname(nickname1);
         Person person2 = personDAO.findByNickname(nickname2);
 
+        if (person1 == null || person2 == null)
+            return null;
+
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
         Friendship friendship;
 
         Query query = entityManager.createNativeQuery(
-                "SELECT * ДРУЖБА WHERE ИД_ЛИЧНОСТЬ = " + person1.getId() + " AND ИД_ДРУГ = " + person2 + ";"
+                "SELECT * FROM ДРУЖБА WHERE ИД_ЛИЧНОСТЬ = " + person1.getId() + " AND ИД_ДРУГ = " + person2.getId() + ";"
                 , Friendship.class);
 
         try
@@ -70,7 +86,7 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
         catch (NoResultException e)
         {
             Query query2 = entityManager.createNativeQuery(
-                    "SELECT * ДРУЖБА WHERE ИД_ЛИЧНОСТЬ = " + person2.getId() + " AND ИД_ДРУГ = " + person1 + ";"
+                    "SELECT * FROM  ДРУЖБА WHERE ИД_ЛИЧНОСТЬ = " + person2.getId() + " AND ИД_ДРУГ = " + person1.getId() + ";"
                     , Friendship.class);
 
             try
@@ -90,5 +106,29 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
 
     }
 
+    public void acceptRequest(Friendship friendship)
+    {
+        EntityManager entityManager = getEntityManager();
+        entityManager.getTransaction().begin();
+
+        Query query = entityManager.createNativeQuery("UPDATE ДРУЖБА SET ПОДТВЕРЖДЕНО = true WHERE ИД_ДРУЖБА = " + friendship.getId() + ";");
+        query.executeUpdate();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+    public void declineRequest(Friendship friendship)
+    {
+        EntityManager entityManager = getEntityManager();
+        entityManager.getTransaction().begin();
+
+        Query query = entityManager.createNativeQuery("DELETE FROM ДРУЖБА WHERE ИД_ДРУЖБА = " + friendship.getId() + ";");
+        query.executeUpdate();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+    }
 
 }

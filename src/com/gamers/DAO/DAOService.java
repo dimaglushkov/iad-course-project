@@ -39,6 +39,7 @@ public class DAOService<T, PK extends Serializable> {
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
             entityManager.close();
             return false;
@@ -48,23 +49,13 @@ public class DAOService<T, PK extends Serializable> {
         return true;
     }
 
-    public boolean update(T entity)
+    public void update(T entity)
     {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        try
-        {
-            entityManager.merge(entity);
-        }
-        catch (Exception e)
-        {
-            entityManager.getTransaction().rollback();
-            entityManager.close();
-            return false;
-        }
+        entityManager.merge(entity);
         entityManager.getTransaction().commit();
         entityManager.close();
-        return true;
     }
 
     public T findById(PK id)
@@ -77,22 +68,12 @@ public class DAOService<T, PK extends Serializable> {
         return entity;
     }
 
-    public boolean delete(T entity) {
+    public void delete(T entity) {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        try
-        {
-            entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
-        }
-        catch (Exception e)
-        {
-            entityManager.getTransaction().rollback();
-            entityManager.close();
-            return false;
-        }
+        entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
         entityManager.getTransaction().commit();
         entityManager.close();
-        return true;
     }
 
 
@@ -118,6 +99,7 @@ public class DAOService<T, PK extends Serializable> {
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             entityManager.getTransaction().rollback();
             entityManager.close();
             return false;

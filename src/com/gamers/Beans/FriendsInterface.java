@@ -18,8 +18,5 @@ public interface FriendsInterface
     @RolesAllowed({"admin", "user"})
     void declineRequest(String nickname);
 
-    @RolesAllowed({"admin", "user"})
-    JSONObject usersFriends(String nickname);
-
 
 }
