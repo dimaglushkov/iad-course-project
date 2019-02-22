@@ -17,7 +17,7 @@ import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("friends")
+@Path("friend")
 @Stateless
 @Local(FriendsInterface.class)
 public class FriendsBean implements FriendsInterface
@@ -36,7 +36,7 @@ public class FriendsBean implements FriendsInterface
     @Path("/new/{nickname}")
     @RolesAllowed({"admin", "user"})
     @Override
-    public JSONObject sendRequest(@PathParam("nickname")String nickname)
+    public JSONObject addFriend(@PathParam("nickname")String nickname)
     {
         JSONObject response = new JSONObject();
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
@@ -76,7 +76,7 @@ public class FriendsBean implements FriendsInterface
     }
 
     @POST
-    @Path("/{nickname}/accept")
+    @Path("/accept/{nickname}")
     @RolesAllowed({"admin", "user"})
     @Override
     public void acceptRequest(@PathParam("nickname") String nickname)
@@ -96,7 +96,7 @@ public class FriendsBean implements FriendsInterface
     }
 
     @POST
-    @Path("/{nickname}/decline")
+    @Path("/decline/{nickname}")
     @RolesAllowed({"admin", "user"})
     @Override
     public void declineRequest(@PathParam("nickname") String nickname)
@@ -113,5 +113,46 @@ public class FriendsBean implements FriendsInterface
 
     }
 
+    @POST
+    @Path("/delete/{nickname}")
+    @RolesAllowed({"admin", "user"})
+    @Override
+    public void removeFriend(@PathParam("nickname") String nickname)
+    {
+
+        Friendship friendship = friendshipDAO.findFriendshipByNicknames(nickname, sessionContext.getCallerPrincipal().getName());
+        if (friendship == null)
+            return;
+
+        friendshipDAO.delete(friendship);
+    }
+
+    @GET
+    @Path("/{nickname}")
+    @Produces("application/json")
+    @RolesAllowed({"admin", "user"})
+    @Override
+    public JSONObject getFriends(@PathParam("nickname") String nickname)
+    {
+        FriendshipDAO friendshipDAO = new FriendshipDAO();
+        JSONObject response = new JSONObject();
+        Person person = personDAO.findByNickname(nickname);
+
+        response.put("success", "true");
+        response.put("description", "List of friends created");
+
+        JSONArray jsonArray = new JSONArray();
+
+        List<Person> friends = friendshipDAO.findFriendsByNickname(nickname);
+        for (Person friend : friends)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("friendname", friend.getNickname());
+            jsonArray.add(obj);
+        }
+        response.put("friends", jsonArray);
+
+        return response;
+    }
 
 }

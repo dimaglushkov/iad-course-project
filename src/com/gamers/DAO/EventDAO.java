@@ -1,32 +1,39 @@
 package com.gamers.DAO;
 
 import com.gamers.Entities.Dictionary;
+import com.gamers.Entities.Event;
+import com.gamers.Entities.Person;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.sql.Date;
+import java.util.LinkedList;
 import java.util.List;
 
-public class DictionaryDAO extends DAOService<Dictionary, Long> {
-
-    public DictionaryDAO(){
-        super(Dictionary.class);
+public class EventDAO extends DAOService<Event, Long>
+{
+    public EventDAO()
+    {
+        super(Event.class);
     }
 
-    public List<Dictionary> findByTheme(String theme)
+    public List<Event> findByDateForPerson(Date date, Person person)
     {
-        List<Dictionary> dictionaries;
+
+        List<Event> events;
+
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
 
         try
         {
             Query query = entityManager.createNativeQuery(
-                    "SELECT ИД_ДНЕВНИК, ИД_ЛИЧНОСТЬ, ТЕМА, ЗАПИСЬ, ДАТА " +
-                            "FROM ДНЕВНИК " +
-                            "WHERE ТЕМА = '" + theme + "';", Dictionary.class);
+                    "SELECT * " +
+                            "FROM СОБЫТИЕ " +
+                            "WHERE ДАТА = '" + date.toString() + "' AND ИД_ЛИЧНОСТЬ = "  +  person.getId() + ";", Event.class);
 
-            dictionaries = query.getResultList();
+            events = query.getResultList();
         }
         catch (NoResultException e)
         {
@@ -36,8 +43,8 @@ public class DictionaryDAO extends DAOService<Dictionary, Long> {
         }
         entityManager.getTransaction().commit();
         entityManager.close();
-        return dictionaries;
-    }
 
+        return events;
+    }
 
 }

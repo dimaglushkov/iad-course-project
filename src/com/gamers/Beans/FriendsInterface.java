@@ -4,13 +4,17 @@ import org.json.simple.JSONObject;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
+import javax.ws.rs.PathParam;
 
 @Local
 public interface FriendsInterface
 {
 
     @RolesAllowed({"admin", "user"})
-    JSONObject sendRequest(String nickname);
+    JSONObject addFriend(String nickname);
+
+    @RolesAllowed({"admin", "user"})
+    void removeFriend(String nickname);
 
     @RolesAllowed({"admin", "user"})
     void acceptRequest(String nickname);
@@ -18,5 +22,7 @@ public interface FriendsInterface
     @RolesAllowed({"admin", "user"})
     void declineRequest(String nickname);
 
+    @RolesAllowed({"user", "admin"})
+    JSONObject getFriends(String nickname);
 
 }

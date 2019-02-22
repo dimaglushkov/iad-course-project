@@ -19,8 +19,6 @@ import java.util.List;
 
 @Stateless
 @Path("/test")
-//@Local(TestBean.class)
-//@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class TestBean
 {
 

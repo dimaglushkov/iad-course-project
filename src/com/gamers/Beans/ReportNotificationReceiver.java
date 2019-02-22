@@ -46,22 +46,10 @@ public class ReportNotificationReceiver implements MessageListener
             DBMessage.setFrom(personDAO.findByNickname(message.getStringProperty("from")));
             DBMessage.setMessageTopic("Im a cry baby...");
             DBMessage.setMessageText("New report received!\nTopic: "+ message.getText());
-                    //+ "\nReport ID: "
-                    //+ message.getStringProperty("reportId")
-                    //+ " report created at "
-                    //+ message.getStringProperty("reportTimestamp")
 
 
 
             List<Person> personList = personDAO.findByGroupName("admin");
-
-            /*
-            for (Person person : personList) {
-                com.gamers.Entities.Message curDBMessage;
-                curDBMessage = DBMessage.clone();
-                curDBMessage.setTo(person);
-                messageDAO.create(curDBMessage);
-            }*/
 
             for(int i = 0; i < personList.size(); i++)
             {
@@ -70,9 +58,6 @@ public class ReportNotificationReceiver implements MessageListener
                 messageDAO.create(messageToSend);
             }
 
-            //DBMessage.setTo(personList.get(0));
-
-            //messageDAO.create(DBMessage);
 
         }
         catch (Exception e)

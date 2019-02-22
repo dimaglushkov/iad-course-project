@@ -62,8 +62,15 @@ public class DAOService<T, PK extends Serializable> {
     public T findById(PK id)
     {
         EntityManager entityManager = getEntityManager();
-        T entity = entityManager.find(type, id);
-
+        T entity;
+        try
+        {
+            entity = entityManager.find(type, id);
+        }
+        catch (NoResultException r)
+        {
+            entity = null;
+        }
         entityManager.close();
 
         return entity;

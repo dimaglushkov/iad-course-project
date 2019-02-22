@@ -26,19 +26,17 @@ public class Event
     private Date date;
 
     @Column(name="ВРЕМЯ_НАЧ")
-    private Time timeBegin;
+    private Time time;
 
-    @Column(name="ВРЕМЯ_КОН")
-    private Time timeEnd;
+
 
     public Event() {}
 
-    public Event(String desc, Date date, Time timeBegin, Time timeEnd)
+    public Event(String desc, Date date, Time time)
     {
         this.desc = desc;
         this.date = date;
-        this.timeEnd = timeEnd;
-        this.timeBegin = timeBegin;
+        this.time = time;
     }
 
     public long getId() {
@@ -73,19 +71,12 @@ public class Event
         this.date = date;
     }
 
-    public Time getTimeBegin() {
-        return timeBegin;
+    public Time getTime() {
+        return time;
     }
 
-    public void setTimeBegin(Time timeBegin) {
-        this.timeBegin = timeBegin;
+    public void setTime(Time time) {
+        this.time = time;
     }
 
-    public Time getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(Time timeEnd) {
-        this.timeEnd = timeEnd;
-    }
 }

@@ -24,7 +24,4 @@ public interface PersonInterface
     @RolesAllowed({"user", "admin"})
     JSONObject account(String nickname);
 
-    @RolesAllowed({"user", "admin"})
-    JSONObject usersFriends(String nickname);
-
 }

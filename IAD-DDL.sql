@@ -39,8 +39,7 @@ CREATE TABLE СОБЫТИЕ
 	ИД_ЛИЧНОСТЬ INT REFERENCES ЛИЧНОСТЬ(ИД_ЛИЧНОСТЬ),
 	ОПИСАНИЕ TEXT NOT NULL,
 	ДАТА DATE NOT NULL,
-	ВРЕМЯ_НАЧ TIME NOT NULL,
-	ВРЕМЯ_КОН TIME
+	ВРЕМЯ_НАЧ TIME NOT NULL
 );
 
 CREATE TABLE ДНЕВНИК
