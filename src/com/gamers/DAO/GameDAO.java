@@ -8,12 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-public class GameDAO extends DAOService<PersonsGame, Long>
+public class GameDAO extends DAOService<Game, Long>
 {
 
     public GameDAO()
     {
-        super(PersonsGame.class);
+        super(Game.class);
     }
 
     public List<Game> findGamesByNickname(String nickname)
