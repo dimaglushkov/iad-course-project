@@ -6,6 +6,7 @@ import com.gamers.DAO.ReviewDAO;
 import com.gamers.Entities.Game;
 import com.gamers.Entities.Person;
 import com.gamers.Entities.Review;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import javax.annotation.Resource;
@@ -14,6 +15,7 @@ import javax.ejb.Local;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.ws.rs.*;
+import java.util.List;
 
 
 @Path("review")
@@ -25,8 +27,10 @@ public class ReviewBean implements ReviewInterface
     @Resource
     SessionContext sessionContext;
 
-    PersonDAO personDAO = new PersonDAO();
-    Person curPerson;
+    private PersonDAO personDAO = new PersonDAO();
+    private ReviewDAO reviewDAO = new ReviewDAO();
+    private GameDAO gameDAO = new GameDAO();
+    private Person curPerson;
 
     @POST
     @Path("/new")
@@ -34,9 +38,7 @@ public class ReviewBean implements ReviewInterface
     @Override
     public void create(@FormParam("gameId") String gameId, @FormParam("rate") String rate, @FormParam("description") String description)
     {
-        ReviewDAO reviewDAO = new ReviewDAO();
         Review review = new Review();
-        GameDAO gameDAO = new GameDAO();
         Game game = gameDAO.findById(Long.valueOf(gameId));
 
         curPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
@@ -49,6 +51,7 @@ public class ReviewBean implements ReviewInterface
 
     }
 
+    @SuppressWarnings("Duplicates")
     @GET
     @Path("/{nickname}")
     @Produces("application/json")
@@ -57,18 +60,41 @@ public class ReviewBean implements ReviewInterface
     public JSONObject getByNickname(@PathParam("nickname") String nickname)
     {
         JSONObject response = new JSONObject();
-        
 
-        return response;
+        JSONArray JsonArray = new JSONArray();
+        List<Review> reviews = reviewDAO.findReviewsByNickname(nickname);
+        return getJsonResponse(response, JsonArray, reviews);
     }
 
     @GET
-    @Path("/{gameId}")
+    @Path("/game/{gameId}")
     @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
     public JSONObject getByGameId(@PathParam("gameId") String gameId)
     {
-        return null;
+        JSONObject response = new JSONObject();
+
+        JSONArray JsonArray = new JSONArray();
+        List<Review> reviews = reviewDAO.findReviewsByGameId(Long.valueOf(gameId));
+        return getJsonResponse(response, JsonArray, reviews);
+    }
+
+    @SuppressWarnings("Duplicates")
+    private JSONObject getJsonResponse(JSONObject response, JSONArray jsonArray, List<Review> reviews)
+    {
+        for (Review review: reviews)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("reviewid", review.getId());
+            obj.put("gameid", review.getGame().getId());
+            obj.put("gamename", review.getGame().getName());
+            obj.put("gamerate", review.getGame().getName());
+            jsonArray.add(obj);
+
+        }
+
+        response.put("review", jsonArray);
+        return response;
     }
 }
