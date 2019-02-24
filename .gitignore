@@ -5,3 +5,4 @@ test
 out
 web/proxy.conf.json~
 web/.editorconfig
+src/META-INF/persistence.xml
