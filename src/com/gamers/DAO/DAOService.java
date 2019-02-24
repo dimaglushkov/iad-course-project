@@ -54,7 +54,12 @@ public class DAOService<T, PK extends Serializable> {
     {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.merge(entity);
+        try
+        {
+            entityManager.merge(entity);
+        }
+        catch (IllegalStateException ignored)
+        {}
         entityManager.getTransaction().commit();
         entityManager.close();
     }

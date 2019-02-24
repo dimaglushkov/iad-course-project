@@ -28,7 +28,7 @@ public class Person implements Serializable
     private String password;
 
     @Transient
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "НИКНЕЙМ", referencedColumnName = "НИКНЕЙМ")
     private Set<Group> groups = new LinkedHashSet<>();
 

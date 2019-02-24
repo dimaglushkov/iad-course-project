@@ -17,9 +17,10 @@ public class Group implements Serializable
     @Column(name = "ГРУППА")
     private String groupName;
 
-    @ManyToOne
-    @JoinColumn(name = "НИКНЕЙМ", referencedColumnName = "НИКНЕЙМ", nullable = false)
-    private Person person;
+
+    @Column(name = "НИКНЕЙМ")
+    private String nickname;
+
 
     public long getId() {
         return id;
@@ -29,13 +30,6 @@ public class Group implements Serializable
         this.id = id;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 
     public Group(){
     }
@@ -43,6 +37,16 @@ public class Group implements Serializable
     public Group(String groupName)
     {
         this.groupName = groupName;
+    }
+
+    public String getNickname()
+    {
+        return nickname;
+    }
+
+    public void setNickname(String nickname)
+    {
+        this.nickname = nickname;
     }
 
     public String getGroupName()
