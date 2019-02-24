@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 
 @Entity
 @Table(name="ЛИЧН_ИГРА")
-public class PersonsGame
+public class Library
 {
     @Id
     @Column(name="ИД_ЛИЧН_ИГРА", columnDefinition = "SERIAL")
@@ -20,7 +20,7 @@ public class PersonsGame
     @JoinColumn(name = "ИД_ИГРА", referencedColumnName = "ИД_ИГРА")
     private Game game;
 
-    public PersonsGame(){}
+    public Library(){}
 
     public long getId() {
         return id;

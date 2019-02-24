@@ -18,7 +18,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
-@Path("events")
+@Path("event")
 @Stateless
 @Local(EventInterface.class)
 public class EventBean implements EventInterface
@@ -45,8 +45,17 @@ public class EventBean implements EventInterface
         EventDAO eventDAO = new EventDAO();
         Event event = new Event();
 
-        Date date = Date.valueOf(dateStr);
-        Time time = Time.valueOf(timeStr);
+        Date date;
+        Time time;
+        try
+        {
+            date = Date.valueOf(dateStr);
+            time =Time.valueOf(timeStr);
+        }
+        catch (IllegalStateException e)
+        {
+            return;
+        }
 
         event.setDate(date);
         event.setDesc(description);
@@ -67,8 +76,20 @@ public class EventBean implements EventInterface
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         EventDAO eventDAO = new EventDAO();
 
+
         JSONObject response = new JSONObject();
-        Date date = Date.valueOf(dateStr);
+        Date date;
+        try
+        {
+            date = Date.valueOf(dateStr);
+
+        }
+        catch (IllegalStateException e)
+        {
+            response.put("success", "false");
+            response.put("description", "Wrong date format");
+            return response;
+        }
         List<Event> events = eventDAO.findByDateForPerson(date, currentPerson);
 
         if (events == null)

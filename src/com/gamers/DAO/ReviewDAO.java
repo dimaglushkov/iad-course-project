@@ -18,7 +18,7 @@ public class ReviewDAO extends DAOService<Review, Long>
     }
 
     @SuppressWarnings("Duplicates")
-    public List<Review> findReviewsByNickname(String nickname)
+    public List<Review> findByNickname(String nickname)
     {
         Person person;
         PersonDAO personDAO = new PersonDAO();
@@ -45,7 +45,7 @@ public class ReviewDAO extends DAOService<Review, Long>
     }
 
     @SuppressWarnings("Duplicates")
-    public List<Review> findReviewsByGameId(long id)
+    public List<Review> findByGameId(long id)
     {
 
         List<Review> reviews;

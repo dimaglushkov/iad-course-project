@@ -134,7 +134,7 @@ public class PersonBean implements PersonInterface, Serializable
         response.put("wishlist", JsonArray3);
 
         JSONArray JsonArray4 = new JSONArray();
-        List<Review> reviews = reviewDAO.findReviewsByNickname(nickname);
+        List<Review> reviews = reviewDAO.findByNickname(nickname);
         for (Review review: reviews)
         {
             JSONObject obj = new JSONObject();

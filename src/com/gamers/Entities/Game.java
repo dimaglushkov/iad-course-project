@@ -2,6 +2,7 @@ package com.gamers.Entities;
 
 import javax.persistence.*;
 import javax.persistence.GenerationType;
+import java.sql.Date;
 
 @Entity
 @Table(name = "ИГРА")
@@ -15,17 +16,17 @@ public class Game
     @Column(name="НАЗВАНИЕ", columnDefinition = "TEXT")
     private String name;
 
-    @Column(name="ГОД_ВЫХОДА", columnDefinition = "INT")
-    private int year;
+    @Column(name="ДАТА_ВЫХОДА", columnDefinition = "DATE")
+    private Date date;
 
     @Column(name="ОПИСАНИЕ", columnDefinition = "TEXT")
     private String desc;
 
     public Game(){}
 
-    public Game( String name, Integer year, String desc) {
+    public Game( String name, Date date, String desc) {
         this.name = name;
-        this.year = year;
+        this.date = date;
         this.desc = desc;
     }
 
@@ -45,12 +46,14 @@ public class Game
         this.name = name;
     }
 
-    public int getYear() {
-        return year;
+    public Date getDate()
+    {
+        return date;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(Date date)
+    {
+        this.date = date;
     }
 
     public String getDesc() {

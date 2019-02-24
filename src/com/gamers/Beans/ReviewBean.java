@@ -39,7 +39,17 @@ public class ReviewBean implements ReviewInterface
     public void create(@FormParam("gameId") String gameId, @FormParam("rate") String rate, @FormParam("description") String description)
     {
         Review review = new Review();
-        Game game = gameDAO.findById(Long.valueOf(gameId));
+        Long gameIdNumeric;
+
+        try
+        {
+            gameIdNumeric = Long.valueOf(gameId);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return;
+        }
+        Game game = gameDAO.findById(gameIdNumeric);
 
         curPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         review.setPerson(curPerson);
@@ -62,7 +72,7 @@ public class ReviewBean implements ReviewInterface
         JSONObject response = new JSONObject();
 
         JSONArray JsonArray = new JSONArray();
-        List<Review> reviews = reviewDAO.findReviewsByNickname(nickname);
+        List<Review> reviews = reviewDAO.findByNickname(nickname);
         return getJsonResponse(response, JsonArray, reviews);
     }
 
@@ -76,7 +86,7 @@ public class ReviewBean implements ReviewInterface
         JSONObject response = new JSONObject();
 
         JSONArray JsonArray = new JSONArray();
-        List<Review> reviews = reviewDAO.findReviewsByGameId(Long.valueOf(gameId));
+        List<Review> reviews = reviewDAO.findByGameId(Long.valueOf(gameId));
         return getJsonResponse(response, JsonArray, reviews);
     }
 

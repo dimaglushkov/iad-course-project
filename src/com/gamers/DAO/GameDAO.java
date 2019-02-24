@@ -2,7 +2,6 @@ package com.gamers.DAO;
 
 import com.gamers.Entities.Game;
 import com.gamers.Entities.Person;
-import com.gamers.Entities.PersonsGame;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

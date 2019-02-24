@@ -22,7 +22,7 @@ CREATE TABLE ИГРА
 (
 	ИД_ИГРА SERIAL PRIMARY KEY,
 	НАЗВАНИЕ TEXT,
-	ГОД_ВЫХОДА INT,
+	ДАТА_ВЫХОДА DATE,
 	ОПИСАНИЕ TEXT
 );
 
