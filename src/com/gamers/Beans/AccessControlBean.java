@@ -58,7 +58,7 @@ public class AccessControlBean implements AccessControlInterface
         if (person == null)
             return initResponse(false, "Wrong nickname");
 
-        groupDAO.updateBanStatus(person, bannedGroup);
+        groupDAO.updateBanStatus(person, new Group("user"));
 
         return initResponse(true, "Person with nickname " + nickname +" unbanned");
     }

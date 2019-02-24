@@ -98,9 +98,8 @@ public class Info {
         return registerDate;
     }
 
-    public void setRegisterDate(Date registerDate) {
+    public void setRegisterDate(Date registerDate)
+    {
         this.registerDate = registerDate;
     }
-
-
 }

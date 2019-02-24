@@ -1,3 +1,5 @@
+-- noinspection NonAsciiCharactersForFile
+
 CREATE TABLE ЛИЧНОСТЬ
 ( 
 	ИД_ЛИЧНОСТЬ SERIAL PRIMARY KEY,
