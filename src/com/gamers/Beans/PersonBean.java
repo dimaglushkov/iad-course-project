@@ -87,8 +87,6 @@ public class PersonBean implements PersonInterface, Serializable
         FriendshipDAO friendshipDAO = new FriendshipDAO();
         GameDAO gameDAO = new GameDAO();
         ReviewDAO reviewDAO = new ReviewDAO();
-        WishlistDAO wishlistDAO = new WishlistDAO();
-
         Person person = personDAO.findByNickname(nickname);
         if (person == null)
             return responseOnFail("This user doesn't exist");
@@ -119,19 +117,6 @@ public class PersonBean implements PersonInterface, Serializable
             JsonArray2.add(obj);
         }
         response.put("games", JsonArray2);
-
-        JSONArray JsonArray3 = new JSONArray();
-        games.clear();
-        games = wishlistDAO.findWishlistGamesIdByNickname(nickname);
-        for (Game game: games)
-        {
-            JSONObject obj = new JSONObject();
-            obj.put("gamename", game.getName());
-            obj.put("gameid", game.getId());
-            JsonArray3.add(obj);
-
-        }
-        response.put("wishlist", JsonArray3);
 
         JSONArray JsonArray4 = new JSONArray();
         List<Review> reviews = reviewDAO.findByNickname(nickname);
