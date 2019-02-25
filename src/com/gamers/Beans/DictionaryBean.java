@@ -13,10 +13,11 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.json.JsonArray;
 import javax.ws.rs.*;
 
-@Stateful
+@Stateless
 @Path("/dictionary")
 @Local(DictionaryInterface.class)
 public class DictionaryBean implements DictionaryInterface
@@ -35,7 +36,8 @@ public class DictionaryBean implements DictionaryInterface
     @Produces("application/json")
     @Path("/new")
     @Override
-    public JSONObject create(@FormParam("topic") String topic, @FormParam("text") String text)
+    public JSONObject create(@FormParam("topic") String topic,
+                             @FormParam("text") String text)
     {
         response = new JSONObject();
         curPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());

@@ -37,7 +37,9 @@ public class GameBean implements GameInterface
     @RolesAllowed("admin")
     @Produces("application/json")
     @Override
-    public JSONObject createGame(@FormParam("name") String name, @FormParam("date") String dateStr, @FormParam("description") String description)
+    public JSONObject createGame(@FormParam("name") String name,
+                                 @FormParam("date") String dateStr,
+                                 @FormParam("description") String description)
     {
         response = new JSONObject();
 
@@ -181,6 +183,10 @@ public class GameBean implements GameInterface
 
         return initResponse(true, "Game found");
     }
+
+    @GET
+    @PathParam("/{gameName}")
+    @Produces("application/json")
 
 
 

@@ -70,7 +70,8 @@ public class AccessControlBean implements AccessControlInterface
     @Produces("application/json")
     @Override
     @SuppressWarnings("Duplicates")
-    public JSONObject grantRights(@PathParam("nickname") String nickname, @PathParam("groupname") String groupName)
+    public JSONObject grantRights(@PathParam("nickname") String nickname,
+                                  @PathParam("groupname") String groupName)
     {
         response = new JSONObject();
         if(!(groupName.equals("admin") || (groupName.equals("user"))))
@@ -91,7 +92,8 @@ public class AccessControlBean implements AccessControlInterface
     @Produces("application/json")
     @SuppressWarnings("Duplicates")
     @Override
-    public JSONObject ungrantRights(@PathParam("nickname") String nickname, @PathParam("groupname") String groupName)
+    public JSONObject ungrantRights(@PathParam("nickname") String nickname,
+                                    @PathParam("groupname") String groupName)
     {
         response = new JSONObject();
         if(!(groupName.equals("admin") || (groupName.equals("user"))))

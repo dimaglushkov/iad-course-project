@@ -35,7 +35,9 @@ public class EventBean implements EventInterface
     @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public JSONObject create(@FormParam("description") String description, @FormParam("date") String dateStr, @FormParam("time") String timeStr)
+    public JSONObject create(@FormParam("description") String description,
+                             @FormParam("date") String dateStr,
+                             @FormParam("time") String timeStr)
     {
         //Date format: 2013-08-22
         //Time format: 14:57:00

@@ -123,7 +123,7 @@ public class PersonBean implements PersonInterface, Serializable
             obj.put("reviewid", review.getId());
             obj.put("gameid", review.getGame().getId());
             obj.put("gamename", review.getGame().getName());
-            obj.put("gamerate", review.getGame().getName());
+            obj.put("gamerate", review.getRate());
             JsonArray4.add(obj);
 
         }
