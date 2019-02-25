@@ -12,12 +12,12 @@ public interface EventInterface
 {
 
     @RolesAllowed({"admin", "user"})
-    void create(String description, String dateStr, String timeStr);
+    JSONObject create(String description, String dateStr, String timeStr);
 
     @RolesAllowed({"admin", "user"})
     JSONObject findByDate(String dateStr);
 
     @RolesAllowed({"admin", "user"})
-    void delete(String id);
+    JSONObject delete(String id);
 
 }

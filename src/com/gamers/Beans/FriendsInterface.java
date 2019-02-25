@@ -14,13 +14,13 @@ public interface FriendsInterface
     JSONObject addFriend(String nickname);
 
     @RolesAllowed({"admin", "user"})
-    void removeFriend(String nickname);
+    JSONObject removeFriend(String nickname);
 
     @RolesAllowed({"admin", "user"})
-    void acceptRequest(String nickname);
+    JSONObject acceptRequest(String nickname);
 
     @RolesAllowed({"admin", "user"})
-    void declineRequest(String nickname);
+    JSONObject declineRequest(String nickname);
 
     @RolesAllowed({"user", "admin"})
     JSONObject getFriends(String nickname);

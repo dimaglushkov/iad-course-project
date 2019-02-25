@@ -9,7 +9,7 @@ import javax.ejb.Local;
 public interface ReviewInterface
 {
     @RolesAllowed({"admin", "user"})
-    void create(String gameId, String rate,  String description);
+    JSONObject create(String gameId, String rate,  String description);
 
     @RolesAllowed({"admin", "user"})
     JSONObject getByNickname(String nickname);

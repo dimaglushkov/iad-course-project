@@ -27,6 +27,7 @@ public class ReviewBean implements ReviewInterface
     @Resource
     SessionContext sessionContext;
 
+    private JSONObject response;
     private PersonDAO personDAO = new PersonDAO();
     private ReviewDAO reviewDAO = new ReviewDAO();
     private GameDAO gameDAO = new GameDAO();
@@ -34,10 +35,13 @@ public class ReviewBean implements ReviewInterface
 
     @POST
     @Path("/new")
+    @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public void create(@FormParam("gameId") String gameId, @FormParam("rate") String rate, @FormParam("description") String description)
+    public JSONObject create(@FormParam("gameId") String gameId, @FormParam("rate") String rate, @FormParam("description") String description)
     {
+        response = new JSONObject();
+
         Review review = new Review();
         Long gameIdNumeric;
 
@@ -47,7 +51,8 @@ public class ReviewBean implements ReviewInterface
         }
         catch (IllegalArgumentException e)
         {
-            return;
+
+            return initResponse(false, "Wrong id value");
         }
         Game game = gameDAO.findById(gameIdNumeric);
 
@@ -59,6 +64,7 @@ public class ReviewBean implements ReviewInterface
 
         reviewDAO.create(review);
 
+        return initResponse(true, "Review created");
     }
 
     @SuppressWarnings("Duplicates")
@@ -73,7 +79,7 @@ public class ReviewBean implements ReviewInterface
 
         JSONArray JsonArray = new JSONArray();
         List<Review> reviews = reviewDAO.findByNickname(nickname);
-        return getJsonResponse(response, JsonArray, reviews);
+        return putReviewsToResponse(response, JsonArray, reviews);
     }
 
     @GET
@@ -83,17 +89,17 @@ public class ReviewBean implements ReviewInterface
     @Override
     public JSONObject getByGameId(@PathParam("gameId") String gameId)
     {
-        JSONObject response = new JSONObject();
+         response = new JSONObject();
 
         JSONArray JsonArray = new JSONArray();
         List<Review> reviews = reviewDAO.findByGameId(Long.valueOf(gameId));
-        return getJsonResponse(response, JsonArray, reviews);
+        return putReviewsToResponse(response, JsonArray, reviews);
     }
 
     @SuppressWarnings("Duplicates")
-    private JSONObject getJsonResponse(JSONObject response, JSONArray jsonArray, List<Review> reviews)
+    private JSONObject putReviewsToResponse(JSONObject response, JSONArray jsonArray, List<Review> reviews)
     {
-        for (Review review: reviews)
+        for (Review review : reviews)
         {
             JSONObject obj = new JSONObject();
             obj.put("reviewid", review.getId());
@@ -105,6 +111,13 @@ public class ReviewBean implements ReviewInterface
         }
 
         response.put("review", jsonArray);
+        return initResponse(true, "Review found");
+    }
+
+    private JSONObject initResponse(Boolean success, String desc)
+    {
+        response.put("success", success.toString());
+        response.put("description", desc);
         return response;
     }
 }

@@ -26,6 +26,8 @@ public class FriendsBean implements FriendsInterface
     @Resource
     SessionContext sessionContext;
 
+    private JSONObject response;
+
     private FriendshipDAO friendshipDAO = new FriendshipDAO();
 
     private PersonDAO personDAO = new PersonDAO();
@@ -38,29 +40,23 @@ public class FriendsBean implements FriendsInterface
     @Override
     public JSONObject addFriend(@PathParam("nickname")String nickname)
     {
-        JSONObject response = new JSONObject();
+        response = new JSONObject();
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         Friendship test = friendshipDAO.findFriendshipByNicknames(nickname, currentPerson.getNickname());
         if (test != null)
         {
-            response.put("success", "false");
-            response.put("description", "This friendship already exists");
-            return  response;
+            return initResponse(false, "This friendship already exists");
         }
 
         Person friend = personDAO.findByNickname(nickname);
         if (friend == null)
         {
-            response.put("success", "false");
-            response.put("description", "No user with such nickname");
-            return  response;
+            return initResponse(false, "Wrong nickname");
         }
 
         if (nickname.equals(sessionContext.getCallerPrincipal().getName()))
         {
-            response.put("success", "false");
-            response.put("description", "go find some friends lmao");
-            return  response;
+            return initResponse(false, "go find some friends lmao");
         }
 
         Friendship friendReq = new Friendship();
@@ -70,61 +66,68 @@ public class FriendsBean implements FriendsInterface
 
         friendshipDAO.create(friendReq);
 
-        response.put("success", "true");
-        response.put("description", "Friend request created");
-        return response;
+        return initResponse(true, "Friend request created");
     }
 
     @POST
     @Path("/accept/{nickname}")
+    @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public void acceptRequest(@PathParam("nickname") String nickname)
+    public JSONObject acceptRequest(@PathParam("nickname") String nickname)
     {
+        response = new JSONObject();
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         if (nickname.equals(currentPerson.getNickname()))
-            return;
+            return initResponse(false, "dude you CANNOT accept yourself as a friend here");
 
         Friendship friendship = friendshipDAO.findFriendshipByNicknames(nickname, currentPerson.getNickname());
         if (friendship == null || friendship.isConfirmed())
-            return;
+            return initResponse(false, "This request already confirmed or (what's more possible) not exists. Go outside");
 
         friendship.setConfirmed(true);
 
         friendshipDAO.acceptRequest(friendship);
 
+        return initResponse(true, "Request accepted");
+
     }
 
     @POST
     @Path("/decline/{nickname}")
+    @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public void declineRequest(@PathParam("nickname") String nickname)
+    public JSONObject declineRequest(@PathParam("nickname") String nickname)
     {
+        response = new JSONObject();
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         if (nickname.equals(currentPerson.getNickname()))
-            return;
+            return initResponse(false, "You CANNOT decline request from YOURSELF");
 
         Friendship friendship = friendshipDAO.findFriendshipByNicknames(nickname, sessionContext.getCallerPrincipal().getName());
         if (friendship == null || friendship.isConfirmed())
-            return;
+            return initResponse(false, "This request already confirmed or (what's more possible) not exists. Go outside");
 
         friendshipDAO.declineRequest(friendship);
+        return initResponse(true, "Request declined");
 
     }
 
     @POST
     @Path("/delete/{nickname}")
+    @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public void removeFriend(@PathParam("nickname") String nickname)
+    public JSONObject removeFriend(@PathParam("nickname") String nickname)
     {
-
+        response = new JSONObject();
         Friendship friendship = friendshipDAO.findFriendshipByNicknames(nickname, sessionContext.getCallerPrincipal().getName());
         if (friendship == null)
-            return;
+            return initResponse(false, "YEah you can NOT break friendship if theres none");
 
         friendshipDAO.delete(friendship);
+        return initResponse(true, "Sadly, you are no longer friends");
     }
 
     @GET
@@ -134,12 +137,10 @@ public class FriendsBean implements FriendsInterface
     @Override
     public JSONObject getFriends(@PathParam("nickname") String nickname)
     {
+        response = new JSONObject();
         FriendshipDAO friendshipDAO = new FriendshipDAO();
-        JSONObject response = new JSONObject();
-        Person person = personDAO.findByNickname(nickname);
 
-        response.put("success", "true");
-        response.put("description", "List of friends created");
+        Person person = personDAO.findByNickname(nickname);
 
         JSONArray jsonArray = new JSONArray();
 
@@ -152,6 +153,13 @@ public class FriendsBean implements FriendsInterface
         }
         response.put("friends", jsonArray);
 
+        return initResponse(true, "Friendlist found");
+    }
+
+    private JSONObject initResponse(Boolean success, String desc)
+    {
+        response.put("success", success.toString());
+        response.put("description", desc);
         return response;
     }
 

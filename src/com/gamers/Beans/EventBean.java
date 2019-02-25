@@ -28,17 +28,21 @@ public class EventBean implements EventInterface
     SessionContext sessionContext;
     private PersonDAO personDAO = new PersonDAO();
     private Person currentPerson;
+    private JSONObject response;
 
     @POST
     @Path("/new")
+    @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public void create(@FormParam("description") String description, @FormParam("date") String dateStr, @FormParam("time") String timeStr)
+    public JSONObject create(@FormParam("description") String description, @FormParam("date") String dateStr, @FormParam("time") String timeStr)
     {
         //Date format: 2013-08-22
         //Time format: 14:57:00
+        response = new JSONObject();
+
         if (description == null || dateStr == null || timeStr == null)
-            return;
+            return initResponse(false, "Please feel every field");
 
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
 
@@ -54,7 +58,7 @@ public class EventBean implements EventInterface
         }
         catch (IllegalStateException e)
         {
-            return;
+            return initResponse(false, "Please feel every field correctly");
         }
 
         event.setDate(date);
@@ -63,6 +67,7 @@ public class EventBean implements EventInterface
         event.setPerson(currentPerson);
 
         eventDAO.create(event);
+        return initResponse(true, "Event created");
 
     }
 
@@ -73,11 +78,11 @@ public class EventBean implements EventInterface
     @Override
     public JSONObject findByDate(@PathParam("date") String dateStr)
     {
+        response  = new JSONObject();
+
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         EventDAO eventDAO = new EventDAO();
 
-
-        JSONObject response = new JSONObject();
         Date date;
         try
         {
@@ -86,17 +91,13 @@ public class EventBean implements EventInterface
         }
         catch (IllegalStateException e)
         {
-            response.put("success", "false");
-            response.put("description", "Wrong date format");
-            return response;
+            return initResponse(false, "Wrong date format");
         }
         List<Event> events = eventDAO.findByDateForPerson(date, currentPerson);
 
         if (events == null)
         {
-            response.put("success", "false");
-            response.put("description", "No events for this date found");
-            return response;
+            return initResponse(false, "No events for this date found");
         }
 
         JSONArray jsonArray = new JSONArray();
@@ -111,26 +112,35 @@ public class EventBean implements EventInterface
             jsonArray.add(obj);
         }
         response.put("events", jsonArray);
-        return response;
+        return initResponse(false, "Events found");
     }
 
 
     @POST
     @Path("/delete/{id}")
     @RolesAllowed({"admin", "user"})
+    @Produces("application/json")
     @Override
-    public void delete(@PathParam("id") String id)
+    public JSONObject delete(@PathParam("id") String id)
     {
+        response = new JSONObject();
         currentPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         EventDAO eventDAO = new EventDAO();
 
         Event eventToDelete = eventDAO.findById(Long.valueOf(id));
 
         if (eventToDelete == null)
-            return;
+            return initResponse(false, "Event not found");
 
         eventDAO.delete(eventToDelete);
+        return initResponse(true, "Event deleted");
+    }
 
+    private JSONObject initResponse(Boolean success, String desc)
+    {
+        response.put("success", success.toString());
+        response.put("description", desc);
+        return response;
     }
 
 }
