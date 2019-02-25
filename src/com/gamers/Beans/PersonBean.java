@@ -1,10 +1,7 @@
 package com.gamers.Beans;
 
 import com.gamers.DAO.*;
-import com.gamers.Entities.Game;
-import com.gamers.Entities.Group;
-import com.gamers.Entities.Person;
-import com.gamers.Entities.Review;
+import com.gamers.Entities.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -34,6 +31,8 @@ public class PersonBean implements PersonInterface, Serializable
 
     private PersonDAO personDAO = new PersonDAO();
 
+    private JSONObject response;
+
     @POST
     @Produces("application/json")
     @Path("/new")
@@ -43,12 +42,12 @@ public class PersonBean implements PersonInterface, Serializable
                              @FormParam("email") String email)
     {
 
-        JSONObject responseJSON = new JSONObject();
+        response = new JSONObject();
         Person person = new Person();
         Group group = new Group("user");
 
         if (isPersonWithSuchNicknameOrEmailExists(nickname, email))
-                return responseOnFail("User with such nickname or email already exists.");
+                return initResponse(false,"User with such nickname or email already exists.");
 
         try
         {
@@ -60,17 +59,16 @@ public class PersonBean implements PersonInterface, Serializable
         }
         catch (Exception e)
         {
-            return responseOnFail(e.getMessage());
+            return initResponse(false, e.getMessage());
         }
-        responseJSON.put("success", "true");
-        responseJSON.put("description", "Profile created.");
-        return responseJSON;
+        return initResponse(true, "Profile created");
     }
 
     @POST
     @Path("/logout")
     @RolesAllowed({"user", "admin", "banned-user"})
-    public void logout(@Context HttpServletResponse response, @Context HttpServletRequest request) throws IOException
+    public void logout(@Context HttpServletResponse response,
+                       @Context HttpServletRequest request) throws IOException
     {
         request.getSession().invalidate();
         response.sendRedirect(request.getContextPath());
@@ -82,17 +80,16 @@ public class PersonBean implements PersonInterface, Serializable
     @RolesAllowed({"user", "admin"})
     public JSONObject account(@PathParam("nickname") String nickname)
     {
-        JSONObject response = new JSONObject();
+        response = new JSONObject();
 
         FriendshipDAO friendshipDAO = new FriendshipDAO();
         GameDAO gameDAO = new GameDAO();
         ReviewDAO reviewDAO = new ReviewDAO();
         Person person = personDAO.findByNickname(nickname);
         if (person == null)
-            return responseOnFail("This user doesn't exist");
-
-        response.put("success", "true");
-        response.put("description", "Profile exists");
+            return initResponse(false, "This user doesn't exist");
+        InfoDAO infoDAO = new InfoDAO();
+        Info info = infoDAO.findByPersonId(person.getId());
         response.put("nickname", nickname);
 
         JSONArray JsonArray1 = new JSONArray();
@@ -133,17 +130,17 @@ public class PersonBean implements PersonInterface, Serializable
         response.put("review", JsonArray4);
 
 
-        return response;
+        return initResponse(true, "Profile found");
     }
 
 
 
-    private JSONObject responseOnFail(String description)
+    private JSONObject initResponse(boolean success, String description)
     {
-        JSONObject resp = new JSONObject();
-        resp.put("success", "false");
-        resp.put("description", description);
-        return resp;
+        response = new JSONObject();
+        response.put("success", success);
+        response.put("description", description);
+        return response;
     }
 
     private String SHA256(String password)
