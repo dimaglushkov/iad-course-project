@@ -10,6 +10,9 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { GamesPageComponent } from './games-page/games-page.component';
+import { MessagePageComponent } from './message-page/message-page.component';
+import { GameFormComponent } from './games-page/game-form/game-form.component';
 
 
 @NgModule({
@@ -20,6 +23,9 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     SiteLayoutComponent,
     RegisterPageComponent,
     ProfilePageComponent,
+    GamesPageComponent,
+    MessagePageComponent,
+    GameFormComponent,
   ],
   imports: [
     BrowserModule,

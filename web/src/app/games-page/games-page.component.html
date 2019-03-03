@@ -1,0 +1,7 @@
+<h3>Мои игры</h3>
+<a [routerLink]="['/games/new']" routerLinkActive="router-link-active"  class="waves-effect waves-light btn-small">Добавить игру</a>
+<div class="gamelist">
+  <div class="collection" style="margin-top: 26px!important;width:400px">
+    <a *ngFor="let game of games" class="collection-item" >Игра 1{{game.name}}</a>
+  </div>
+</div>

@@ -15,9 +15,8 @@ export interface UserInfo{
     description: string
     nickname: string
     friends: Array<Friends> 
-    games: Array<Games> 
-    wishlist: Array<Wishlist> 
-    reviews: Array<Reviews>  
+    games: Array<Games>
+    reviews: Array<Reviews>
 }
 
 export interface Games{
@@ -34,9 +33,9 @@ export interface Reviews{
     gamename: string
     gamerate: number
 }
-export interface Wishlist{
+
+export interface Game{
     gameid: number
     gamename: string
-}
-
-
+    gamerate: number
+} 

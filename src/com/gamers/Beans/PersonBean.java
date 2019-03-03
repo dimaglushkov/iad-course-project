@@ -104,6 +104,28 @@ public class PersonBean implements PersonInterface, Serializable
         }
         response.put("friends", JsonArray1);
 
+        JSONObject infoJSON = new JSONObject();
+
+        if (info.getName()!=null)
+            infoJSON.put("name", info.getName());
+
+        if (info.getSurname()!=null)
+            infoJSON.put("surname", info.getSurname());
+
+        if (info.getCountry()!=null)
+            infoJSON.put("country", info.getCountry());
+
+        if (info.getCity()!=null)
+            infoJSON.put("city", info.getCity());
+
+        if (info.getBirthDate()!=null)
+            infoJSON.put("birthDate", info.getBirthDate());
+
+        if (info.getRegisterDate()!=null)
+            infoJSON.put("registerDate", info.getRegisterDate());
+
+
+
         JSONArray JsonArray2 = new JSONArray();
         List<Game> games = gameDAO.findGamesByNickname(nickname);
         for (Game game: games)

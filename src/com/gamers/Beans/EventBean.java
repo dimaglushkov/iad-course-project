@@ -6,7 +6,6 @@ import com.gamers.Entities.Event;
 import com.gamers.Entities.Person;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.junit.runners.Parameterized;
 
 import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;

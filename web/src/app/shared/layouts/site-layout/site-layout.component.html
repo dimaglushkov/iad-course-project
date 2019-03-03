@@ -1,3 +1,19 @@
-<p>
-  site-layout works!
-</p>
+<section>
+<div class="side-menu" style="display:inline-block">
+  <h5>Добро пожаловать<br><!--{{nickname}}--></h5>
+<ul>
+  <li class="" *ngFor="let link of links">
+    <a [routerLink]='[link.url]'>
+      {{link.name}}
+    </a>
+  </li>
+  <li class="bold last">
+    <a href="#" (click) = "logout()">Выйти</a>
+  </li>
+</ul>
+</div>
+<div style="display:inline-block; height: 100%; position: absolute;top:2%; margin-left: 50px">
+  <router-outlet></router-outlet>
+</div>
+</section>
+ 

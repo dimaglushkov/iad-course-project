@@ -1,0 +1,100 @@
+ body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+body {
+  background: rgb(199, 255, 246);
+  color: black;
+  margin: 0 auto;
+}
+.input-field{
+	padding: 6px;
+}
+	.input-field input[type=date]:focus,
+	.input-field input[type=text]:focus,
+	.input-field input[type=email]:focus,
+	.input-field input[type=password]:focus
+
+	.input-field input[type=date]:focus,
+	.input-field input[type=text]:focus,
+	.input-field input[type=email]:focus,
+	.input-field input[type=password]:focus {
+  		border-bottom: none!important;
+  		box-shadow: 1px 1px 0px rgb(0, 81, 255)!important;
+}
+
+ul,li{
+	list-style: none;
+	margin: 0 auto;
+	padding: 0px;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(0, 217, 255)!important;
+}
+
+
+header{
+	background: rgb(0, 81, 255);
+	display: flex;
+	padding-bottom: 10px;
+}
+
+header h1{
+	display: inline-block;
+	margin: 0px;
+}
+
+header .nav{
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top:10px;
+}
+
+.logo{
+	font-size: 44px;
+	padding: 20px;
+	margin: 0px;
+}
+
+.nav ul{
+	vertical-align: middle;
+}
+.nav li{
+	display: inline-block;
+	font-size: 18px;
+	padding: 20px;
+
+}
+
+.nav li a{
+	text-transform: uppercase
+}
+
+.loginform{
+	padding-top: 150px;
+}
+
+.waves-effect{
+	background: rgb(183, 0, 255)!important;
+}
+
+.center{
+	text-align: center
+}
+.active{
+	background:rgb(0, 81, 255);
+	border-radius: 15px;
+}
+
+.linkreg{
+	cursor: pointer;
+	opacity: 1;
+}
+.linkreg:hover{
+	opacity: 0.6;
+}
