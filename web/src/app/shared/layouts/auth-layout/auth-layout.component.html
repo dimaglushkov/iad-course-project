@@ -1,14 +1,19 @@
 <header>
-  <h1><a routerLink="/" class="logo">TimeToGame</a></h1>
-  <ul class="nav">
-    <li routerLinkActive="active">
-      <a routerLink="/login">Вход</a>
-    </li>
-    <li routerLinkActive="active">
-      <a routerLink="/register">Регистрация</a>
-    </li>
-  </ul>
+  <a routerLink="/">
+    <img src="/assets/main_logo.png">
+    <div class="logotext">Time To Game </div>
+  </a>
+
+    <ul class="nav">
+      <li routerLinkActive="active">
+        <a routerLink="/login">Вход</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/register">Регистрация</a>
+      </li>
+    </ul>
+    
 </header>
 <section class="loginform">
- <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </section>

@@ -1,0 +1,77 @@
+header {
+    background: rgb(0, 81, 255);
+    display: flex;
+    padding-bottom: 0px;
+}
+
+img {
+    margin: 10px;
+    width: 30%;
+    float: left;
+
+}
+
+
+ul,li{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.logotext
+{
+    margin-top: 7%;
+    font-size: 300%;
+    white-space: pre;
+}
+
+header .nav{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top:10px;
+}
+
+.nav ul{
+    vertical-align: middle;
+}
+.nav li{
+    display: inline-block;
+    font-size: 18px;
+    padding: 20px;
+
+}
+
+ul,li{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+a{
+    text-decoration: none;
+    color: white!important;
+}
+
+.nav ul{
+	vertical-align: middle;
+}
+.nav li{
+	display: inline-block;
+	font-size: 18px;
+	padding: 20px;
+
+}
+
+.nav li a{
+    text-transform: uppercase;
+    font-size: 130    
+}
+
+.center{
+	text-align: center
+}
+.active{
+	background:rgba(160, 40, 255);
+	border-radius: 15px;
+}

@@ -1,61 +1,49 @@
-<form [formGroup]="form" action="j_security_check" class="center" (ngSubmit)="onSubmit()" method="post" enctype="application/x-www-form-urlencoded">
+<form [formGroup]="form" action="j_security_check" class="center" (ngSubmit)="onSubmit()" method="post"
+  enctype="application/x-www-form-urlencoded">
   <div class="container">
-    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+    <div class="z-depth-1 grey lighten-4 row"
+      style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-      <div class="col s12" >
+      <div class="col s12">
         <div class='row'>
           <div class='col s12'>
             <h4>Войти в систему</h4>
           </div>
         </div>
 
-        <!-- TODO: set j_username EVERYWHERE -->
         <div class='row'>
           <div class='input-field col s12'>
-            <input
-            formControlName="j_username"
-            class='validate'
-            type='text'
-            name='j_username'
-            id='j_username'
-            placeholder="Введите ваш Nickname"
-            [ngClass]="{'invalid':form.get('j_username').invalid && form.get('j_username').touched}" />
+            <input formControlName="j_username" class='validate' type='text' name='j_username' id='j_username'
+              placeholder="Введите ваш Nickname"
+              [ngClass]="{'invalid':form.get('j_username').invalid && form.get('j_username').touched}" />
             <span class="helper-text red-text"
-            *ngIf="form.get('j_username').invalid && form.get('j_username').touched">Минимальный размер никнейма - 5 символов</span>
+              *ngIf="form.get('j_username').invalid && form.get('j_username').touched">Минимальный размер никнейма - 5
+              символов</span>
           </div>
         </div>
 
         <div class='row'>
           <div class='input-field col s12'>
-            <input 
-            formControlName="j_password"
-            class='validate' 
-            type='password'
-            name='j_password'
-            id='j_password'
-            placeholder="Введите пароль"
-            [ngClass]="{'invalid':form.get('j_password').invalid && form.get('j_password').touched}" />
-            <span class="helper-text red-text"
-            *ngIf="form.get('j_password').invalid && form.get('j_password').touched">
-            <span *ngIf="form.get('j_password').errors['required']">Пароль не должен быть пустым</span>
-            <span *ngIf="form.get('j_password').errors['minlength'] && form.get('j_password').errors['minlength']">Пароль не должен быть меньше {{form.get('j_password').errors['minlength']['requiredLength']}} символов.
-              <br>Сейчас {{form.get('j_password').errors['minlength']['actualLength']}}
+            <input formControlName="j_password" class='validate' type='password' name='j_password' id='j_password'
+              placeholder="Введите пароль"
+              [ngClass]="{'invalid':form.get('j_password').invalid && form.get('j_password').touched}" />
+            <span class="helper-text red-text" *ngIf="form.get('j_password').invalid && form.get('j_password').touched">
+              <span *ngIf="form.get('j_password').errors['required']">Пароль не должен быть пустым</span>
+              <span
+                *ngIf="form.get('j_password').errors['minlength'] && form.get('j_password').errors['minlength']">Пароль
+                не должен быть меньше {{form.get('j_password').errors['minlength']['requiredLength']}} символов.
+                <br>Сейчас {{form.get('j_password').errors['minlength']['actualLength']}}
+              </span>
             </span>
-          </span>
 
           </div>
-          <label style='display: block;'>
-            <a style='position: relative;top: 15px;' class='pink-text' href='#!'><b>Забыли пароль?</b></a>
-          </label>
         </div>
 
         <br />
-          <div class="center">
+        <div class="center">
           <div class='row'>
-            <button [disabled]="form.invalid"
-            type='submit' 
-            name='btn_login' 
-            class='col s12 btn btn-large waves-effect'>Войти</button>
+            <button [disabled]="form.invalid" type='submit' name='btn_login'
+              class='col s12 btn btn-large waves-effect'>Войти</button>
           </div>
         </div>
       </div>

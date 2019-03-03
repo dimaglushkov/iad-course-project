@@ -27,13 +27,8 @@ export class SiteLayoutComponent implements OnInit {
 
   logout(){
     this.httpClient.get('api/user/logout');
+    localStorage.clear;
     this.router.navigate(['/login']);
   }
 
-
-  /*
-  logout(event: Event) {
-    event.preventDefault()
-    this.router.navigate(['/login'])
-  }*/
 }

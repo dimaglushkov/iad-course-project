@@ -13,6 +13,8 @@ export class AuthService {
             .append('j_username', user.j_username.toString())
             .append('j_password', user.j_password.toString());
 
+        localStorage.setItem('curNickname', user.j_username);
+
         return this.http.post<{token: string}>('j_security_check', sendParams)
     }
 

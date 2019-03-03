@@ -20,7 +20,7 @@ const routes: Routes = [
     {
     path:'', component: SiteLayoutComponent, children: [
       {
-        path:'profile-page', component: ProfilePageComponent
+        path:'user/:nickname', component: ProfilePageComponent
       },
       {
         path: 'message', component: MessagePageComponent
