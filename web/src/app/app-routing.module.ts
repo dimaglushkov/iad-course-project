@@ -13,27 +13,18 @@ const routes: Routes = [
   {
     path:'', component: AuthLayoutComponent, children: [
       {path: '', redirectTo:'/login', pathMatch:'full'},
-      {path: 'login', component: LoginPageComponent},
-      {path: 'register', component: RegisterPageComponent}
+      {path: 'login',           component: LoginPageComponent},
+      {path: 'register',        component: RegisterPageComponent}
     ]
   },
+  {path: 'user/:nickname',  component: ProfilePageComponent},
     {
     path:'', component: SiteLayoutComponent, children: [
-      {
-        path:'user/:nickname', component: ProfilePageComponent
-      },
-      {
-        path: 'message', component: MessagePageComponent
-      },
-      {
-        path: 'games', component: GamesPageComponent
-      },
-      {
-        path: 'games/new', component: GameFormComponent
-      },
-      {
-        path: 'games/:id', component: GameFormComponent
-      }
+     
+      {path: 'message',         component: MessagePageComponent},
+      {path: 'games',           component: GamesPageComponent},
+      {path: 'games/new',       component: GameFormComponent},
+      {path: 'games/:id',       component: GameFormComponent}
     ]
   }
 ];
