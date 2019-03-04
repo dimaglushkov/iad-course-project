@@ -7,14 +7,14 @@
       <div class="col s12">
         <div class='row'>
           <div class='col s12'>
-            <h4>Войти в систему</h4>
+            <h5>Авторизация</h5>
           </div>
         </div>
 
         <div class='row'>
           <div class='input-field col s12'>
             <input formControlName="j_username" class='validate' type='text' name='j_username' id='j_username'
-              placeholder="Введите ваш Nickname"
+              placeholder="никнейм"
               [ngClass]="{'invalid':form.get('j_username').invalid && form.get('j_username').touched}" />
             <span class="helper-text red-text"
               *ngIf="form.get('j_username').invalid && form.get('j_username').touched">Минимальный размер никнейма - 5
@@ -25,13 +25,13 @@
         <div class='row'>
           <div class='input-field col s12'>
             <input formControlName="j_password" class='validate' type='password' name='j_password' id='j_password'
-              placeholder="Введите пароль"
+              placeholder="пароль"
               [ngClass]="{'invalid':form.get('j_password').invalid && form.get('j_password').touched}" />
             <span class="helper-text red-text" *ngIf="form.get('j_password').invalid && form.get('j_password').touched">
               <span *ngIf="form.get('j_password').errors['required']">Пароль не должен быть пустым</span>
               <span
                 *ngIf="form.get('j_password').errors['minlength'] && form.get('j_password').errors['minlength']">Пароль
-                не должен быть меньше {{form.get('j_password').errors['minlength']['requiredLength']}} символов.
+                не должен быть меньше {{form.get('j_password').errors['minlength']['requiredLength']}} символов
               </span>
             </span>
 

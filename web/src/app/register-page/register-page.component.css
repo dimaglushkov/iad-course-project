@@ -6,3 +6,9 @@ input::placeholder
 {
     color: black !important;
 }
+
+@media (max-width: 500px) {
+    form {
+        margin-top: 10px;
+    }
+}

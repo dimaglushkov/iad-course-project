@@ -4,13 +4,12 @@ body{
 
 app-site-layout section div {
     display: grid;
-    grid-template-columns: 250px auto;
+    grid-template-columns: 210px auto;
 }
 
 @media (max-width: 500px) {
     app-site-layout section div {
         display: grid;
         grid-template-columns: 60px auto;
-    }
-    
+    }    
   }

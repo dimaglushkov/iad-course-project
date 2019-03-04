@@ -8,70 +8,84 @@ img {
     margin: 10px;
     width: 30%;
     float: left;
-
 }
 
-
-ul,li{
+ul, li {
     list-style: none;
     margin: 0 auto;
     padding: 0px;
 }
 
-.logotext
-{
+.logotext {
     margin-top: 7%;
     font-size: 300%;
     white-space: pre;
 }
 
-header .nav{
+header .nav {
     display: inline-block;
     position: absolute;
     right: 20px;
-    top:10px;
+    top: 10px;
 }
 
-.nav ul{
+.nav ul {
     vertical-align: middle;
 }
-.nav li{
+
+.nav li {
     display: inline-block;
     font-size: 18px;
     padding: 20px;
-
 }
 
-ul,li{
+ul, li {
     list-style: none;
     margin: 0 auto;
     padding: 0px;
 }
 
-a{
+a {
     text-decoration: none;
     color: white!important;
 }
 
-.nav ul{
-	vertical-align: middle;
-}
-.nav li{
-	display: inline-block;
-	font-size: 18px;
-	padding: 20px;
-
+.nav ul {
+    vertical-align: middle;
 }
 
-.nav li a{
+.nav li {
+    display: inline-block;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.nav li a {
     text-transform: uppercase;
-    font-size: 130    
+    font-size: 130
 }
 
-.center{
-	text-align: center
+.center {
+    text-align: center
 }
-.active{
-	background:rgba(160, 40, 255);
-	border-radius: 15px;
+
+.active {
+    background: rgba(160, 40, 255);
+    border-radius: 15px;
 }
+
+@media (max-width: 500px) {
+    .logotext {
+        display: none;
+    }
+    .nav li {
+        padding: 8px;
+        margin-top: 15px;
+        margin-right: 5px;
+    }
+
+    a{
+        font-size: 15px;
+    }
+}
+
