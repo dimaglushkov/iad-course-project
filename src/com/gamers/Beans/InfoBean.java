@@ -57,6 +57,7 @@ public class InfoBean implements InfoInterface
         info.setPerson(curPerson);
         info.setBirthDate(birthDate);
 
+
         if (name != null)
             info.setName(name);
 
@@ -95,6 +96,7 @@ public class InfoBean implements InfoInterface
 
         infoObj.put("id", info.getId());
         infoObj.put("personId", person.getId());
+        infoObj.put("email", person.getEmail());
 
         if (info.getBirthDate() != null)
             infoObj.put("birthDate", info.getBirthDate().toString());
