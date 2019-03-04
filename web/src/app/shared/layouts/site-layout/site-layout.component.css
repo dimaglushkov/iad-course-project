@@ -31,6 +31,24 @@
     background-color: #00a8ff;
 }
 
+.side-menu ul li a img{
+    vertical-align: middle;
+    width: 40px;
+}
+
+.side-menu ul li a #logotext{
+    vertical-align: middle;
+    white-space: pre;
+    font-size: 120%;
+}
+
+.side-menu ul li #exit{
+    position: absolute;
+    bottom: 10px;
+    width:210px;
+}
+
+
 @media (max-width: 500px) {
     span {
       display: none;
@@ -42,5 +60,14 @@
         width: 55px;
         position: fixed;
     }
+
+    .side-menu ul li a img{
+        vertical-align: middle;
+        width: 25px;
+    }
     
+    .side-menu ul li a #logotext{
+        display: none;
+    }
+
   }

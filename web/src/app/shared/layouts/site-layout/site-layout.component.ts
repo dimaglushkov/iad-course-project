@@ -30,7 +30,6 @@ export class SiteLayoutComponent implements OnInit {
 
   logout(){
     this.httpClient.get('api/user/logout');
-    this.router.navigate(['/login']);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl,Validators} from '@angular/forms';
 import {AuthService} from '../shared/services/auth.service'
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -13,7 +14,8 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   form: FormGroup
   aSub: Subscription
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -32,7 +34,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   onSubmit(){
     this.form.disable()
     this.aSub = this.auth.register(this.form.value).subscribe(
-      () => console.log('PersonInterface success')/*this.router.navigate['url']*/,
+      () => this.router.navigate(['/login']),
       error => {
         console.warn(error);
         this.form.enable()

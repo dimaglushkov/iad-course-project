@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import "~materialize-css/dist/css/materialize.min.css";
-@import "theme/styles.css";
 
+body{
+    background: rgb(190, 190, 255);
+}
+
+app-site-layout section div {
+    display: grid;
+    grid-template-columns: 210px auto;
+}
+
+@media (max-width: 500px) {
+    app-site-layout section div {
+        display: grid;
+        grid-template-columns: 60px auto;
+    }    
+  }
