@@ -1,0 +1,13 @@
+
+
+<h1>{{user.nickname}}</h1>
+<ul>
+  <li *ngFor="let user of user.$">
+    <a>{{ user.name }}</a>
+
+    <ul>
+      <li>{{ user.email }}</li>
+      <li><a href="http://{{ user.website }}">{{ user.website }}</a></li>
+    </ul>
+  </li>
+</ul>

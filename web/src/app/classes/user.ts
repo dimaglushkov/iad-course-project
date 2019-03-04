@@ -1,5 +1,6 @@
 import { Info } from './info'
 import { Library } from './game'
+import { ResponseState } from './responseState'
 
 
 export class LoginUser{
@@ -14,6 +15,7 @@ export class RegistrationUser{
 }
 
 export class User{
+    state: ResponseState;
     id: number;
     nickname: string;
     info: Info;

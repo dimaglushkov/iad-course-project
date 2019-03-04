@@ -159,7 +159,6 @@ public class PersonBean implements PersonInterface, Serializable
 
     private JSONObject initResponse(boolean success, String description)
     {
-        response = new JSONObject();
         response.put("success", success);
         response.put("description", description);
         return response;

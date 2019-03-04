@@ -10,6 +10,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class SiteLayoutComponent implements OnInit {
 
+  currentNickname: string;
+
   links = [
     {url: '/profile-page', name: 'Мой профиль'},
     {url: '/message', name: 'Сообщения'},
@@ -23,6 +25,7 @@ export class SiteLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentNickname = localStorage.getItem('curNickname');
   }
 
   logout(){

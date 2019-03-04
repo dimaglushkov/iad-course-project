@@ -1,0 +1,46 @@
+.side-menu {
+    background: #2D2E2E;
+    height: 100%;
+    width: 210px;
+    position: fixed;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li a {
+    color: #fff;
+    padding: 15px;
+    display: block;
+}
+
+.side-menu ul li a i{
+    vertical-align: middle;
+}
+
+
+.side-menu ul li a span{
+    vertical-align: middle;
+    padding-left: 3%;
+}
+
+.side-menu ul li .activated {
+    background-color: #00a8ff;
+}
+
+@media (max-width: 500px) {
+    span {
+      display: none;
+    }
+
+    .side-menu {
+        background: #2D2E2E;
+        height: 100%;
+        width: 55px;
+        position: fixed;
+    }
+    
+  }

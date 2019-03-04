@@ -13,6 +13,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { GameFormComponent } from './games-page/game-form/game-form.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { GameFormComponent } from './games-page/game-form/game-form.component';
     GamesPageComponent,
     MessagePageComponent,
     GameFormComponent,
+    UserPageComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,

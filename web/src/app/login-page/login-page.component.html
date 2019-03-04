@@ -32,7 +32,6 @@
               <span
                 *ngIf="form.get('j_password').errors['minlength'] && form.get('j_password').errors['minlength']">Пароль
                 не должен быть меньше {{form.get('j_password').errors['minlength']['requiredLength']}} символов.
-                <br>Сейчас {{form.get('j_password').errors['minlength']['actualLength']}}
               </span>
             </span>
 
