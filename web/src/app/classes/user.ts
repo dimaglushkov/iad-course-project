@@ -1,4 +1,6 @@
 import { Info } from './info'
+import { Library } from './game'
+
 
 export class LoginUser{
     j_username: string
@@ -15,6 +17,6 @@ export class User{
     id: number;
     nickname: string;
     info: Info;
-    
+    library: Library;    
 
 }

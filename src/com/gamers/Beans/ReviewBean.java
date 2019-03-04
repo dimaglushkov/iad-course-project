@@ -76,10 +76,14 @@ public class ReviewBean implements ReviewInterface
     public JSONObject getByNickname(@PathParam("nickname") String nickname)
     {
         JSONObject response = new JSONObject();
-
+        Person person = personDAO.findByNickname(nickname);
+        if (person == null)
+            return initResponse(false, "Wrong nickname");
         JSONArray JsonArray = new JSONArray();
         List<Review> reviews = reviewDAO.findByNickname(nickname);
-        return putReviewsToResponse(response, JsonArray, reviews);
+        putReviewsToResponse(response, JsonArray, reviews);
+        response.put("personId", person.getId());
+        return initResponse(true, "Reviews found");
     }
 
     @GET
@@ -87,13 +91,19 @@ public class ReviewBean implements ReviewInterface
     @Produces("application/json")
     @RolesAllowed({"admin", "user"})
     @Override
-    public JSONObject getByGameId(@PathParam("gameId") String gameId)
+    public JSONObject getByGameId(@PathParam("gameId") String gameIdStr)
     {
-         response = new JSONObject();
+        response = new JSONObject();
+        long gameId = Long.valueOf(gameIdStr);
+        Game game = gameDAO.findById(gameId);
+        if (game == null)
+            return initResponse(false, "Wrong game id");
 
         JSONArray JsonArray = new JSONArray();
-        List<Review> reviews = reviewDAO.findByGameId(Long.valueOf(gameId));
-        return putReviewsToResponse(response, JsonArray, reviews);
+        List<Review> reviews = reviewDAO.findByGameId(gameId);
+        putReviewsToResponse(response, JsonArray, reviews);
+        response.put("gameName", game.getName());
+        return initResponse(true, "Reviews found");
     }
 
     @SuppressWarnings("Duplicates")
@@ -102,15 +112,15 @@ public class ReviewBean implements ReviewInterface
         for (Review review : reviews)
         {
             JSONObject obj = new JSONObject();
-            obj.put("reviewid", review.getId());
-            obj.put("gameid", review.getGame().getId());
-            obj.put("gamename", review.getGame().getName());
-            obj.put("gamerate", review.getGame().getName());
+            obj.put("id", review.getId());
+            obj.put("gameId", review.getGame().getId());
+            obj.put("gameName", review.getGame().getName());
+            obj.put("gameRate", review.getGame().getName());
             jsonArray.add(obj);
 
         }
 
-        response.put("review", jsonArray);
+        response.put("reviews", jsonArray);
         return initResponse(true, "Review found");
     }
 
