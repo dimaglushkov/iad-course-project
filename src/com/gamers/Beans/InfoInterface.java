@@ -6,7 +6,7 @@ import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
 
 @Local
-public interface SettingsInterface
+public interface InfoInterface
 {
     @RolesAllowed({"admin", "user"})
     JSONObject setInfo(String name, String surname, String birthDate, String country, String city);

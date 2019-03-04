@@ -1,7 +1,6 @@
 package com.gamers.Beans;
 
 
-import com.gamers.DAO.DAOService;
 import com.gamers.DAO.InfoDAO;
 import com.gamers.DAO.PersonDAO;
 import com.gamers.Entities.Info;
@@ -17,9 +16,9 @@ import javax.ws.rs.*;
 import java.sql.Date;
 
 @Stateless
-@Path("settings")
-@Local(SettingsInterface.class)
-public class SettingsBean implements SettingsInterface
+@Path("info")
+@Local(InfoInterface.class)
+public class InfoBean implements InfoInterface
 {
 
     @Resource
@@ -32,7 +31,7 @@ public class SettingsBean implements SettingsInterface
 
 
     @POST
-    @Path("info/set")
+    @Path("set")
     @Produces("application/json")
     @RolesAllowed({"admin","user"})
     @Override
@@ -79,7 +78,7 @@ public class SettingsBean implements SettingsInterface
     }
 
     @GET
-    @Path("info/{nickname}")
+    @Path("{nickname}")
     @Produces("application/json")
     @RolesAllowed({"admin","user"})
     @Override
@@ -93,6 +92,9 @@ public class SettingsBean implements SettingsInterface
 
         Info info = infoDAO.findByPersonId(person.getId());
         JSONObject infoObj = new JSONObject();
+
+        infoObj.put("id", info.getId());
+        infoObj.put("personId", person.getId());
 
         if (info.getBirthDate() != null)
             infoObj.put("birthDate", info.getBirthDate().toString());
