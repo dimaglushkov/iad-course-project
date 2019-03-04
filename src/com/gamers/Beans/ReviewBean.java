@@ -114,19 +114,21 @@ public class ReviewBean implements ReviewInterface
             obj.put("id", review.getId());
             obj.put("gameId", review.getGame().getId());
             obj.put("gameName", review.getGame().getName());
-            obj.put("gameRate", review.getGame().getName());
+            obj.put("gameRate", review.getRate());
             jsonArray.add(obj);
 
         }
 
         response.put("reviews", jsonArray);
-        return initResponse(true, "Review found");
+        response.put("success", true);
+        response.put("description", "Review found");
+        return response;
     }
 
     private JSONObject initResponse(boolean success, String desc)
     {
-        response.put("success", success);
-        response.put("description", desc);
+        this.response.put("success", success);
+        this.response.put("description", desc);
         return response;
     }
 }

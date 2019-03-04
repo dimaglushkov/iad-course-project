@@ -11,16 +11,16 @@ import { ReviewsService } from '../shared/services/reviews.service';
 export class ReviewPageComponent implements OnInit {
 
   user: Object;
-  reviews: Object;
+  reviews$: Object;
   
   constructor(private route: ActivatedRoute, private reviewsService: ReviewsService) { 
      this.route.params.subscribe( params => this.user = params.nickname );
   }
 
   ngOnInit() {
-    //this.reviewsService.getUsersReviews(this.user).subscribe(
-    //  reviewsService => this.user = reviewsService 
-    //);
+    this.reviewsService.getUsersReviews(this.user).subscribe(
+      reviewsService => this.reviews$ = reviewsService 
+    );
   }
 
 }
