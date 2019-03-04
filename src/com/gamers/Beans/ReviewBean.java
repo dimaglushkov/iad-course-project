@@ -31,7 +31,6 @@ public class ReviewBean implements ReviewInterface
     private PersonDAO personDAO = new PersonDAO();
     private ReviewDAO reviewDAO = new ReviewDAO();
     private GameDAO gameDAO = new GameDAO();
-    private Person curPerson;
 
     @POST
     @Path("/new")
@@ -56,7 +55,7 @@ public class ReviewBean implements ReviewInterface
         }
         Game game = gameDAO.findById(gameIdNumeric);
 
-        curPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
+        Person curPerson = personDAO.findByNickname(sessionContext.getCallerPrincipal().getName());
         review.setPerson(curPerson);
         review.setGame(game);
         review.setRate(Integer.valueOf(rate));
@@ -83,7 +82,7 @@ public class ReviewBean implements ReviewInterface
         List<Review> reviews = reviewDAO.findByNickname(nickname);
         putReviewsToResponse(response, JsonArray, reviews);
         response.put("personId", person.getId());
-        return initResponse(true, "Reviews found");
+        return putReviewsToResponse(response, JsonArray, reviews);
     }
 
     @GET
@@ -103,7 +102,7 @@ public class ReviewBean implements ReviewInterface
         List<Review> reviews = reviewDAO.findByGameId(gameId);
         putReviewsToResponse(response, JsonArray, reviews);
         response.put("gameName", game.getName());
-        return initResponse(true, "Reviews found");
+        return putReviewsToResponse(response, JsonArray, reviews);
     }
 
     @SuppressWarnings("Duplicates")
@@ -124,9 +123,9 @@ public class ReviewBean implements ReviewInterface
         return initResponse(true, "Review found");
     }
 
-    private JSONObject initResponse(Boolean success, String desc)
+    private JSONObject initResponse(boolean success, String desc)
     {
-        response.put("success", success.toString());
+        response.put("success", success);
         response.put("description", desc);
         return response;
     }

@@ -10,7 +10,7 @@ export class ReviewsService {
   constructor(private http: HttpClient) { }
 
   public getUsersReviews(nickname){
-    return this.http.get('api/review/'+nickname);
+    return this.http.get('api/review/' + nickname);
   }
 
 }
