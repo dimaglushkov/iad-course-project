@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-site-layout',
@@ -12,23 +13,19 @@ export class SiteLayoutComponent implements OnInit {
 
   currentNickname: string;
 
-  links = [
-    {url: '/profile-page', name: 'Мой профиль'},
-    {url: '/message', name: 'Сообщения'},
-    {url: '/games', name: 'Игры'},
-    {url: '/somethelse1', name: 'Ещё что-то'}
-  ]
-
-  constructor(private auth: AuthService,
-              private router: Router,
-              private httpClient: HttpClient) {
+  constructor(private router: Router,
+    private httpClient: HttpClient) {
   }
 
   ngOnInit() {
     this.currentNickname = localStorage.getItem('curNickname');
   }
 
-  logout(){
+  review(){
+    this.router.navigate(['review']);
+  }
+
+  logout() {
     this.httpClient.get('api/user/logout');
   }
 

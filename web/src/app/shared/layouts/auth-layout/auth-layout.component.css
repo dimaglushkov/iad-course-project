@@ -71,7 +71,7 @@ a {
 }
 
 .active {
-    background: rgba(160, 40, 255);
+    background: rgb(136, 0, 248);
     border-radius: 15px;
 }
 
@@ -87,6 +87,11 @@ a {
 
     a{
         font-size: 15px;
+    }
+
+    .active {
+        background: rgba(160, 40, 255);
+        border-radius: 5px;
     }
 }
 

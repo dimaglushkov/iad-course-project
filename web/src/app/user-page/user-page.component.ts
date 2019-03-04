@@ -2,6 +2,9 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { UserService } from '../shared/services/user.service'
 import { Observable } from 'rxjs';
 import { User } from '../classes/user'
+import { StringifyOptions } from 'querystring';
+import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-user-page',
@@ -11,14 +14,16 @@ import { User } from '../classes/user'
 @Injectable()
 export class UserPageComponent implements OnInit {
 
+  currentNickname: string;
   user: Object;
-
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userService.getUser(localStorage.getItem('curNickame')).subscribe(
-      userService => this.user = userService
-    )
+    this.currentNickname = localStorage.getItem('curNickname');
+    this.route.params.subscribe(params => this.user = params.nickname);
+    /*this.reviewsService.getUsersReviews(this.user).subscribe(
+      reviewsService => this.reviews = reviewsService
+    );*/
   }
 
 }

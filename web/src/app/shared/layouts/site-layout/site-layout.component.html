@@ -1,64 +1,64 @@
 <section>
-  <div class="side-menu">
-    <ul>
-      <li>
-        <a routerLink="/welcome" class="logolink">
-          <img src="assets/main_logo.png">
-          <span id="logotext">TimeToGame</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink='user/{{currentNickname}}'>
-          <i class="material-icons">account_box</i> <span class="linktext">Моя страница</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink=''>
-          <i class="material-icons">message</i> <span class="linktext">Сообщения</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink=''>
-          <i class="material-icons">person_add</i> <span class="linktext">Друзья</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink=''>
-          <i class="material-icons">note</i> <span class="linktext">Дневник</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink=''>
-          <i class="material-icons">event_note</i> <span class="linktext">Задачи и события</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink=''>
-          <i class="material-icons">videogame_asset</i> <span class="linktext">Бибилиотека</span>
-        </a>
-      </li>
-
-      <li>
-        <a routerLink=''>
-          <i class="material-icons">rate_review</i> <span class="linktext">Обзоры</span>
-        </a>
-      </li>
-
-      <li>
-          <a routerLink='/login' (click)="logout()" id="exit">
-            <i class="material-icons">exit_to_app</i> <span class="linktext">Выход</span>
+    <div class="side-menu">
+      <ul>
+        <li>
+          <a routerLink="/welcome" class="logolink">
+            <img src="assets/main_logo.png">
+            <span id="logotext">TimeToGame</span>
           </a>
         </li>
-
-    </ul>
-  </div>
-  <div id="outlet">
-    <router-outlet></router-outlet>
-  </div>
-</section>
+  
+        <li>
+          <a routerLink=''>
+            <i class="material-icons">account_box</i> <span class="linktext">Моя страница</span>
+          </a>
+        </li>
+  
+        <li>
+          <a routerLink=''>
+            <i class="material-icons">message</i> <span class="linktext">Сообщения</span>
+          </a>
+        </li>
+  
+        <li>
+          <a routerLink=''>
+            <i class="material-icons">person_add</i> <span class="linktext">Друзья</span>
+          </a>
+        </li>
+  
+        <li>
+          <a routerLink=''>
+            <i class="material-icons">note</i> <span class="linktext">Дневник</span>
+          </a>
+        </li>
+  
+        <li>
+          <a routerLink=''>
+            <i class="material-icons">event_note</i> <span class="linktext">Задачи и события</span>
+          </a>
+        </li>
+  
+        <li>
+          <a routerLink=''>
+            <i class="material-icons">videogame_asset</i> <span class="linktext">Бибилиотека</span>
+          </a>
+        </li>
+  
+        <li>
+            <a [routerLink]="['/review', currentNickname]">
+              <i class="material-icons">rate_review</i> <span class="linktext">Обзоры</span>
+            </a>
+          </li>
+  
+        <li>
+            <a routerLink='/login' (click)="logout()" id="exit">
+              <i class="material-icons">exit_to_app</i> <span class="linktext">Выход</span>
+            </a>
+          </li>
+  
+      </ul>
+    </div>
+    <div id="outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </section>

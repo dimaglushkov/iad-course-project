@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePageComponent implements OnInit {
 
+  currentNickname: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.currentNickname = localStorage.getItem('curNickname');
   }
 
 }

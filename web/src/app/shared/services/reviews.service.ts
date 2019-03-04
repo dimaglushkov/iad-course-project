@@ -5,13 +5,12 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ReviewsService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(nickname)
-  {
-    return this.http.get("api/user/" + nickname);
+  public getUsersReviews(nickname){
+    return this.http.get('api/review/'+nickname);
   }
 
 }

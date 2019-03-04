@@ -22,7 +22,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.form = new FormGroup({
       j_username: new FormControl(localStorage.getItem('curNickname') == null ? null : localStorage.getItem('curNickname'), [Validators.required, Validators.minLength(5)]),
-      j_password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      j_password: new FormControl(null, [Validators.required, Validators.minLength(5)])
     })
 
   }
