@@ -141,22 +141,25 @@ public class GameBean implements GameInterface
     @Override
     public JSONObject getUsersGames(@PathParam("nickname") String nickname)
     {
+        PersonDAO personDAO = new PersonDAO();
+        Person person = personDAO.findByNickname(nickname);
+        if (person == null)
+            return initResponse(false, "Wrong nickname");
 
         List<Game> games = gameDAO.findGamesByNickname(nickname);
-
         response = new JSONObject();
         initResponse(true, "Library found");
-
         JSONArray JsonArray = new JSONArray();
         for (Game game: games)
         {
             JSONObject obj = new JSONObject();
-            obj.put("gameid", game.getId());
-            obj.put("gamename", game.getName());
+            obj.put("gameId", game.getId());
+            obj.put("gameName", game.getName());
             JsonArray.add(obj);
         }
         response.put("games", JsonArray);
-        return response;
+        response.put("personId", person.getId());
+        return initResponse(true, "Library found");
     }
 
     @GET
@@ -183,11 +186,6 @@ public class GameBean implements GameInterface
 
         return initResponse(true, "Game found");
     }
-
-    @GET
-    @PathParam("/{gameName}")
-    @Produces("application/json")
-
 
 
     private JSONObject initResponse(Boolean success, String desc)
