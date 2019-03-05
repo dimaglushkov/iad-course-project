@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class SiteLayoutComponent implements OnInit {
   currentNickname: string;
 
   constructor(private router: Router,
-    private httpClient: HttpClient) {
+    private httpClient: HttpClient,
+    private userService: UserService) {
   }
 
   ngOnInit() {
@@ -22,7 +24,9 @@ export class SiteLayoutComponent implements OnInit {
   }
 
   logout() {
-    return this.httpClient.post('iad/api/user/logout', null);
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate([''])
   }
 
 }

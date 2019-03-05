@@ -17,6 +17,9 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { MessageNewComponent } from './message-new/message-new.component';
+import { MessageOutComponent } from './message-out/message-out.component';
+import { MessageInComponent } from './message-in/message-in.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     UserPageComponent,
     WelcomePageComponent,
     ReviewPageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    MessageNewComponent,
+    MessageOutComponent,
+    MessageInComponent
   ],
   imports: [
     BrowserModule,

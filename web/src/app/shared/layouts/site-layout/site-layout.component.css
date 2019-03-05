@@ -48,6 +48,11 @@
     width:210px;
 }
 
+.side-menu ul li #settings{
+    position: absolute;
+    bottom: 60px;
+    width:210px;
+}
 
 @media (max-width: 500px) {
     span {
@@ -57,7 +62,7 @@
     .side-menu {
         background: #2D2E2E;
         height: 100%;
-        width: 55px;
+        width: 60px;
         position: fixed;
     }
 

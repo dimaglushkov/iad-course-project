@@ -1,9 +1,7 @@
-<p>
-  reviews by {{user}}
-   <li *ngFor="let review of reviewsResponse.reviews">
-      <p>название игры : {{review.gameName}}</p> <br/>
-      <p>оценка игры : {{review.gameRate}}</p> <br/>
-      <p>ид обзора : {{review.id}}</p> <br/>
+<h3 class="page-title">Обзоры пользователя {{user}} </h3>
+<li *ngFor="let review of reviewsResponse.reviews">
+  <p>название игры : {{review.gameName}}</p>
+  <p>оценка игры : {{review.gameRate}}</p>
+  <p>ид обзора : {{review.id}}</p>
 
-  </li>
-</p>
+</li>

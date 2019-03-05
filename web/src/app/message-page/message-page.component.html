@@ -1,3 +1,6 @@
-<p>
-  message-page works!
-</p>
+<nav id="message-layout">
+    <a [routerLink]="[ '/message/new']" routerLinkActive="active">Новое сообщение</a>
+    <a [routerLink]="[ '/message/in']" routerLinkActive="active">Входящие</a> 
+    <a [routerLink]="[ '/message/out']" routerLinkActive="active">Исходящие</a>
+</nav>
+<router-outlet></router-outlet>
