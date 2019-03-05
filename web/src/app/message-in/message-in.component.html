@@ -1,16 +1,15 @@
-
 <h4>Входящие сообщения:</h4>
 
 <ul>
-  <li>
-    <a >from_nickname</a>
-    <ul>
-      <li>
-        <a>asd</a>
-      </li>
-    </ul>
+  <!--
+  <li *ngFor="let message of messageResponse.messages">
+    От:<a [routerLink]="[ '/user', message.from]">message.from</a>
   </li>
-  <li>
-    <a>asd</a>
+-->
+  <li> 
+    От <a [routerLink]="[ '/user', tempNickname]" > {{tempNickname}}</a>
   </li>
+  <li> 
+      От <a [routerLink]="[ '/user', currentNickname]" > {{currentNickname}}</a>
+    </li>
 </ul>

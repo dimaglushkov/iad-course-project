@@ -15,11 +15,12 @@ export class UserPageComponent implements OnInit {
 
   currentNickname: string;
   user: Object;
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) { 
+    this.route.params.subscribe(params => this.user = params.nickname);
+  }
 
   ngOnInit() {
     this.currentNickname = localStorage.getItem('curNickname');
-    this.route.params.subscribe(params => this.user = params.nickname);
     /*this.reviewsService.getUsersReviews(this.user).subscribe(
       reviewsService => this.reviews = reviewsService
     );*/

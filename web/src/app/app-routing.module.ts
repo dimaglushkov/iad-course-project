@@ -11,6 +11,7 @@ import { MessagePageComponent } from './message-page/message-page.component';
 import { MessageNewComponent } from './message-new/message-new.component';
 import { MessageInComponent } from './message-in/message-in.component';
 import { MessageOutComponent } from './message-out/message-out.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: '', component: SiteLayoutComponent, children: [
       { path: 'welcome', component: WelcomePageComponent },
+      { path: 'user/:nickname', component: UserPageComponent },
       { path: 'review/:nickname', component: ReviewPageComponent },
       { path: 'error', component: ErrorPageComponent },
       {

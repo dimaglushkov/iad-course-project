@@ -18,6 +18,19 @@ export interface ReviewList{
     author?: string;
 }
 
+export interface Message{
+    id: number;
+    from: string;
+    to: string;
+    topic: string;
+    text: string;
+    date: Date;
+}
+
+export interface MessageList{
+    state: ResponseState;
+    messages: Message[];
+}
 
 
 
