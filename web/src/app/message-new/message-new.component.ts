@@ -26,8 +26,10 @@ export class MessageNewComponent implements OnInit {
   onSubmit() {
     if (this.receiver == null || this.receiver.length == 0 || this.receiver == undefined ||
       this.topic == null || this.topic == undefined || this.topic.length == 0 ||
-      this.text == null || this.text == undefined || this.text.length == 0) {
-      alert('Заполните все поля!');
+      this.text == null || this.text == undefined || this.text.length == 0 ||
+      this.text.length > 500 || this.topic.length > 200 || this.receiver.length > 40) {
+      alert('Корректо заполните все поля!');
+      return false;
     }
 
     this.messageService.sendMessage(this.receiver, this.topic, this.text).subscribe(
