@@ -156,9 +156,9 @@ public class FriendsBean implements FriendsInterface
         return initResponse(true, "Friendlist found");
     }
 
-    private JSONObject initResponse(Boolean success, String desc)
+    private JSONObject initResponse(boolean success, String desc)
     {
-        response.put("success", success.toString());
+        response.put("success", success);
         response.put("description", desc);
         return response;
     }

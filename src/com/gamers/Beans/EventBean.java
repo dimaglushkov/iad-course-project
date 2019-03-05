@@ -137,9 +137,9 @@ public class EventBean implements EventInterface
         return initResponse(true, "Event deleted");
     }
 
-    private JSONObject initResponse(Boolean success, String desc)
+    private JSONObject initResponse(boolean success, String desc)
     {
-        response.put("success", success.toString());
+        response.put("success", success);
         response.put("description", desc);
         return response;
     }

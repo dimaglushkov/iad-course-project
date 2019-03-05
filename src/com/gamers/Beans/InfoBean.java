@@ -118,9 +118,9 @@ public class InfoBean implements InfoInterface
         return initResponse(true, "Info found");
     }
 
-    private JSONObject initResponse(Boolean success, String desc)
+    private JSONObject initResponse(boolean success, String desc)
     {
-        response.put("success", success.toString());
+        response.put("success", success);
         response.put("description", desc);
         return response;
     }
