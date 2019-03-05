@@ -7,5 +7,3 @@
 * Frontend - Angular Framework <br>
 <br>
 
-You can find description of setting up application server in app-server.md _(not created yet, but soon...)_
-
