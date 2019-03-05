@@ -1,7 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { UserService } from '../shared/services/user.service'
 import { Observable } from 'rxjs';
-import { User } from '../classes/user'
 import { StringifyOptions } from 'querystring';
 import { ActivatedRoute } from "@angular/router";
 

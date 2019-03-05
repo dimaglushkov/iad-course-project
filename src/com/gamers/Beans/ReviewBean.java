@@ -74,14 +74,14 @@ public class ReviewBean implements ReviewInterface
     @Override
     public JSONObject getByNickname(@PathParam("nickname") String nickname)
     {
-        JSONObject response = new JSONObject();
+        response = new JSONObject();
         Person person = personDAO.findByNickname(nickname);
         if (person == null)
             return initResponse(false, "Wrong nickname");
         JSONArray JsonArray = new JSONArray();
         List<Review> reviews = reviewDAO.findByNickname(nickname);
         putReviewsToResponse(response, JsonArray, reviews);
-        response.put("personId", person.getId());
+        response.put("author", nickname);
         return putReviewsToResponse(response, JsonArray, reviews);
     }
 

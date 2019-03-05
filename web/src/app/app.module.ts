@@ -16,6 +16,7 @@ import { GameFormComponent } from './games-page/game-form/game-form.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ReviewPageComponent } from './review-page/review-page.component';
     GameFormComponent,
     UserPageComponent,
     WelcomePageComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

@@ -21,12 +21,8 @@ export class SiteLayoutComponent implements OnInit {
     this.currentNickname = localStorage.getItem('curNickname');
   }
 
-  review(){
-    this.router.navigate(['review']);
-  }
-
   logout() {
-    this.httpClient.get('api/user/logout');
+    return this.httpClient.post('iad/api/user/logout', null);
   }
 
 }
