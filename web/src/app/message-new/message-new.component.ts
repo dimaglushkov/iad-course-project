@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MessageService } from '../shared/services/message.service';
+import { ResponseState } from '../interfaces';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-message-new',
@@ -12,22 +16,31 @@ export class MessageNewComponent implements OnInit {
   topic: string;
   text: string;
 
-  constructor() { }
+  state: ResponseState;
+
+  constructor(private messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    if (this.receiver == null ||  this.receiver.length == 0)
-      console.log('empty');
+  onSubmit() {
+    if (this.receiver == null || this.receiver.length == 0 || this.receiver == undefined ||
+      this.topic == null || this.topic == undefined || this.topic.length == 0 ||
+      this.text == null || this.text == undefined || this.text.length == 0) {
+      alert('Заполните все поля!');
+    }
 
-    else
-      console.log(this.receiver);
+    this.messageService.sendMessage(this.receiver, this.topic, this.text).subscribe(
+      messageService => this.state = messageService
+    );
 
-      console.log(this.topic);
-    console.log(this.text);
+    alert(this.state.description)
 
-      
+    if (this.state.success == true)
+    {
+      this.router.navigate(['/welcome']);
+    }
+
   }
 
 }
