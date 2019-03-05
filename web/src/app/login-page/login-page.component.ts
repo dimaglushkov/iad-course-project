@@ -39,10 +39,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     this.auth.login(this.form.value).subscribe(
       //() => this.router.navigate(['/user', nickname]),
-      () => this.router.navigate(['/welcome']),
+      () => this.router.navigate(['welcome']),
       error => {
         //TODO: for debug only
-        this.router.navigate(['/welcome']);
+        this.router.navigate(['welcome']);
         console.warn(error);
         this.form.enable()
       }

@@ -60,7 +60,7 @@ public class DictionaryBean implements DictionaryInterface
     @GET
     @RolesAllowed({"admin", "user"})
     @Produces("application/json")
-    @Path("/")
+    @Path("/get/all")
     @Override
     public JSONObject getAll()
     {
@@ -85,7 +85,7 @@ public class DictionaryBean implements DictionaryInterface
     @GET
     @RolesAllowed({"admin", "user"})
     @Produces("application/json")
-    @Path("/{topic}")
+    @Path("/get/topic/{topic}")
     @Override
     public JSONObject getAllByTopic(@PathParam("topic") String topic)
     {

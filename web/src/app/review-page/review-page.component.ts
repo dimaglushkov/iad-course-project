@@ -18,9 +18,13 @@ export class ReviewPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reviewsService.getUsersReviews(this.user).subscribe(
-      reviewsService => this.reviews$ = reviewsService 
-    );
+    //this.reviewsService.getUsersReviews(this.user).subscribe(
+    //  reviewsService => this.reviews$ = reviewsService
+    //);
+
+    //this.reviewsService.getUsersReviews(this.user).subscribe(
+    //  reviewsService => this.reviews$ = reviewsService
+    //);
   }
 
 }
