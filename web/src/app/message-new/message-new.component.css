@@ -1,0 +1,38 @@
+#message-new {
+    margin: 10%;
+    margin-top: 3%;
+    margin-left: 20%;
+    display: inline-block;
+    padding: 32px 48px 32px 48px;
+    border: 1px solid #EEE;
+    background: rgb(215, 215, 255);
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgb(29, 29, 29) !important;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+@media (max-width: 500px) {
+    #message-new, form {
+        margin: 0px !important;
+    }
+
+    h4{
+        font-size:150%;
+    }
+}

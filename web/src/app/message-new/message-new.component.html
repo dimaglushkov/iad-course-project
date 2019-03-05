@@ -1,3 +1,10 @@
-<p>
-  message-new works!
-</p>
+<div id="message-new">
+  <h4>Отправить сообщение</h4>
+  <form (ngSubmit)="onSubmit()" >
+    <input type="text" [(ngModel)]="receiver" id="receiver" name="receiver" placeholder="Никнейм получателя">
+    <input type="text" [(ngModel)]="topic" id="topic" name="topic" placeholder="(Без темы)">
+    <textarea id="text" [(ngModel)]="text" name="text" placeholder="Сообщение..." style="height:200px"></textarea>
+    
+      <input type="submit" class="button" value="Отправить">  
+  </form>
+</div>

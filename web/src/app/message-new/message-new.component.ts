@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-message-new',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageNewComponent implements OnInit {
 
+  receiver: string;
+  topic: string;
+  text: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    if (this.receiver == null ||  this.receiver.length == 0)
+      console.log('empty');
+
+    else
+      console.log(this.receiver);
+
+      console.log(this.topic);
+    console.log(this.text);
+
+      
   }
 
 }
