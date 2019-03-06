@@ -15,14 +15,14 @@
       </li>
 
       <li>
-        <a routerLink='/message/out'>
+        <a routerLink='/message/in'>
           <i class="material-icons">message</i> <span class="linktext">Сообщения</span>
         </a>
       </li>
 
       <li>
-        <a routerLink=''>
-          <i class="material-icons">person_add</i> <span class="linktext">Друзья</span>
+        <a [routerLink]="[ '/user', currentNickname, 'friends']">
+          <i class="material-icons">person</i> <span class="linktext">Друзья</span>
         </a>
       </li>
 

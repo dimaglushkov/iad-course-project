@@ -20,6 +20,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { MessageNewComponent } from './message-new/message-new.component';
 import { MessageOutComponent } from './message-out/message-out.component';
 import { MessageInComponent } from './message-in/message-in.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { UserFriendsComponent } from './user-friends/user-friends.component';
+import { UserGamesComponent } from './user-games/user-games.component';
+import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 
 
 @NgModule({
@@ -39,7 +43,11 @@ import { MessageInComponent } from './message-in/message-in.component';
     ErrorPageComponent,
     MessageNewComponent,
     MessageOutComponent,
-    MessageInComponent
+    MessageInComponent,
+    UserInfoComponent,
+    UserFriendsComponent,
+    UserGamesComponent,
+    UserReviewsComponent
   ],
   imports: [
     BrowserModule,

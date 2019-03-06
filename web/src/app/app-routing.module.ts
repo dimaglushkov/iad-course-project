@@ -12,6 +12,10 @@ import { MessageNewComponent } from './message-new/message-new.component';
 import { MessageInComponent } from './message-in/message-in.component';
 import { MessageOutComponent } from './message-out/message-out.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { UserFriendsComponent } from './user-friends/user-friends.component';
+import { UserGamesComponent } from './user-games/user-games.component';
+import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 
 const routes: Routes = [
   {
@@ -25,7 +29,6 @@ const routes: Routes = [
   {
     path: '', component: SiteLayoutComponent, children: [
       { path: 'welcome', component: WelcomePageComponent },
-      { path: 'user/:nickname', component: UserPageComponent },
       { path: 'review/:nickname', component: ReviewPageComponent },
       { path: 'error', component: ErrorPageComponent },
       {
@@ -34,7 +37,15 @@ const routes: Routes = [
           { path: 'in', component: MessageInComponent },
           { path: 'out', component: MessageOutComponent }
         ]
-      }
+      },
+      { path: 'user/:nickname', component: UserPageComponent, children:
+      [
+        {path: '', component: UserInfoComponent},
+        {path: 'friends', component :UserFriendsComponent},
+        {path: 'games', component: UserGamesComponent},
+        {path: 'reviews', component: UserReviewsComponent}
+      ]
+    }
     ]
   }
 ];

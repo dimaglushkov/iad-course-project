@@ -1,2 +1,8 @@
-<p>user-page works! This is {{user}}'s page</p>
+<nav id="user-layout">
+    <a [routerLink]="[ '/user', user]" routerLinkActive="active" id="nickname">{{user}}</a>
+    <a [routerLink]="[ '/user', user, 'friends']" routerLinkActive="active">Друзья</a>
+    <a [routerLink]="[ '/user', user, 'games']" routerLinkActive="active">Библиотека</a>
+    <a [routerLink]="[ '/user', user, 'reviews']" routerLinkActive="active">Обзоры</a>
+</nav>
 
+<router-outlet></router-outlet>
