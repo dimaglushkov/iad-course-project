@@ -81,76 +81,44 @@ public class PersonBean implements PersonInterface, Serializable
     public JSONObject account(@PathParam("nickname") String nickname)
     {
         response = new JSONObject();
-
-        FriendshipDAO friendshipDAO = new FriendshipDAO();
-        GameDAO gameDAO = new GameDAO();
-        ReviewDAO reviewDAO = new ReviewDAO();
         Person person = personDAO.findByNickname(nickname);
         if (person == null)
             return initResponse(false, "This user doesn't exist");
         InfoDAO infoDAO = new InfoDAO();
         Info info = infoDAO.findByPersonId(person.getId());
-        response.put("nickname", nickname);
 
-        JSONArray JsonArray1 = new JSONArray();
+        FriendshipDAO friendshipDAO = new FriendshipDAO();
+        GameDAO gameDAO = new GameDAO();
+        ReviewDAO reviewDAO = new ReviewDAO();
 
-
-        List<Person> friends = friendshipDAO.findFriendsByNickname(nickname);
-        for (Person friend : friends)
-        {
-            JSONObject obj = new JSONObject();
-            obj.put("friendname", friend.getNickname());
-            JsonArray1.add(obj);
-        }
-        response.put("friends", JsonArray1);
-
-        JSONObject infoJSON = new JSONObject();
+        int numOfFriends = friendshipDAO.findFriendsByNickname(nickname).size();
+        int numOfGames = gameDAO.findGamesByNickname(nickname).size();
+        int numOfReviews  = reviewDAO.findByNickname(nickname).size();
 
         if (info.getName()!=null)
-            infoJSON.put("name", info.getName());
+            response.put("name", info.getName());
 
         if (info.getSurname()!=null)
-            infoJSON.put("surname", info.getSurname());
+            response.put("surname", info.getSurname());
 
         if (info.getCountry()!=null)
-            infoJSON.put("country", info.getCountry());
+            response.put("country", info.getCountry());
 
         if (info.getCity()!=null)
-            infoJSON.put("city", info.getCity());
+            response.put("city", info.getCity());
 
         if (info.getBirthDate()!=null)
-            infoJSON.put("birthDate", info.getBirthDate());
+            response.put("birthDate", info.getBirthDate().toString().substring(0,10));
 
         if (info.getRegisterDate()!=null)
-            infoJSON.put("registerDate", info.getRegisterDate());
+            response.put("registerDate", info.getRegisterDate().toString().substring(0,10));
 
 
-
-        JSONArray JsonArray2 = new JSONArray();
-        List<Game> games = gameDAO.findGamesByNickname(nickname);
-        for (Game game: games)
-        {
-            JSONObject obj = new JSONObject();
-            obj.put("gameid", game.getId());
-            obj.put("gamename", game.getName());
-            JsonArray2.add(obj);
-        }
-        response.put("games", JsonArray2);
-
-        JSONArray JsonArray4 = new JSONArray();
-        List<Review> reviews = reviewDAO.findByNickname(nickname);
-        for (Review review: reviews)
-        {
-            JSONObject obj = new JSONObject();
-            obj.put("reviewid", review.getId());
-            obj.put("gameid", review.getGame().getId());
-            obj.put("gamename", review.getGame().getName());
-            obj.put("gamerate", review.getRate());
-            JsonArray4.add(obj);
-
-        }
-        response.put("review", JsonArray4);
-
+        response.put("numOfFriends", numOfFriends);
+        response.put("numOfGames", numOfGames);
+        response.put("numOfReviews", numOfReviews);
+        response.put("email", person.getEmail());
+        response.put("id", person.getId());
 
         return initResponse(true, "Profile found");
     }

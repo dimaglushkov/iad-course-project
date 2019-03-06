@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PersonResponse } from 'src/app/interfaces';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class UserService {
 
   getUser(nickname)
   {
-    return this.http.get("api/user/" + nickname);
+    return this.http.get<PersonResponse>("api/user/" + nickname);
   }
 
 

@@ -38,29 +38,6 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
                 friends.add(curFriendShip.getPerson());
         }
 
-        /*EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
-
-        person = personDAO.findByNickname(nickname);
-
-        Query query = entityManager.createNativeQuery(
-                "SELECT * FROM ЛИЧНОСТЬ " +
-                "INNER JOIN ДРУЖБА ON ЛИЧНОСТЬ.ИД_ЛИЧНОСТЬ = ДРУЖБА.ИД_ДРУГ " +
-                "WHERE ДРУЖБА.ИД_ЛИЧНОСТЬ = " + person.getId() + " AND ПОДТВЕРЖДЕНО = true;", Person.class);
-
-        try
-        {
-            friends = query.getResultList();
-        }
-        catch (NoResultException e)
-        {
-            friends = new LinkedList<>();
-        }
-
-
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        */
         return friends;
 
     }

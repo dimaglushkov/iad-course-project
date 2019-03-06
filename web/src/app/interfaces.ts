@@ -32,7 +32,21 @@ export interface MessageList{
     messages?: Message[];
 }
 
-
+export interface PersonResponse{
+    success: boolean;
+    description: string;
+    id: number;
+    email: string;
+    registerDate: string;
+    numOfFriends: number;
+    numOfGames: number;
+    numOfReviews: number;
+    name?: string;
+    surname?: string;
+    country?: string;
+    city?: string;
+    birthDate: string;
+}
 
 
 

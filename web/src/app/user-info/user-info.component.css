@@ -1,0 +1,37 @@
+.profile-info {
+    margin: 10%;
+    margin-top: 3%;
+    margin-left: 20%;
+    display: inline-block;
+    padding: 32px 48px 32px 48px;
+    border: 1px solid #EEE;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 60%;
+}
+
+.prfl-nickname{
+    font-size: 200%;
+    color: blueviolet;
+}
+.prfl-id{
+    color: rgb(118, 70, 163);
+    font-size: 150%;
+}
+
+.prfl-info{
+    font-size: 140%;
+}
+
+.from-response{
+    color: red;
+}
+
+@media (max-width: 500px) {
+    .profile-info {
+        margin: 0px;
+        padding: 0px;
+        width : 100%;
+        font-size: 120%;
+    }
+}
