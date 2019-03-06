@@ -74,7 +74,7 @@ public class MessageBean implements MessageInterface
             JSONObject obj = new JSONObject();
             obj.put("id", message.getId());
             obj.put("from", curPerson.getNickname());
-            obj.put("to", personDAO.findById(message.getId()).getNickname());
+            obj.put("to", message.getTo().getNickname());
             obj.put("topic", message.getMessageTopic());
             obj.put("text", message.getMessageText());
             obj.put("date", message.getDate());
@@ -99,7 +99,7 @@ public class MessageBean implements MessageInterface
         {
             JSONObject obj = new JSONObject();
             obj.put("id", message.getId());
-            obj.put("from", personDAO.findById(message.getId()).getNickname());
+            obj.put("from", message.getFrom().getNickname());
             obj.put("to", curPerson.getNickname());
             obj.put("topic", message.getMessageTopic());
             obj.put("text", message.getMessageText());

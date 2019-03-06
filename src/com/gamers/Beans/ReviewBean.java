@@ -80,7 +80,6 @@ public class ReviewBean implements ReviewInterface
             return initResponse(false, "Wrong nickname");
         JSONArray JsonArray = new JSONArray();
         List<Review> reviews = reviewDAO.findByNickname(nickname);
-        putReviewsToResponse(response, JsonArray, reviews);
         response.put("author", nickname);
         return putReviewsToResponse(response, JsonArray, reviews);
     }
@@ -100,7 +99,6 @@ public class ReviewBean implements ReviewInterface
 
         JSONArray JsonArray = new JSONArray();
         List<Review> reviews = reviewDAO.findByGameId(gameId);
-        putReviewsToResponse(response, JsonArray, reviews);
         response.put("gameName", game.getName());
         return putReviewsToResponse(response, JsonArray, reviews);
     }

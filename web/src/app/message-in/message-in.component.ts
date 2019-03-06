@@ -19,12 +19,12 @@ export class MessageInComponent implements OnInit {
   ngOnInit() {
     this.tempNickname = 'testing';
     this.currentNickname = localStorage.getItem('curNickname');
-    // this.messageService.findInbox().subscribe(
-    //   messageService => this.messageResponse = messageService
-    // );
-    // if (this.messageResponse.state.success == false){
-    //   localStorage.setItem('lastError', this.messageResponse.state.description);
-    //   this.router.navigate(['error']);
-    // }
+    //  this.messageService.findInbox().subscribe(
+    //    messageService => this.messageResponse = messageService
+    //  );
+    //  if (this.messageResponse.state.success == false){
+    //    localStorage.setItem('lastError', this.messageResponse.state.description);
+    //    this.router.navigate(['error']);
+    //  }
   }
 }
