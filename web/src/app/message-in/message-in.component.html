@@ -1,15 +1,26 @@
 <h4>Входящие сообщения:</h4>
 
 <ul>
-
-  <!-- <li *ngFor="let message of messageResponse.messages">
-    От:<a [routerLink]="[ '/user', message.from]">message.from</a>
-  </li> -->
-
-  <li> 
-    От <a [routerLink]="[ '/user', tempNickname]" > {{tempNickname}}</a>
+  <li *ngFor="let message of messageResponse.messages">
+    <span class="head">
+      <span class="msginfo">
+        От:
+      </span>
+      <a [routerLink]="[ '/user', message.from]"> {{message.from}}</a>
+      <span class="date">{{message.date}}</span>
+    </span>
+    <br class="brrr">
+    <span class="msgbody">
+      <span class="msginfo">
+        Тема:
+      </span>
+      <span>
+        {{message.topic}}
+      </span>
+      <br>
+      <span class="msgtext">
+        {{message.text}}
+      </span>
+    </span>
   </li>
-  <li> 
-      От <a [routerLink]="[ '/user', currentNickname]" > {{currentNickname}}</a>
-    </li>
 </ul>

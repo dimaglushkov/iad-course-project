@@ -2,7 +2,11 @@ h4, ul, li {
     padding: 30px 50px;
 }
 
- ul {
+h4 {
+    margin-left: 2%;
+}
+
+ul {
     list-style-type: none;
     width: 90%;
     margin-left: 5%;
@@ -10,30 +14,47 @@ h4, ul, li {
     padding: 0;
 }
 
- ul li {
+ul li {
+    font-size: 1.2em;
     background: #fff;
     border-radius: 3px;
     padding: 20px;
     margin-bottom: 8px;
 }
 
- ul li a {
-    font-size: 1.5em;
+ul li a {
+    margin-left: 3px;
     text-decoration: none;
     color: #00a8ff;
 }
 
- ul li ul {
-    margin-top: 20px;
-}
- ul li ul li {
-    padding: 0;
+.msgbody{
+    outline: #000000;
 }
 
- ul li ul li a {
-    padding-left: 0px;
-    font-size: 1em;
-    font-weight: 300;
+.msginfo{
+    color: rgb(84, 85, 85);
+}
+
+.msgtext{
+    white-space: normal;
+    display: block;
+    background: lightgrey;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+ul li .head {
+    display: inline;
+}
+
+ul li .date {
+    display: inline;
+    position: absolute;
+    right: 5%;
+    white-space: pre;
+    color: #4d9ac0;
+    font-size: 80%;
 }
 
 @media (max-width: 500px) {
@@ -43,11 +64,30 @@ h4, ul, li {
         width: 100%;
         margin-left: 0px;
         margin-right: 0px;
-        padding: 0;
+        padding: 0px;
+    }
+    ul li .head {
+        display: list-item;
+    }
+    ul li .date {
+        white-space: pre;
+        color: #4d9ac0;
+        font-size: 80%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .brrr {
+        display: none;
+    }
+
+    h4{
+        align-self: center;
+        font-size: 200%;
     }
 
     * {
-        padding: 10px 20px;
+        margin: 0px;
+        padding: 0px;
     }
-    
 }

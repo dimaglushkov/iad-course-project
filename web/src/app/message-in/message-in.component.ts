@@ -10,21 +10,20 @@ import { MessageList } from '../interfaces';
 })
 export class MessageInComponent implements OnInit {
 
-  currentNickname:string;
-  tempNickname:string;
-  //messageResponse: MessageList;
+  currentNickname: string;
+  messageResponse: MessageList;
 
   constructor(private router: Router, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.tempNickname = 'testing';
     this.currentNickname = localStorage.getItem('curNickname');
-    //  this.messageService.findInbox().subscribe(
-    //    messageService => this.messageResponse = messageService
-    //  );
-    //  if (this.messageResponse.state.success == false){
-    //    localStorage.setItem('lastError', this.messageResponse.state.description);
-    //    this.router.navigate(['error']);
-    //  }
+
+    this.messageService.getInbox().subscribe(
+      messageService => this.messageResponse = messageService
+    );
+    if (this.messageResponse.state.success == false) {
+      localStorage.setItem('lastError', this.messageResponse.state.description);
+      this.router.navigate(['error']);
+    }
   }
 }

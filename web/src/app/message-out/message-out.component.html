@@ -1,3 +1,27 @@
-<p>
-  message-out works!
-</p>
+<h4>Исходящие сообщения:</h4>
+
+<ul>
+    <li *ngFor="let message of messageResponse.messages">
+        <span class="head">
+          <span class="msginfo">
+            Кому:
+          </span>
+          <a [routerLink]="[ '/user', message.to]"> {{message.to}}</a>
+          <span class="date">{{message.date}}</span>
+        </span>
+        <br class="brrr">
+        <span class="msgbody">
+          <span class="msginfo">
+            Тема:
+          </span>
+          <span>
+            {{message.topic}}
+          </span>
+          <br>
+          <span class="msgtext">
+            {{message.text}}
+          </span>
+        </span>
+      </li>
+
+</ul>

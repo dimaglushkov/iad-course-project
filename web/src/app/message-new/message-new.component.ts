@@ -4,6 +4,7 @@ import { MessageService } from '../shared/services/message.service';
 import { ResponseState } from '../interfaces';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Statement } from '@angular/compiler';
 
 @Component({
   selector: 'app-message-new',
@@ -17,6 +18,8 @@ export class MessageNewComponent implements OnInit {
   text: string;
 
   state: ResponseState;
+  response: Object;
+
 
   constructor(private messageService: MessageService, private router: Router) { }
 
@@ -28,7 +31,7 @@ export class MessageNewComponent implements OnInit {
       this.topic == null || this.topic == undefined || this.topic.length == 0 ||
       this.text == null || this.text == undefined || this.text.length == 0 ||
       this.text.length > 500 || this.topic.length > 200 || this.receiver.length > 40) {
-      alert('Корректо заполните все поля!');
+      alert('Корректно заполните все поля!');
       return false;
     }
 
@@ -36,12 +39,7 @@ export class MessageNewComponent implements OnInit {
       messageService => this.state = messageService
     );
 
-    alert(this.state.description)
-
-    if (this.state.success == true)
-    {
-      this.router.navigate(['/welcome']);
-    }
+    this.router.navigate(['/message/out']);
 
   }
 

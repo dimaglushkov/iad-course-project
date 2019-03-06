@@ -26,7 +26,7 @@ public class MessageDAO extends DAOService<Message, Long>
         {
             Query query = entityManager.createNativeQuery(
                     "SELECT * FROM СООБЩЕНИЕ " +
-                            " WHERE КОМУ_ЛИЧНОСТЬ = " + personId + ";", Message.class);
+                            " WHERE КОМУ_ЛИЧНОСТЬ = " + personId + " ORDER BY ИД_СООБЩЕНИЕ DESC;", Message.class);
 
             messages = query.getResultList();
         }
@@ -49,7 +49,7 @@ public class MessageDAO extends DAOService<Message, Long>
         {
             Query query = entityManager.createNativeQuery(
                     "SELECT * FROM СООБЩЕНИЕ " +
-                            " WHERE ОТ_ЛИЧНОСТЬ = " + personId + ";", Message.class);
+                            " WHERE ОТ_ЛИЧНОСТЬ = " + personId + " ORDER BY ИД_СООБЩЕНИЕ DESC;", Message.class);
 
             messages = query.getResultList();
         }

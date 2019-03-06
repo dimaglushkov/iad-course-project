@@ -18,11 +18,11 @@ export class MessageService {
     return this.http.post<ResponseState>('api/message/send', params, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
   }
 
-  findInbox(){
+  getInbox(){
     return this.http.get<MessageList>('api/message/in');
   }
 
-  findOutbox(){
+  getOutbox(){
     return this.http.get<MessageList>('api/message/out');
   }
 

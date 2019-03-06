@@ -24,12 +24,12 @@ export interface Message{
     to: string;
     topic: string;
     text: string;
-    date: Date;
+    date: string;
 }
 
 export interface MessageList{
     state: ResponseState;
-    messages: Message[];
+    messages?: Message[];
 }
 
 

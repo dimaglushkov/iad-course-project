@@ -77,7 +77,7 @@ public class MessageBean implements MessageInterface
             obj.put("to", message.getTo().getNickname());
             obj.put("topic", message.getMessageTopic());
             obj.put("text", message.getMessageText());
-            obj.put("date", message.getDate());
+            obj.put("date", message.getDate().toString().substring(0, 10));
             jsonArray.add(obj);
         }
         response.put("messages", jsonArray);
@@ -103,7 +103,7 @@ public class MessageBean implements MessageInterface
             obj.put("to", curPerson.getNickname());
             obj.put("topic", message.getMessageTopic());
             obj.put("text", message.getMessageText());
-            obj.put("date", message.getDate());
+            obj.put("date", message.getDate().toString().substring(0, 10));
             jsonArray.add(obj);
         }
         response.put("messages", jsonArray);
