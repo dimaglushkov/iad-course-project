@@ -113,6 +113,7 @@ public class ReviewBean implements ReviewInterface
             obj.put("gameId", review.getGame().getId());
             obj.put("gameName", review.getGame().getName());
             obj.put("gameRate", review.getRate());
+            obj.put("desc", review.getText());
             jsonArray.add(obj);
 
         }

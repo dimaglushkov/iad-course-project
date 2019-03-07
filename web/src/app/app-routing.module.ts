@@ -5,7 +5,6 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component'
-import { ReviewPageComponent } from './review-page/review-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { MessageNewComponent } from './message-new/message-new.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
   {
     path: '', component: SiteLayoutComponent, children: [
       { path: 'welcome', component: WelcomePageComponent },
-      { path: 'review/:nickname', component: ReviewPageComponent },
       { path: 'error', component: ErrorPageComponent },
       {
         path: 'message', component: MessagePageComponent, children: [

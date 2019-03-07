@@ -20,4 +20,12 @@ export class GameService {
         return this.http.get<ResponseState>('api/game/add/' + id);
     }
 
+    removeFromLib(id){
+        return this.http.get<ResponseState>('api/game/remove/' + id);
+    }
+
+    getLib(nickname){
+        return this.http.get<GameResponse>('api/game/user/' + nickname);
+    }
+
 }

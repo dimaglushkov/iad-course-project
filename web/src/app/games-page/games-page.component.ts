@@ -26,7 +26,8 @@ export class GamesPageComponent implements OnInit {
       gameService => this.state = gameService
     )
     alert(this.state.description);
-    
   }
+
+
 
 }

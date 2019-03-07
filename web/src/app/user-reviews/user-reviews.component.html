@@ -1,3 +1,21 @@
-<p>
-  user-reviews works!
-</p>
+<h4>Обзоры:</h4>
+
+<ul>
+  <li *ngFor="let review of reviewResponse.reviews">
+    <span class="head">
+      <span class="msginfo">
+      </span>
+      <a> игра: <span class="imoportant">{{review.gameName}}</span> | оценка: <span class="imoportant"> {{review.gameRate}}</span></a>
+    </span>
+    <br class="brrr">
+    <span class="msgbody">
+      <span class="msginfo">
+        Описание:
+      </span>
+      <br>
+      <span class="msgtext">
+        {{review.desc}}
+      </span>
+    </span>
+  </li>
+</ul>

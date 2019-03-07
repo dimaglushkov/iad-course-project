@@ -10,14 +10,13 @@ export interface Review{
     gameId: number;
     gameName: string;
     gameRate: number;
-    description?: string;
-    author?: string;
+    desc: string;
 }
 
-export interface ReviewList{
-    state: ResponseState;
+export interface ReviewResponse{
+    success: boolean;
+    description: string;
     reviews?: Review[];
-    author?: string;
 }
 
 export interface Message{
@@ -69,15 +68,15 @@ export interface RightsCheck{
 export interface Game{
     gameId: number;
     gameName: string;
-    gameDate: string;
-    gameDesc: string;
+    gameDate?: string;
+    gameDesc?: string;
 }
 
 
 export interface GameResponse{
     success: boolean;
     description: string;
-    games: Game[];
+    games?: Game[];
 }
 
 

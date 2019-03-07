@@ -156,7 +156,6 @@ public class GameBean implements GameInterface
             JsonArray.add(obj);
         }
         response.put("games", JsonArray);
-        response.put("personId", person.getId());
         return initResponse(true, "Library found");
     }
 

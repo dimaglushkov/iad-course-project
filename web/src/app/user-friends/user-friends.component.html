@@ -1,12 +1,12 @@
-<h4 *ngIf="this.isItYourPage==true && requestResponse.friends.length == 0">Запросы в друзья</h4>
-<ul *ngIf="this.isItYourPage==true">
+<h4 *ngIf="this.isItYourPage==true && requestResponse.friends.length > 0">Запросы в друзья</h4>
+<ul *ngIf="this.isItYourPage==true && requestResponse.friends.length > 0">
   <li *ngFor="let request of requestResponse.friends">
     <a (click)="acceptRequest(request.friendname)" class="accept"> Принять </a>
     <a (click)="declineRequest(request.friendname)" class="decline"> Отклонить</a>
     <a [routerLink]="[ '/user', request.friendname]"> {{request.friendname}}</a>
   </li>
 </ul>
-<br *ngIf="this.isItYourPage==true">
+<br *ngIf="this.isItYourPage==true && requestResponse.friends.length > 0">
 <h4>Друзья</h4>
 <h4 *ngIf="friendResponse.friends.length == 0">У вас нет друзей (аххаха, выйди на улицу)</h4>
 <ul *ngIf="friendResponse.friends.length > 0">

@@ -12,8 +12,13 @@ export class UserPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) { 
   }
-
+  
   ngOnInit() {
+    this.route.params.subscribe( params => this.user = params.nickname );
+    let username = <string> this.user;
+    localStorage.setItem('curPage', username);
+  }
+  ngDoCheck(){
     this.route.params.subscribe( params => this.user = params.nickname );
     let username = <string> this.user;
     localStorage.setItem('curPage', username);

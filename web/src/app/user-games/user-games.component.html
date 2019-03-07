@@ -1,4 +1,13 @@
-<p>
-  user-games works!
+<h4>Библиотека:</h4>
 
-</p>
+<ul>
+  <li *ngFor="let game of gameResponse.games">
+    <span class="head">
+      <span class="msginfo">
+      </span>
+      <a> Игра: <span class="gamename">{{game.gameName}}</span> </a>
+      <a *ngIf="isItYourPage == true" (click)="removeFromLib(game.gameId)" class="button">Удалить</a>
+    </span>
+    <br class="brrr">
+  </li>
+</ul>

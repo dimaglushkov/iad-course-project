@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ReviewList } from 'src/app/interfaces';
+import { ReviewResponse } from 'src/app/interfaces';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ export class ReviewsService {
   constructor(private http: HttpClient) { }
 
   public getUsersReviews(nickname){
-    return this.http.get<ReviewList>('api/review/' + nickname);
+    return this.http.get<ReviewResponse>('api/review/' + nickname);
   }
 
 }
