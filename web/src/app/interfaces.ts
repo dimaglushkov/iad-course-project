@@ -1,3 +1,5 @@
+import { StringifyOptions } from 'querystring';
+
 export interface ResponseState{
     success: boolean;
     description: string;
@@ -48,6 +50,15 @@ export interface PersonResponse{
     birthDate: string;
 }
 
+export interface Friend{
+    friendname: string;
+}
+
+export interface FriendResponse{
+    state: boolean;
+    description: string;
+    friends: Friend[];
+}
 
 
 

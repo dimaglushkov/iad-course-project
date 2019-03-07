@@ -10,20 +10,26 @@ import { PersonResponse } from '../interfaces';
 })
 export class UserInfoComponent implements OnInit {
 
+  isItYourPage: boolean;
   curPage: string;
   user:Object;
   personInfo: PersonResponse;
 
   constructor(private userService: UserService, private route: ActivatedRoute) { 
-    this.route.params.subscribe(params => this.user = params.nickname);
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => this.user = params.nickname);
     this.curPage = localStorage.getItem('curPage');
      this.userService.getUser(this.user).subscribe(
        userService => this.personInfo = userService
      );
      console.log(this.personInfo.description);
+     if (<string>this.user == localStorage.getItem('curNickname'))
+      this.isItYourPage = true;
+      else
+      this.isItYourPage = false;
+
   }
 
 }

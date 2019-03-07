@@ -1,0 +1,29 @@
+h4, ul, li {
+    padding: 30px 50px;
+}
+
+h4 {
+    margin-left: 2%;
+}
+
+ul {
+    list-style-type: none;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2em;
+    background: #fff;
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 8px;
+}
+
+ul li a {
+    margin-left: 3px;
+    text-decoration: none;
+    color: #00a8ff;
+}

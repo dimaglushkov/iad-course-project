@@ -11,10 +11,12 @@
     <span *ngIf="personInfo.country != undefined || personInfo.country != null"> Страна: <span class="from-response">{{personInfo.country}}</span> <br></span> 
     <span *ngIf="personInfo.city != undefined || personInfo.city != null"> Город: <span class="from-response">{{personInfo.city}}</span> <br></span> 
     <span *ngIf="personInfo.birthDate != undefined || personInfo.birthDate != null"> День рождения: <span class="from-response">{{personInfo.birthDate}}</span> <br> </span> 
-    <span> День регистрации: <span class="from-response"> {{personInfo.regDate}}</span><br> </span>
+    <span> День регистрации: <span class="from-response"> {{personInfo.registerDate}}</span><br> </span>
     <span class="from-response">Игр: {{personInfo.numOfGames}}</span> <br>
     <span class="from-response">Друзей: {{personInfo.numOfFriends}}</span> <br>
     <span class="from-response">Обзоров: {{personInfo.numOfReviews}}</span> <br>
   </span>
+
+  <a *ngIf="isItYourPage==true" class="button">Добавить в друзья</a>  
 
 </span>

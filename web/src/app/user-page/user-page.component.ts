@@ -11,10 +11,10 @@ export class UserPageComponent implements OnInit {
   user: Object;  
 
   constructor(private route: ActivatedRoute, private router: Router) { 
-     this.route.params.subscribe( params => this.user = params.nickname );
   }
 
   ngOnInit() {
+    this.route.params.subscribe( params => this.user = params.nickname );
     let username = <string> this.user;
     localStorage.setItem('curPage', username);
   }

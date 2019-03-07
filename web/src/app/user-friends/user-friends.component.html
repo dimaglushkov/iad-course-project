@@ -1,3 +1,14 @@
-<p>
-  user-friends works!
-</p>
+<h4>друзьяшки</h4>
+
+<ul *ngIf="this.isItYourPage==true">
+  <li *ngFor="let request of requestResponse.friends">
+    <a [routerLink]="[ '/user', request.friendname]"> {{request.friendname}}</a>
+    добавить | отклонить
+  </li>
+</ul>
+<br>
+<ul>
+  <li *ngFor="let friend of friendResponse.friends">
+    <a [routerLink]="[ '/user', friend.friendname]"> {{friend.friendname}}</a>
+  </li>
+</ul>

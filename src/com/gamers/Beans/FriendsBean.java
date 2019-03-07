@@ -156,6 +156,30 @@ public class FriendsBean implements FriendsInterface
         return initResponse(true, "Friendlist found");
     }
 
+    @GET
+    @Path("/requests")
+    @Produces("application/json")
+    @RolesAllowed({"admin", "user"})
+    public JSONObject getRequests()
+    {
+        response = new JSONObject();
+        FriendshipDAO friendshipDAO = new FriendshipDAO();
+        String nickname = sessionContext.getCallerPrincipal().getName();
+        JSONArray jsonArray = new JSONArray();
+
+        List<Person> friends = friendshipDAO.findRequestsByNickname(nickname);
+        for (Person friend : friends)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("friendname", friend.getNickname());
+            jsonArray.add(obj);
+        }
+        response.put("friends", jsonArray);
+
+        return initResponse(true, "Requests found");
+    }
+
+
     private JSONObject initResponse(boolean success, String desc)
     {
         response.put("success", success);

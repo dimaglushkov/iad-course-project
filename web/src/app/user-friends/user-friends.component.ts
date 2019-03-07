@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FriendsService } from '../shared/services/friends.service';
+import { FriendResponse } from '../interfaces';
 
 @Component({
   selector: 'app-user-friends',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFriendsComponent implements OnInit {
 
-  constructor() { }
+  isItYourPage: boolean;
+  currentNickname: string;
+  curPage: string;
+  friendResponse: FriendResponse;
+  requestResponse: FriendResponse;
+
+  constructor(private router: Router, private friendService: FriendsService) { }
 
   ngOnInit() {
+    this.curPage = localStorage.getItem('curPage');
+    this.currentNickname = localStorage.getItem('curNickname');
+
+    if (this.currentNickname == this.curPage)
+      this.isItYourPage = true;
+    else
+      this.isItYourPage = false;
+
+    this.friendService.getFriends(this.curPage).subscribe(
+      friendService => this.friendResponse = friendService
+    );
+
+    if (this.isItYourPage == true)
+      this.friendService.getRequests().subscribe(
+        friendService => this.requestResponse = friendService
+      );
+    
   }
+
+  
 
 }

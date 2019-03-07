@@ -9,6 +9,16 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 60%;
 }
+.button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 
 .prfl-nickname{
     font-size: 200%;
@@ -30,8 +40,11 @@
 @media (max-width: 500px) {
     .profile-info {
         margin: 0px;
-        padding: 0px;
+        padding: 7%;
         width : 100%;
-        font-size: 120%;
+        font-size: 110%;
+    }
+    .prfl-info{
+        font-size: 100%;
     }
 }

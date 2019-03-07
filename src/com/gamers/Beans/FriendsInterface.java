@@ -25,4 +25,7 @@ public interface FriendsInterface
     @RolesAllowed({"user", "admin"})
     JSONObject getFriends(String nickname);
 
+    @RolesAllowed({"admin", "user"})
+    JSONObject getRequests();
+
 }

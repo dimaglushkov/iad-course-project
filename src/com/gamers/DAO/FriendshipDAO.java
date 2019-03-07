@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import java.util.LinkedList;
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 public class FriendshipDAO extends DAOService<Friendship, Long>
 {
     public FriendshipDAO()
@@ -20,7 +21,7 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
     public List<Person> findFriendsByNickname(String nickname)
     {
         PersonDAO personDAO = new PersonDAO();
-        Person person = personDAO.findByNickname(nickname);;
+        Person person = personDAO.findByNickname(nickname);
 
         List<Friendship> friendShipList = this.findAll();
 
@@ -31,15 +32,36 @@ public class FriendshipDAO extends DAOService<Friendship, Long>
 
         for (Friendship curFriendShip : friendShipList)
         {
-            if (curFriendShip.getPerson().getId() == person.getId())
+            if (curFriendShip.getPerson().getId() == person.getId() && curFriendShip.isConfirmed())
                 friends.add(curFriendShip.getFriend());
 
-            if (curFriendShip.getFriend().getId() == person.getId())
+            if (curFriendShip.getFriend().getId() == person.getId() && curFriendShip.isConfirmed())
                 friends.add(curFriendShip.getPerson());
         }
 
         return friends;
 
+    }
+
+    public List<Person> findRequestsByNickname(String nickname)
+    {
+        PersonDAO personDAO = new PersonDAO();
+        Person person = personDAO.findByNickname(nickname);
+
+        List<Friendship> friendShipList = this.findAll();
+
+        if (friendShipList == null)
+            return null;
+
+        List<Person> friends = new LinkedList<>();
+
+        for (Friendship curFriendShip : friendShipList)
+        {
+            if (curFriendShip.getFriend().getId() == person.getId() && !curFriendShip.isConfirmed())
+                friends.add(curFriendShip.getPerson());
+        }
+
+        return friends;
     }
 
     public Friendship findFriendshipByNicknames(String nickname1, String nickname2)
