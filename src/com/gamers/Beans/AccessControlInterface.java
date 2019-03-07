@@ -21,5 +21,8 @@ public interface AccessControlInterface
     @RolesAllowed("admin")
     JSONObject ungrantRights(String nickname, String groupname);
 
+    @RolesAllowed({"admin", "user"})
+    JSONObject checkAdminRights();
+
 
 }

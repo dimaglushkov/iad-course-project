@@ -23,6 +23,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { UserFriendsComponent } from './user-friends/user-friends.component';
 import { UserGamesComponent } from './user-games/user-games.component';
 import { UserReviewsComponent } from './user-reviews/user-reviews.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { UserReviewsComponent } from './user-reviews/user-reviews.component';
     UserInfoComponent,
     UserFriendsComponent,
     UserGamesComponent,
-    UserReviewsComponent
+    UserReviewsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

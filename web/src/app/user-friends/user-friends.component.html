@@ -1,14 +1,16 @@
-<h4>друзьяшки</h4>
-
+<h4 *ngIf="this.isItYourPage==true">Запросы в друзья</h4>
 <ul *ngIf="this.isItYourPage==true">
   <li *ngFor="let request of requestResponse.friends">
     <a [routerLink]="[ '/user', request.friendname]"> {{request.friendname}}</a>
-    добавить | отклонить
+    <a (click)="acceptRequest(request.friendname)" class="accept"> Принять </a>
+    <a (click)="declineRequest(request.friendname)" class="decline"> Отклонить</a>
   </li>
 </ul>
-<br>
+<br *ngIf="this.isItYourPage==true">
+<h4>Друзья</h4>
 <ul>
   <li *ngFor="let friend of friendResponse.friends">
     <a [routerLink]="[ '/user', friend.friendname]"> {{friend.friendname}}</a>
+    <a (click)="test()" class="decline">Удалить</a>
   </li>
 </ul>

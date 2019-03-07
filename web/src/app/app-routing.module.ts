@@ -16,6 +16,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { UserFriendsComponent } from './user-friends/user-friends.component';
 import { UserGamesComponent } from './user-games/user-games.component';
 import { UserReviewsComponent } from './user-reviews/user-reviews.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -38,14 +39,16 @@ const routes: Routes = [
           { path: 'out', component: MessageOutComponent }
         ]
       },
-      { path: 'user/:nickname', component: UserPageComponent, children:
-      [
-        {path: '', component: UserInfoComponent},
-        {path: 'friends', component :UserFriendsComponent},
-        {path: 'games', component: UserGamesComponent},
-        {path: 'reviews', component: UserReviewsComponent}
-      ]
-    }
+      {
+        path: 'user/:nickname', component: UserPageComponent, children:
+          [
+            { path: '', component: UserInfoComponent },
+            { path: 'friends', component: UserFriendsComponent },
+            { path: 'games', component: UserGamesComponent },
+            { path: 'reviews', component: UserReviewsComponent }
+          ]
+      },
+      { path: 'settings', component: SettingsComponent }
     ]
   }
 ];

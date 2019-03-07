@@ -8,8 +8,10 @@ import com.gamers.Entities.Person;
 import org.json.simple.JSONObject;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.xml.registry.infomodel.User;
@@ -19,11 +21,26 @@ import javax.xml.registry.infomodel.User;
 @Local(AccessControlInterface.class)
 public class AccessControlBean implements AccessControlInterface
 {
+    @Resource
+    SessionContext sessionContext;
 
     private PersonDAO personDAO = new PersonDAO();
     private JSONObject response;
     private GroupDAO groupDAO = new GroupDAO();
     private Group bannedGroup = new Group("banned-user");
+
+    @GET
+    @Path("check")
+    @RolesAllowed({"admin", "user"})
+    @Produces("application/json")
+    @Override
+    public JSONObject checkAdminRights()
+    {
+        response = new JSONObject();
+        response.put("admin", groupDAO.isAdmin(sessionContext.getCallerPrincipal().getName()));
+        return initResponse(true, "checked successfully");
+    }
+
 
     @POST
     @Path("{nickname}/ban")

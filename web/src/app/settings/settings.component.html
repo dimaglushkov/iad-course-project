@@ -1,0 +1,64 @@
+<div id="message-new">
+  <h4>Изменить информацию о себе:</h4>
+  <form (ngSubmit)="sendInfo()">
+    <input type="text" [(ngModel)]="name" id="name" name="name" placeholder="Имя">
+    <input type="text" [(ngModel)]="surname" id="surname" name="surname" placeholder="Фамилия">
+    <input type="text" [(ngModel)]="country" id="country" name="country" placeholder="Страна">
+    <input type="text" [(ngModel)]="city" id="city" name="city" placeholder="Город">
+    <span>Дата рождения</span>
+    <input type="date" [(ngModel)]="birthDate" id="birthDate" name="birthDate" value="2000-01-01">
+
+    <input type="submit" class="button" value="Отправить">
+  </form>
+</div>
+
+<span *ngIf="rigthsCheck.admin == true">
+  <div id="message-new">
+
+    <h4>Добавить игру:</h4>
+    <form (ngSubmit)="addGame()">
+      <input type="text" [(ngModel)]="gameName" id="gameName" name="gameName" placeholder="название игры">
+      <input type="date" [(ngModel)]="gameDate" id="gameDate" name="gameDate" value="2000-01-01">
+      <input type="text" [(ngModel)]="gameDesc" id="gameDesc" name="gameDesc" placeholder="описание">
+      <input type="submit" class="button" value="Отправить">
+    </form>
+  </div>
+
+  <div id="message-new">
+
+    <h4>Выдать права администратора:</h4>
+    <form (ngSubmit)="setAdmin()">
+      <input type="text" [(ngModel)]="giveAdmNick" id="giveAdmNick" name="giveAdmNick" placeholder="никнейм">
+      <input type="submit" class="button" value="Отправить">
+    </form>
+  </div>
+
+  <div id="message-new">
+
+    <h4>Забрать права администратора:</h4>
+    <form (ngSubmit)="stopAdmin()">
+      <input type="text" [(ngModel)]="takeAdmNick" id="takeAdmNick" name="takeAdmNick" placeholder="никнейм">
+      <input type="submit" class="button" value="Отправить">
+    </form>
+  </div>
+
+  <div id="message-new">
+
+    <h4>Забанить:</h4>
+    <form (ngSubmit)="ban()">
+      <input type="text" [(ngModel)]="banNick" id="banNick" name="banNick" placeholder="никнейм">
+      <input type="submit" class="button" value="Отправить">
+    </form>
+  </div>
+
+  <div id="message-new">
+
+    <h4>Разбанить:</h4>
+    <form (ngSubmit)="unban()">
+      <input type="text" [(ngModel)]="unbanNick" id="unbanNick" name="unbanNick" placeholder="никнейм">
+      <input type="submit" class="button" value="Отправить">
+    </form>
+  </div>
+
+
+</span>

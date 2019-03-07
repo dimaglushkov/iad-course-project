@@ -55,9 +55,15 @@ export interface Friend{
 }
 
 export interface FriendResponse{
-    state: boolean;
+    success: boolean;
     description: string;
     friends: Friend[];
+}
+
+export interface RightsCheck{
+    success: boolean;
+    description: string;
+    admin: boolean;
 }
 
 

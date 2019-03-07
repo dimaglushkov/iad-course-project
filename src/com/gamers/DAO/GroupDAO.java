@@ -4,6 +4,7 @@ import com.gamers.Entities.Group;
 import com.gamers.Entities.Person;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.List;
 import java.util.Set;
@@ -60,6 +61,33 @@ public class GroupDAO extends DAOService<Group, Long>
 
         entityManager.close();
         person.getGroups().remove(group);
+
+    }
+
+    public boolean isAdmin(String nickname)
+    {
+        boolean result = true;
+        EntityManager entityManager = getEntityManager();
+
+        entityManager.getTransaction().begin();
+        try
+        {
+            Query query = entityManager.createNativeQuery(
+                    "SELECT * FROM ГРУППА_ЛИЧН " +
+                            " WHERE НИКНЕЙМ = '" + nickname +
+                            "' AND ГРУППА = 'admin';", Group.class);
+
+            query.getSingleResult();
+        }
+        catch (NoResultException e)
+        {
+            result = false;
+        }
+
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+        return  result;
 
     }
 

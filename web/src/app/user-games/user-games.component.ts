@@ -17,4 +17,5 @@ export class UserGamesComponent implements OnInit {
     this.curPage = localStorage.getItem('curPage');
   }
 
+
 }

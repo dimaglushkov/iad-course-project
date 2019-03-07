@@ -42,22 +42,23 @@ public class InfoBean implements InfoInterface
 
         if (curPerson == null)
             return initResponse(false, "Wrong nickname");
+        Info info = new Info();
 
         Date birthDate;
         try
         {
             birthDate = Date.valueOf(birthDateStr);
+            info.setBirthDate(birthDate);
+
         }
-        catch (IllegalStateException e)
+        catch (IllegalArgumentException e)
         {
-            return initResponse(false, "Wrong date format");
         }
 
-        Info info = new Info();
         info.setPerson(curPerson);
-        info.setBirthDate(birthDate);
 
 
+ 
         if (name != null)
             info.setName(name);
 

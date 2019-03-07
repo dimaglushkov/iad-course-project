@@ -1,6 +1,6 @@
 <span class="profile-info">
 
-  <span class="prfl-nickname"> {{curPage}} </span>
+  <span class="prfl-nickname"> {{user}} </span>
   <span class="prfl-id">(id: {{personInfo.id}})</span>
   <br>
   <span class="prfl-info">
@@ -17,6 +17,6 @@
     <span class="from-response">Обзоров: {{personInfo.numOfReviews}}</span> <br>
   </span>
 
-  <a *ngIf="isItYourPage==true" class="button">Добавить в друзья</a>  
+  <a *ngIf="isItYourPage!=true" class="button">Добавить в друзья</a>  
 
 </span>

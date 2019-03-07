@@ -35,9 +35,24 @@ export class UserFriendsComponent implements OnInit {
       this.friendService.getRequests().subscribe(
         friendService => this.requestResponse = friendService
       );
-    
+
   }
 
-  
+  public acceptRequest(nickname) {
+    return this.friendService.acceptRequest(nickname);
+  }
+
+  public declineRequest(nickname) {
+    return this.friendService.declineRequest(nickname);
+  }
+
+  public removeFriend(nickname) {
+    return this.friendService.removeFriend(nickname);
+  }
+
+  test(){
+    console.log("test");
+  }
+
 
 }
