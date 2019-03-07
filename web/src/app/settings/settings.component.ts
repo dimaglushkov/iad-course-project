@@ -72,7 +72,7 @@ export class SettingsComponent implements OnInit {
   }
 
   unban() {
-    this.settingService.unban(this.unbanNick).subscribe(
+    this.settingService.unban(this.banNick).subscribe(
       settingService => this.response = settingService
     );
   }

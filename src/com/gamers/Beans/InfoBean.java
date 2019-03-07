@@ -58,12 +58,12 @@ public class InfoBean implements InfoInterface
         info.setPerson(curPerson);
 
 
- 
+
         if (name != null)
             info.setName(name);
 
         if (surname != null)
-            info.setName(surname);
+            info.setSurname(surname);
 
         if (country != null)
             info.setCountry(country);
