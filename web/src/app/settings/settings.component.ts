@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RightsCheck, ResponseState } from '../interfaces';
 import { SettingsService } from '../shared/services/settings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -32,7 +33,7 @@ export class SettingsComponent implements OnInit {
   banNick: string;
   unbanNick: string;
 
-  constructor(private settingService: SettingsService) { }
+  constructor(private settingService: SettingsService, private router: Router) { }
 
   ngOnInit() {
     this.settingService.checkRights().subscribe(
@@ -45,6 +46,7 @@ export class SettingsComponent implements OnInit {
     this.settingService.setInfo(this.name, this.surname, this.country, this.city, this.birthDate).subscribe(
       settingService => this.response = settingService
     );
+    this.router.navigate(['user/' + localStorage.getItem('curNickname').toString]);
   }
 
   addGame() {

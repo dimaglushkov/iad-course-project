@@ -66,6 +66,19 @@ export interface RightsCheck{
     admin: boolean;
 }
 
+export interface Game{
+    gameId: number;
+    gameName: string;
+    gameDate: string;
+    gameDesc: string;
+}
+
+
+export interface GameResponse{
+    success: boolean;
+    description: string;
+    games: Game[];
+}
 
 
 
@@ -111,33 +124,4 @@ export interface NewUser{
     password: string
 }
 
-export interface UserInfo{
-  getUserInfo(): any;
-    success: boolean
-    description: string
-    nickname: string
-    friends: Array<Friends> 
-    games: Array<Games>
-    reviews: Array<Reviews>
-}
 
-export interface Games{
-    gameid: number
-    gamename: string
-}
-
-export interface Friends{
-    friendname: string
-    friendurl?: string
-}
-export interface Reviews{
-    gameid: number
-    gamename: string
-    gamerate: number
-}
-
-export interface Game{
-    gameid: number
-    gamename: string
-    gamerate: number
-} 

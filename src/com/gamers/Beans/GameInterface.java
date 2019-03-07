@@ -28,4 +28,7 @@ public interface GameInterface
     @RolesAllowed({"admin", "user"})
     JSONObject getGameInfo(long gameId);
 
+    @RolesAllowed({"admin", "user"})
+    JSONObject getAllGames();
+
 }

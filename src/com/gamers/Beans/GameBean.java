@@ -103,9 +103,7 @@ public class GameBean implements GameInterface
         library = new Library();
         library.setGame(game);
         library.setPerson(curPerson);
-
-        if (!libraryDAO.create(library))
-            return initResponse(false, "Error while adding this game to your library");
+        libraryDAO.create(library);
 
         return initResponse(true, "Game added to your library");
     }
@@ -185,6 +183,28 @@ public class GameBean implements GameInterface
         response.put("game", gameObj);
 
         return initResponse(true, "Game found");
+    }
+
+    @GET
+    @Path("/all")
+    @Produces("application/json")
+    @RolesAllowed({"admin", "user"})
+    @Override
+    public JSONObject getAllGames(){
+        response = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        List<Game> games = gameDAO.findAll();
+        for (Game game: games)
+        {
+            JSONObject obj = new JSONObject();
+            obj.put("gameId", game.getId());
+            obj.put("gameName", game.getName());
+            obj.put("gameDate", game.getDate().toString().substring(0, 10));
+            obj.put("gameDesc", game.getDesc());
+            jsonArray.add(obj);
+        }
+        response.put("games", jsonArray);
+        return initResponse(true, "Games found");
     }
 
 

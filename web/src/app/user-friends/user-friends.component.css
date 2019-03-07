@@ -23,16 +23,16 @@ ul li {
 }
 
 ul li a {
-    margin-left: 3px;
+    margin-left: 10px;
     text-decoration: none;
     color: #00a8ff;
 }
 
 .accept {
-    right: 20%;
-    background-color: green;
+    margin-left: 60%;
+    background-color: rgb(83, 255, 83);
     border: none;
-    color: white;
+    color: white !important;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -41,10 +41,9 @@ ul li a {
 }
 
 .decline {
-    right: 10%;
-    background-color: blue;
+    background-color: rgb(125, 125, 255);
     border: none;
-    color: white;
+    color: white !important;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;

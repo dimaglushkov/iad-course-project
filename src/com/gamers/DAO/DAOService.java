@@ -34,17 +34,7 @@ public class DAOService<T, PK extends Serializable> {
     {
         EntityManager entityManager = getEntityManager();
         entityManager.getTransaction().begin();
-        try
-        {
-            entityManager.persist(entity);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-            entityManager.close();
-            return false;
-        }
+        entityManager.persist(entity);
         entityManager.getTransaction().commit();
         entityManager.close();
         return true;

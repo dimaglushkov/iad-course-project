@@ -32,7 +32,7 @@ export class FriendsService {
   }
 
   removeFriend(nickname){
-    return this.http.post<ResponseState>('api/friend/delete' + nickname, null);
+    return this.http.post<ResponseState>('api/friend/delete/' + nickname, null);
   }
   
 }

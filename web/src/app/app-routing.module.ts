@@ -17,6 +17,7 @@ import { UserFriendsComponent } from './user-friends/user-friends.component';
 import { UserGamesComponent } from './user-games/user-games.component';
 import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 import { SettingsComponent } from './settings/settings.component';
+import { GamesPageComponent } from './games-page/games-page.component';
 
 const routes: Routes = [
   {
@@ -48,7 +49,8 @@ const routes: Routes = [
             { path: 'reviews', component: UserReviewsComponent }
           ]
       },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: 'games', component: GamesPageComponent }
     ]
   }
 ];

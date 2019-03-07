@@ -1,7 +1,8 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { UserService } from '../shared/services/user.service'
 import { ActivatedRoute } from "@angular/router";
-import { PersonResponse } from '../interfaces';
+import { PersonResponse, ResponseState } from '../interfaces';
+import { FriendsService } from '../shared/services/friends.service';
 
 @Component({
   selector: 'app-user-info',
@@ -12,24 +13,29 @@ export class UserInfoComponent implements OnInit {
 
   isItYourPage: boolean;
   curPage: string;
-  user:Object;
   personInfo: PersonResponse;
+  state: ResponseState;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { 
+  constructor(private userService: UserService, private friendService: FriendsService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => this.user = params.nickname);
     this.curPage = localStorage.getItem('curPage');
-     this.userService.getUser(this.user).subscribe(
-       userService => this.personInfo = userService
-     );
-     console.log(this.personInfo.description);
-     if (<string>this.user == localStorage.getItem('curNickname'))
+    this.userService.getUser(this.curPage).subscribe(
+      userService => this.personInfo = userService
+    );
+    if (localStorage.getItem('curPage') == localStorage.getItem('curNickname'))
       this.isItYourPage = true;
-      else
+    else
       this.isItYourPage = false;
 
+    console.log(this.isItYourPage);
+  }
+
+  addFriend(){
+    this.friendService.addFriend(localStorage.getItem('curPage')).subscribe(
+      friendService => this.state = friendService
+    );
   }
 
 }

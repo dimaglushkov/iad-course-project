@@ -44,6 +44,7 @@ public class PersonBean implements PersonInterface, Serializable
 
         response = new JSONObject();
         Person person = new Person();
+        GroupDAO groupDAO = new GroupDAO();
         Group group = new Group("user");
 
         if (isPersonWithSuchNicknameOrEmailExists(nickname, email))
@@ -54,8 +55,9 @@ public class PersonBean implements PersonInterface, Serializable
             person.setEmail(email);
             person.setNickname(nickname);
             person.setPassword(SHA256(password));
-            person.addGroup(group);
             personDAO.create(person);
+            group.setNickname(nickname);
+            groupDAO.create(group);
         }
         catch (Exception e)
         {

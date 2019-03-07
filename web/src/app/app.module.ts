@@ -11,7 +11,6 @@ import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.co
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { MessagePageComponent } from './message-page/message-page.component';
-import { GameFormComponent } from './games-page/game-form/game-form.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
@@ -35,7 +34,6 @@ import { SettingsComponent } from './settings/settings.component';
     RegisterPageComponent,
     GamesPageComponent,
     MessagePageComponent,
-    GameFormComponent,
     UserPageComponent,
     WelcomePageComponent,
     ReviewPageComponent,
