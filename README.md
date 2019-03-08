@@ -9,6 +9,7 @@
 
 # Настройка аппликейшн сервера
 Я использовал сервер приложений payara5, так как некоторые настройки невоможно нормально установить на glassfish'e (по-крайней мере, через админ-панель)
+
 <b>JDBC</b>
 1. Создать бд таблицы, DDL которых описан в файле <a href="https://github.com/allacee/iad-course-project/blob/master/IAD-DDL.sql"> IAD-DDL.sql </a>, а также тригеры к этим таблицам, описанные в файле <a href="https://github.com/allacee/iad-course-project/blob/master/IAD-TRIGGERS.sql"> IAD-TRIGGERS.sql </a>
 2. В настройка админ-панели сервера приложений создать новый JDBC Connection Pool (установить properties password, databaseName, serverName, user, portNumber, driver_class)
@@ -16,11 +17,13 @@
 4. Создать новый JDBC Resource, в котором указать раннее созданный connectionPool
 
 <b>JMS</b>
+
 1. Создать новый JMS Destination Resource и выбрать тип javax.jms.Topic
 2. Создать новый JMS Connection Factory установить ему jndi имя, и выбрать тип javax.jms.TopicConnectionFactory
 <i>Вообще то говоря, тут было логичнее использовать queue</i>
 
 <b>Security Realms</b>
+
 В настройках server-config, во вкладке Security -> Realms создать новый Реалм.
 1.  <b> JAAS Context: jdbcRealm </b>
 2. JNDI: jdbc/имя_jdbc_ресурса
