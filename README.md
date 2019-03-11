@@ -3,8 +3,9 @@
  
 * Application Server - Payara 5.1 <br>
 * Backend - Java EE: EJB, JMS for some stupid logic (just because it was in task) <br>
-* DataBase operations - Hibernate <br>
-* Frontend - Angular Framework <br>
+* DataBase - Postgesql 
+* ORM realization - Hibernate <br>
+* Frontend - Angular7 CLI <br>
 <br>
 
 # Настройка аппликейшн сервера
